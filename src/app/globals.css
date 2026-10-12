@@ -12,6 +12,14 @@
   --hero: #141414;
   --hero-text: #fafaf7;
   --hero-chip: #2a2a2a;
+  --hero-muted: #d6d3cb;
+  --display-stack: var(--font-bricolage), system-ui, sans-serif;
+  --text-stack: var(--font-readex), system-ui, sans-serif;
+}
+
+:root:lang(ar) {
+  --display-stack: var(--font-alexandria), var(--font-bricolage), system-ui, sans-serif;
+  --text-stack: var(--font-plex-arabic), var(--font-readex), system-ui, sans-serif;
 }
 
 .dark {
@@ -24,6 +32,7 @@
   --hero: #1f1f1d;
   --hero-text: #f3f1ec;
   --hero-chip: #31312d;
+  --hero-muted: #cdc9c0;
 }
 
 @theme inline {
@@ -42,8 +51,9 @@
   --color-peri: #b8c4ff;
   --color-coral: #ff8a5b;
   --color-mint: #9be3c1;
-  --font-display: var(--font-bricolage), var(--font-readex), system-ui, sans-serif;
-  --font-sans: var(--font-readex), system-ui, sans-serif;
+  --color-hero-muted: var(--hero-muted);
+  --font-display: var(--display-stack);
+  --font-sans: var(--text-stack);
   --radius-tile: 2rem;
 }
 
@@ -70,4 +80,9 @@ body {
   html {
     scroll-behavior: auto;
   }
+}
+
+/* Arabic text reads lighter than Latin at the same weight. */
+:root:lang(ar) body {
+  font-weight: 500;
 }

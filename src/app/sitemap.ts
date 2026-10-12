@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { locales, projects } from "@/content/site";
 
-const base = "https://sulaiman.vercel.app";
+const base = "https://portfolio-phi-ashy-18.vercel.app";
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return locales.flatMap((lang) => [

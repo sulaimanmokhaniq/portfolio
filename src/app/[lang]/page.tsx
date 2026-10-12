@@ -27,7 +27,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                 <br />
                 {t.heroTitle[1]}
               </h1>
-              <p className="max-w-xl text-lg leading-relaxed opacity-80">{t.heroBody}</p>
+              <p className="max-w-xl text-lg leading-relaxed text-hero-muted">{t.heroBody}</p>
             </div>
             <div className="flex flex-wrap gap-3">
               <Link
@@ -147,7 +147,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                 style={{ background: p.color }}
               >
                 <ProjectArt project={p} className="h-44" />
-                <span className="text-sm opacity-75">{p.kind[lang]}</span>
+                <span className="text-sm font-medium">{p.kind[lang]}</span>
                 <h3 className="font-display text-4xl font-extrabold">{p.name[lang]}</h3>
                 <p className="flex-1 leading-relaxed">{p.summary[lang]}</p>
                 <span className="inline-flex items-center gap-2 font-semibold">
@@ -186,9 +186,9 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         </Reveal>
         <Reveal delay={0.08}>
           <div className="flex h-full flex-col justify-between gap-5 rounded-tile bg-hero p-8 text-hero-text sm:p-10">
-            <span className="opacity-70">{t.communityLabel}</span>
+            <span className="text-hero-muted">{t.communityLabel}</span>
             <span dir="ltr" className="font-display text-6xl leading-none font-extrabold">500+</span>
-            <p className="leading-relaxed opacity-85">{t.communityBody}</p>
+            <p className="leading-relaxed text-hero-muted">{t.communityBody}</p>
           </div>
         </Reveal>
       </section>

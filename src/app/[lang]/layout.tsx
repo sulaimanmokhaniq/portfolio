@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Bricolage_Grotesque, Readex_Pro } from "next/font/google";
+import { Alexandria, Bricolage_Grotesque, IBM_Plex_Sans_Arabic, Readex_Pro } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Header } from "@/components/header";
 import { hasLocale, locales, profile, ui } from "@/content/site";
@@ -14,8 +14,23 @@ const bricolage = Bricolage_Grotesque({
 
 const readex = Readex_Pro({
   variable: "--font-readex",
-  subsets: ["latin", "arabic"],
+  subsets: ["latin"],
   weight: ["400", "500", "600"],
+});
+
+// Arabic pages use a heavier geometric display face and a solid text face.
+const alexandria = Alexandria({
+  variable: "--font-alexandria",
+  subsets: ["arabic", "latin"],
+  weight: ["600", "800"],
+  preload: false,
+});
+
+const plexArabic = IBM_Plex_Sans_Arabic({
+  variable: "--font-plex-arabic",
+  subsets: ["arabic", "latin"],
+  weight: ["400", "500", "600"],
+  preload: false,
 });
 
 export function generateStaticParams() {
@@ -27,7 +42,7 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
   if (!hasLocale(lang)) return {};
   const title = `${profile.name[lang]} · ${profile.role[lang]}`;
   return {
-    metadataBase: new URL("https://sulaiman.vercel.app"),
+    metadataBase: new URL("https://portfolio-phi-ashy-18.vercel.app"),
     title: { default: title, template: `%s · ${profile.name[lang]}` },
     description: ui[lang].heroBody,
     alternates: { languages: { en: "/en", ar: "/ar" } },
@@ -43,7 +58,7 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
     <html
       lang={lang}
       dir={lang === "ar" ? "rtl" : "ltr"}
-      className={`${bricolage.variable} ${readex.variable} antialiased`}
+      className={`${bricolage.variable} ${readex.variable} ${alexandria.variable} ${plexArabic.variable} antialiased`}
       suppressHydrationWarning
     >
       <body className="min-h-screen font-sans">

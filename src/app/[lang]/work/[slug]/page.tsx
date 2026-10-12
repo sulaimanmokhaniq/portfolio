@@ -46,7 +46,7 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/work/[s
                 {project.badge[lang]}
               </span>
             )}
-            <span className="opacity-75">{project.kind[lang]}</span>
+            <span className="font-medium">{project.kind[lang]}</span>
             <h1 className="font-display text-[clamp(3rem,7vw,6.5rem)] leading-[0.95] font-extrabold tracking-tight">
               {project.name[lang]}
             </h1>
@@ -75,7 +75,7 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/work/[s
         <Reveal delay={0.08}>
           <aside className="flex h-full flex-col gap-8 rounded-tile bg-hero p-8 text-hero-text sm:p-10">
             <div>
-              <h2 className="mb-3 opacity-70">{t.stack}</h2>
+              <h2 className="mb-3 text-hero-muted">{t.stack}</h2>
               <ul className="flex flex-wrap gap-2" dir="ltr">
                 {project.stack.map((s) => (
                   <li key={s} className="rounded-full bg-hero-chip px-3.5 py-2 text-[15px]">
@@ -85,7 +85,7 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/work/[s
               </ul>
             </div>
             <div>
-              <h2 className="mb-2 opacity-70">{t.period}</h2>
+              <h2 className="mb-2 text-hero-muted">{t.period}</h2>
               <p className="text-xl">{project.period[lang]}</p>
             </div>
           </aside>
@@ -99,7 +99,7 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/work/[s
           style={{ background: next.color }}
         >
           <span>
-            <span className="block opacity-75">{t.nextProject}</span>
+            <span className="block font-medium">{t.nextProject}</span>
             <span className="font-display text-4xl font-extrabold sm:text-5xl">{next.name[lang]}</span>
           </span>
           <Arrow className="size-10 transition-transform group-hover:translate-x-2 rtl:group-hover:-translate-x-2" />
