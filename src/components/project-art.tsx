@@ -24,7 +24,7 @@ export function ProjectArt({ project, className = "" }: { project: Project; clas
       </div>
       <span
         lang={project.arabicName ? "ar" : "en"}
-        className="absolute -bottom-6 end-4 font-display text-[7rem] leading-none font-extrabold text-ink"
+        className="absolute -bottom-3 end-4 font-display text-[7rem] leading-none font-extrabold text-ink"
       >
         {glyph}
       </span>

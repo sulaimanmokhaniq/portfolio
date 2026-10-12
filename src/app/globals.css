@@ -17,7 +17,13 @@
   --text-stack: var(--font-readex), system-ui, sans-serif;
 }
 
-:root:lang(ar) {
+:lang(en) {
+  --display-stack: var(--font-bricolage), system-ui, sans-serif;
+  --text-stack: var(--font-readex), system-ui, sans-serif;
+}
+
+/* Any Arabic text, including Arabic words on English pages. */
+:lang(ar) {
   --display-stack: var(--font-baloo), var(--font-bricolage), system-ui, sans-serif;
   --text-stack: var(--font-plex-arabic), var(--font-readex), system-ui, sans-serif;
 }
