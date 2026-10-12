@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Alexandria, Bricolage_Grotesque, IBM_Plex_Sans_Arabic, Readex_Pro } from "next/font/google";
+import { Baloo_Bhaijaan_2, Bricolage_Grotesque, IBM_Plex_Sans_Arabic, Readex_Pro } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Header } from "@/components/header";
 import { hasLocale, locales, profile, ui } from "@/content/site";
@@ -18,9 +18,9 @@ const readex = Readex_Pro({
   weight: ["400", "500", "600"],
 });
 
-// Arabic pages use a heavier geometric display face and a solid text face.
-const alexandria = Alexandria({
-  variable: "--font-alexandria",
+// Arabic pages use a rounded, heavy display face and a solid text face.
+const baloo = Baloo_Bhaijaan_2({
+  variable: "--font-baloo",
   subsets: ["arabic", "latin"],
   weight: ["600", "800"],
   preload: false,
@@ -58,7 +58,7 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
     <html
       lang={lang}
       dir={lang === "ar" ? "rtl" : "ltr"}
-      className={`${bricolage.variable} ${readex.variable} ${alexandria.variable} ${plexArabic.variable} antialiased`}
+      className={`${bricolage.variable} ${readex.variable} ${baloo.variable} ${plexArabic.variable} antialiased`}
       suppressHydrationWarning
     >
       <body className="min-h-screen font-sans">

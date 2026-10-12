@@ -18,7 +18,7 @@
 }
 
 :root:lang(ar) {
-  --display-stack: var(--font-alexandria), var(--font-bricolage), system-ui, sans-serif;
+  --display-stack: var(--font-baloo), var(--font-bricolage), system-ui, sans-serif;
   --text-stack: var(--font-plex-arabic), var(--font-readex), system-ui, sans-serif;
 }
 
