@@ -399,6 +399,55 @@ export const projects: Project[] = [
       },
     ],
   },
+  {
+    slug: "oratory",
+    name: { en: "Oratory", ar: "Oratory" },
+    color: "#A9DDF5",
+    shade: "#86CBEB",
+    badge: { en: "Graduation project · KSU", ar: "مشروع تخرّج · جامعة الملك سعود" },
+    kind: { en: "Mobile app · team of 5", ar: "تطبيق جوال · فريق من ٥" },
+    period: { en: "Mar – Jun 2026", ar: "مارس – يونيو ٢٠٢٦" },
+    summary: {
+      en: "An AI public-speaking coach: record a speech and get scored on pace, pauses, clarity, energy, pitch and filler words.",
+      ar: "مدرّب ذكي للإلقاء: سجّل خطابك واحصل على تقييم للسرعة والتوقفات والوضوح والطاقة ونبرة الصوت وكلمات الحشو.",
+    },
+    overview: {
+      en: "Oratory helps people get better at public speaking. You record a speech in the app (or upload one), it’s transcribed with OpenAI Whisper, and a Python backend analyses the audio across six metrics. The app turns that into scores, charts and coaching tips, and tracks your progress across sessions. It was our team’s graduation project at King Saud University.",
+      ar: "Oratory تطبيق يساعدك على تحسين مهارة الإلقاء. تسجّل خطابك في التطبيق أو ترفعه، فيُحوَّل إلى نص بتقنية Whisper من OpenAI، ويحلّل خادم Python الصوت عبر ستة مقاييس. يعرض التطبيق النتائج على شكل درجات ورسوم بيانية ونصائح للتحسين، ويتابع تقدّمك من جلسة لأخرى. كان مشروع تخرّج فريقنا في جامعة الملك سعود.",
+    },
+    role: {
+      en: "Refined the idea and built UI screens, including progress history, session details and the speaking-pace (WPM) calculation.",
+      ar: "تطوير الفكرة وبناء شاشات الواجهة، منها سجل التقدّم وتفاصيل الجلسة وحساب سرعة الكلام.",
+    },
+    highlights: {
+      en: [
+        "Records or imports a speech and sends it to a FastAPI backend running Whisper, keeping filler words in the transcript.",
+        "Scores six metrics: speaking pace (WPM), pauses, pacing consistency, pronunciation clarity, vocal energy and pitch variation.",
+        "Shows results as a six-point radar chart, score rings and trend lines, with filler words highlighted in the transcript and tips for each metric.",
+        "An AI-generated daily speaking challenge based on your recent results, and every session saved with Firebase to track progress.",
+      ],
+      ar: [
+        "تسجيل الخطاب أو رفعه وإرساله إلى خادم FastAPI يعمل بـ Whisper، مع الإبقاء على كلمات الحشو في النص.",
+        "تقييم ستة مقاييس: سرعة الكلام، والتوقفات، وثبات الإيقاع، ووضوح النطق، وطاقة الصوت، وتنوّع النبرة.",
+        "عرض النتائج برسم راداري سداسي ودوائر للدرجات وخطوط للتقدّم، مع تمييز كلمات الحشو في النص ونصائح لكل مقياس.",
+        "تحدٍّ يومي للإلقاء يولّده الذكاء الاصطناعي بناءً على نتائجك الأخيرة، وحفظ كل جلسة في Firebase لمتابعة التقدّم.",
+      ],
+    },
+    stack: ["Flutter", "Firebase", "Python", "FastAPI", "Whisper", "librosa"],
+    wide: true,
+    link: "https://github.com/Devsm7/Oratory",
+    linkKind: "code",
+    images: [
+      {
+        src: "/work/oratory/screens.png",
+        alt: { en: "Oratory home, recording, session report and progress screens", ar: "شاشات Oratory: الرئيسية والتسجيل وتقرير الجلسة والتقدّم" },
+      },
+      {
+        src: "/work/oratory/history.png",
+        alt: { en: "Session details and progress history screens", ar: "شاشتا تفاصيل الجلسة وسجل التقدّم" },
+      },
+    ],
+  },
 ];
 
 export const experience = [
