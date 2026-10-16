@@ -312,6 +312,52 @@ export const projects: Project[] = [
       },
     ],
   },
+  {
+    slug: "handcraft",
+    name: { en: "Handcraft", ar: "نسيج الأصالة" },
+    arabicName: "نسيج الأصالة",
+    color: "#F2D3A9",
+    shade: "#E2B97F",
+    kind: { en: "Website · training project", ar: "موقع · مشروع تدريبي" },
+    period: { en: "Jan 2026", ar: "يناير ٢٠٢٦" },
+    summary: {
+      en: "An Arabic-first storefront for handmade wool textiles, with a warm heritage look.",
+      ar: "متجر إلكتروني عربي للمنسوجات الصوفية اليدوية، بطابع تراثي دافئ.",
+    },
+    overview: {
+      en: "نسيج الأصالة (“Authentic Weave”) is a storefront website for handmade wool rugs, blankets and textiles, built as a training project. It’s Arabic-first and right-to-left, with earthy, gold and bronze colours and traditional patterns that match the products.",
+      ar: "نسيج الأصالة موقع متجر للسجاد والبطانيات والمنسوجات الصوفية المصنوعة يدوياً، بنيته مشروعاً تدريبياً. صُمّم بالعربية أولاً وباتجاه من اليمين لليسار، بألوان ترابية وذهبية وبرونزية وزخارف تراثية تناسب المنتجات.",
+    },
+    role: { en: "Solo project: design and code.", ar: "مشروع فردي: التصميم والبرمجة." },
+    highlights: {
+      en: [
+        "A fully responsive RTL layout with a hero, product gallery, about section and contact form.",
+        "An interactive product gallery with category filters, product badges (new, best seller), a details modal and an order action.",
+        "A heritage visual identity: a warm palette, patterned backgrounds and three Arabic typefaces (Amiri for headings, Cairo and Tajawal for text).",
+        "Smooth scroll effects and animations in plain HTML, CSS and JavaScript, with no framework.",
+      ],
+      ar: [
+        "واجهة متجاوبة بالكامل باتجاه RTL، تضم قسماً رئيسياً ومعرض منتجات وقسم \"من نحن\" ونموذج تواصل.",
+        "معرض منتجات تفاعلي مع فلترة حسب الفئة، وشارات للمنتجات (جديد، الأكثر مبيعاً)، ونافذة للتفاصيل وزر للطلب.",
+        "هوية بصرية تراثية: ألوان دافئة وخلفيات مزخرفة وثلاثة خطوط عربية (Amiri للعناوين، وCairo وTajawal للنصوص).",
+        "حركات وتأثيرات سلسة بـ HTML وCSS وJavaScript فقط دون أي إطار عمل.",
+      ],
+    },
+    stack: ["HTML", "CSS", "JavaScript"],
+    wide: true,
+    link: "https://github.com/sulaimanmokhaniq/handcraft",
+    linkKind: "code",
+    images: [
+      {
+        src: "/work/handcraft/home.png",
+        alt: { en: "Handcraft storefront home page", ar: "الصفحة الرئيسية لمتجر نسيج الأصالة" },
+      },
+      {
+        src: "/work/handcraft/products.png",
+        alt: { en: "Product gallery with category filters", ar: "معرض المنتجات مع فلترة حسب الفئة" },
+      },
+    ],
+  },
 ];
 
 export const experience = [
