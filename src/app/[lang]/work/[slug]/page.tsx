@@ -102,7 +102,7 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/work/[s
                 rel="noreferrer"
                 className="mt-auto inline-flex min-h-12 items-center justify-center gap-2 self-start rounded-full bg-flame px-6 font-semibold text-ink transition-transform hover:-translate-y-0.5"
               >
-                {t.visit}
+                {project.linkKind === "code" ? t.code : t.visit}
                 <Arrow />
               </a>
             )}

@@ -51,6 +51,7 @@ export const ui = {
     photoAlt: "Portrait of Sulaiman",
     role: "My role",
     visit: "Visit the live site",
+    code: "View the code",
     screens: "Screens",
   },
   ar: {
@@ -85,6 +86,7 @@ export const ui = {
     photoAlt: "صورة سليمان",
     role: "دوري",
     visit: "زر الموقع",
+    code: "شاهد الكود",
     screens: "لقطات",
   },
 } satisfies Record<Locale, unknown>;
@@ -106,6 +108,8 @@ export type Project = {
   wide?: boolean;
   role?: Localized;
   link?: string;
+  /** What the link points to; defaults to a live site. */
+  linkKind?: "site" | "code";
   images?: { src: string; alt: Localized }[];
 };
 
@@ -265,6 +269,47 @@ export const projects: Project[] = [
     images: [
       { src: "/work/cloudtrim/home.png", alt: { en: "CloudTrim landing page", ar: "الصفحة التعريفية لـ CloudTrim" } },
       { src: "/work/cloudtrim/demo.png", alt: { en: "CloudTrim demo dashboard", ar: "لوحة العرض التجريبي لـ CloudTrim" } },
+    ],
+  },
+  {
+    slug: "keyboard-fixer",
+    name: { en: "Keyboard Fixer", ar: "Keyboard Fixer" },
+    color: "#D7C4FF",
+    shade: "#C7B0FA",
+    kind: { en: "Chrome extension", ar: "إضافة Chrome" },
+    period: { en: "Jul 2026", ar: "يوليو ٢٠٢٦" },
+    summary: {
+      en: "Typed a whole sentence in the wrong keyboard layout? Select it, press Ctrl+Shift+E, and it’s fixed.",
+      ar: "كتبت جملة كاملة واللغة غلط؟ حدّدها واضغط Ctrl+Shift+E وتنصلح فوراً.",
+    },
+    overview: {
+      en: "Every bilingual typist knows “hgsghl ugd;l” (السلام عليكم typed on the English layout). Keyboard Fixer is a Chrome extension that converts mistyped text between the Arabic and English keyboard layouts in place, on any website.",
+      ar: "كل من يكتب بلغتين يعرف “hgsghl ugd;l” (أي السلام عليكم مكتوبة بالتخطيط الإنجليزي). Keyboard Fixer إضافة لمتصفح Chrome تحوّل النص المكتوب بالتخطيط الخطأ بين العربية والإنجليزية في مكانه، وفي أي موقع.",
+    },
+    role: { en: "Solo project: idea, design and code.", ar: "مشروع فردي: الفكرة والتصميم والبرمجة." },
+    highlights: {
+      en: [
+        "A full Arabic ↔ English key map, including shifted keys, diacritics and the لا / لأ / لإ / لآ ligatures that share a single key.",
+        "Automatic direction detection that counts Arabic and English letters to decide which way to convert.",
+        "Works in text fields and on selected page text, from the right-click menu or the Ctrl+Shift+E shortcut, without breaking the page’s own input handling.",
+        "Built on Manifest V3 with minimal permissions.",
+      ],
+      ar: [
+        "خريطة كاملة للمفاتيح بين العربية والإنجليزية، تشمل مفاتيح Shift والتشكيل وحروف لا / لأ / لإ / لآ.",
+        "اكتشاف تلقائي لاتجاه التحويل بعدّ الحروف العربية والإنجليزية.",
+        "تعمل في حقول الكتابة وعلى النص المحدد في الصفحة، من قائمة الزر الأيمن أو باختصار Ctrl+Shift+E، دون التأثير على عمل الصفحة.",
+        "مبنية على Manifest V3 بأقل الصلاحيات الممكنة.",
+      ],
+    },
+    stack: ["JavaScript", "Chrome Extensions", "Manifest V3"],
+    wide: true,
+    link: "https://github.com/sulaimanmokhaniq/keyboard-fixer",
+    linkKind: "code",
+    images: [
+      {
+        src: "/work/keyboard-fixer/demo.png",
+        alt: { en: "Mistyped text converted to Arabic with Ctrl+Shift+E", ar: "تحويل نص مكتوب بالتخطيط الخطأ إلى العربية باختصار Ctrl+Shift+E" },
+      },
     ],
   },
 ];
