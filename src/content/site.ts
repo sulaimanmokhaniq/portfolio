@@ -358,6 +358,47 @@ export const projects: Project[] = [
       },
     ],
   },
+  {
+    slug: "used-books-store",
+    name: { en: "ReBook", ar: "ReBook" },
+    color: "#C9E4A7",
+    shade: "#B2D489",
+    kind: { en: "Web app · training project", ar: "تطبيق ويب · مشروع تدريبي" },
+    period: { en: "Dec 2025", ar: "ديسمبر ٢٠٢٥" },
+    summary: {
+      en: "A storefront for pre-loved books, with condition grades, discounts and a cart that remembers you.",
+      ar: "متجر للكتب المستعملة، يعرض حالة كل كتاب ونسبة التوفير، مع سلة تحفظ مشترياتك.",
+    },
+    overview: {
+      en: "ReBook is an online store for second-hand books, built as a training project. Every book shows its condition (Like New, Good, Fair) and how much you save compared with the new price, so buying used feels as clear as buying new.",
+      ar: "ReBook متجر إلكتروني للكتب المستعملة، بنيته مشروعاً تدريبياً. يعرض كل كتاب حالته (كالجديد، جيد، مقبول) ومقدار التوفير مقارنة بسعره جديداً، ليكون شراء الكتاب المستعمل واضحاً كشراء الجديد.",
+    },
+    role: { en: "Solo project: design and code.", ar: "مشروع فردي: التصميم والبرمجة." },
+    highlights: {
+      en: [
+        "A React single-page app with routes for the catalogue, a book details page and the cart.",
+        "A shopping cart built with React Context: add books, change quantities, remove items, and see a live total and a count on the header icon. The cart is saved in the browser, so it survives a refresh.",
+        "Category filters and book cards with condition badges and the original price crossed out.",
+        "A details page that calculates the saving percentage and shows shipping and quality notes.",
+      ],
+      ar: [
+        "تطبيق React من صفحة واحدة، بمسارات للكتب وصفحة تفاصيل الكتاب والسلة.",
+        "سلة مشتريات مبنية بـ React Context: إضافة الكتب وتغيير الكمية والحذف، مع إجمالي مباشر وعدّاد على أيقونة السلة. تُحفظ السلة في المتصفح فلا تضيع عند تحديث الصفحة.",
+        "فلترة حسب التصنيف، وبطاقات كتب تعرض شارة الحالة والسعر الأصلي مشطوباً.",
+        "صفحة تفاصيل تحسب نسبة التوفير وتعرض معلومات الشحن والجودة.",
+      ],
+    },
+    stack: ["React", "Vite", "React Router"],
+    wide: true,
+    link: "https://github.com/sulaimanmokhaniq/used-books-store",
+    linkKind: "code",
+    images: [
+      {
+        src: "/work/used-books-store/home.png",
+        alt: { en: "ReBook home page", ar: "الصفحة الرئيسية لمتجر ReBook" },
+      },
+    ],
+  },
 ];
 
 export const experience = [
