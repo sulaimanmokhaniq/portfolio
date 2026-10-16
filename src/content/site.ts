@@ -491,6 +491,51 @@ export const projects: Project[] = [
       { src: "/work/say/prompts.png", alt: { en: "Prompt library with filters", ar: "مكتبة الأوامر مع الفلاتر" } },
     ],
   },
+  {
+    slug: "smart-attendance",
+    name: { en: "Smart Attendance", ar: "Smart Attendance" },
+    color: "#FFB3A7",
+    shade: "#F59A8C",
+    kind: { en: "Web app · course project", ar: "تطبيق ويب · مشروع مقرر" },
+    period: { en: "Dec 2025", ar: "ديسمبر ٢٠٢٥" },
+    summary: {
+      en: "Class attendance without the paper sheet: GPS check-in for classrooms and QR codes for online lectures.",
+      ar: "تحضير الطلاب دون كشف ورقي: تسجيل الحضور بالموقع في القاعة، وبرمز QR في المحاضرات عن بُعد.",
+    },
+    overview: {
+      en: "Smart Attendance is a mobile-first prototype, built for a university course, that replaces roll call. A lecturer starts a session: in a classroom, nearby students find it by GPS and check in; in an online lecture, they scan a QR code on screen. Late arrivals are marked automatically using the lateness window the lecturer sets. It was built with Lovable, an AI app builder.",
+      ar: "Smart Attendance نموذج أولي لتطبيق يُغني عن المناداة بالأسماء، بنيناه لمقرر جامعي. يبدأ المحاضر الجلسة؛ ففي القاعة يجدها الطلاب القريبون عبر الموقع ويسجّلون حضورهم، وفي المحاضرات عن بُعد يمسحون رمز QR المعروض. ويُحتسب التأخير تلقائياً حسب المهلة التي يحددها المحاضر. بُني التطبيق باستخدام Lovable، أداة لبناء التطبيقات بالذكاء الاصطناعي.",
+    },
+    role: { en: "The idea, the UI and testing.", ar: "الفكرة والواجهة والاختبار." },
+    highlights: {
+      en: [
+        "Two roles, student and lecturer, each with their own dashboard.",
+        "Lecturers create classroom (GPS) or online (QR) sessions, choose an allowed lateness of 5–20 minutes, and see a live timer and present count.",
+        "Online sessions show a QR code that can be copied or regenerated, and students scan it with their camera.",
+        "Students see nearby sessions with their distance and how many classmates are present, then check in with one tap. Each record is marked present, late or absent.",
+      ],
+      ar: [
+        "دوران: طالب ومحاضر، لكل منهما لوحة خاصة.",
+        "ينشئ المحاضر جلسة حضورية (بالموقع) أو عن بُعد (برمز QR)، ويحدد مهلة التأخير من ٥ إلى ٢٠ دقيقة، ويتابع مؤقت الجلسة وعدد الحاضرين مباشرة.",
+        "تعرض الجلسات عن بُعد رمز QR يمكن نسخه أو تجديده، ويمسحه الطالب بالكاميرا.",
+        "يرى الطالب الجلسات القريبة مع المسافة وعدد الحاضرين، ويسجّل حضوره بضغطة واحدة، ويُسجَّل الحضور بثلاث حالات: حاضر، متأخر، غائب.",
+      ],
+    },
+    stack: ["React", "TypeScript", "Tailwind CSS", "shadcn/ui", "Lovable"],
+    wide: true,
+    link: "https://github.com/yohanmkh/smart-attendance-system",
+    linkKind: "code",
+    images: [
+      {
+        src: "/work/smart-attendance/screens.png",
+        alt: { en: "Role selection, live QR session, nearby sessions and check-in screens", ar: "شاشات اختيار الدور وجلسة QR والجلسات القريبة وتسجيل الحضور" },
+      },
+      {
+        src: "/work/smart-attendance/lecturer.png",
+        alt: { en: "Lecturer dashboard, create session and live session screens", ar: "لوحة المحاضر وإنشاء الجلسة والجلسة المباشرة" },
+      },
+    ],
+  },
 ];
 
 export const experience = [
