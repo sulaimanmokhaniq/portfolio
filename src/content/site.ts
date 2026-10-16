@@ -448,6 +448,49 @@ export const projects: Project[] = [
       },
     ],
   },
+  {
+    slug: "say",
+    name: { en: "SAY", ar: "SAY" },
+    color: "#FFE08A",
+    shade: "#F5CC5C",
+    kind: { en: "Web app · team of 4", ar: "تطبيق ويب · فريق من ٤" },
+    period: { en: "Dec 2025 – Jan 2026", ar: "ديسمبر ٢٠٢٥ – يناير ٢٠٢٦" },
+    summary: {
+      en: "Start All Yourself: a bilingual guide to the modern dev stack, from the first idea to launch.",
+      ar: "ابدأ كل شيء بنفسك: دليل ثنائي اللغة لأدوات التطوير الحديثة، من الفكرة الأولى حتى الإطلاق.",
+    },
+    overview: {
+      en: "SAY (“Start All Yourself”) helps new developers work out where to begin. It’s a curated directory of frameworks, AI coding and mockup tools, databases and deployment platforms, with side-by-side comparisons, recommended tech stacks, a step-by-step guide to starting a project, and a library of thousands of ready-made coding prompts.",
+      ar: "SAY (“ابدأ كل شيء بنفسك”) يساعد المطوّرين الجدد على معرفة من أين يبدؤون. دليل منسّق لأطر العمل وأدوات البرمجة والتصميم بالذكاء الاصطناعي وقواعد البيانات ومنصات النشر، مع مقارنات جنباً إلى جنب، وحزم تقنية مقترحة، ودليل خطوة بخطوة لبدء أي مشروع، ومكتبة تضم آلاف الأوامر البرمجية الجاهزة.",
+    },
+    role: {
+      en: "Built the light theme (theme switching across the whole site) and contributed to the idea and the presentation.",
+      ar: "بناء الوضع الفاتح (التبديل بين الوضعين في الموقع كاملاً)، والمساهمة في الفكرة والعرض التقديمي.",
+    },
+    highlights: {
+      en: [
+        "A searchable tool directory across 16 categories, with a details page for every tool.",
+        "A compare page that puts two tools side by side, plus recommended tech stacks and a “create your own stack” builder.",
+        "A prompt library generated from templates (over 19,000 coding and project-spec prompts), filterable by domain, stack and style.",
+        "A prompt tester that scores your prompt with Gemini, full Arabic and English support, and light and dark themes.",
+      ],
+      ar: [
+        "دليل أدوات قابل للبحث في ١٦ تصنيفاً، مع صفحة تفاصيل لكل أداة.",
+        "صفحة لمقارنة أداتين جنباً إلى جنب، وحزم تقنية مقترحة، وأداة لبناء حزمتك الخاصة.",
+        "مكتبة أوامر مولّدة من قوالب (أكثر من ١٩ ألف أمر برمجي وأوامر لكتابة متطلبات المشاريع)، مع فلترة حسب المجال والتقنية والأسلوب.",
+        "أداة لتقييم الأوامر باستخدام Gemini، ودعم كامل للعربية والإنجليزية، ووضعان فاتح وداكن.",
+      ],
+    },
+    stack: ["React", "TypeScript", "Vite", "Tailwind CSS", "i18next", "Firebase", "Gemini API"],
+    wide: true,
+    link: "https://github.com/Yazeed-AK/SAY",
+    linkKind: "code",
+    images: [
+      { src: "/work/say/home.png", alt: { en: "SAY home page", ar: "الصفحة الرئيسية لـ SAY" } },
+      { src: "/work/say/tools.png", alt: { en: "Tool directory with category filters", ar: "دليل الأدوات مع التصنيفات" } },
+      { src: "/work/say/prompts.png", alt: { en: "Prompt library with filters", ar: "مكتبة الأوامر مع الفلاتر" } },
+    ],
+  },
 ];
 
 export const experience = [
