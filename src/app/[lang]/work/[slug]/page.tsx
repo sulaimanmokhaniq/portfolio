@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Arrow } from "@/components/arrow";
@@ -52,7 +53,7 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/work/[s
             </h1>
             <p className="max-w-lg text-xl leading-relaxed">{project.summary[lang]}</p>
           </div>
-          <ProjectArt project={project} className="min-h-[320px]" />
+          <ProjectArt project={project} lang={lang} priority className="min-h-[320px]" />
         </section>
       </Reveal>
 
@@ -74,6 +75,12 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/work/[s
         </Reveal>
         <Reveal delay={0.08}>
           <aside className="flex h-full flex-col gap-8 rounded-tile bg-hero p-8 text-hero-text sm:p-10">
+            {project.role && (
+              <div>
+                <h2 className="mb-2 text-hero-muted">{t.role}</h2>
+                <p className="text-lg leading-relaxed">{project.role[lang]}</p>
+              </div>
+            )}
             <div>
               <h2 className="mb-3 text-hero-muted">{t.stack}</h2>
               <ul className="flex flex-wrap gap-2" dir="ltr">
@@ -88,9 +95,39 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/work/[s
               <h2 className="mb-2 text-hero-muted">{t.period}</h2>
               <p className="text-xl">{project.period[lang]}</p>
             </div>
+            {project.link && (
+              <a
+                href={project.link}
+                target="_blank"
+                rel="noreferrer"
+                className="mt-auto inline-flex min-h-12 items-center justify-center gap-2 self-start rounded-full bg-flame px-6 font-semibold text-ink transition-transform hover:-translate-y-0.5"
+              >
+                {t.visit}
+                <Arrow />
+              </a>
+            )}
           </aside>
         </Reveal>
       </div>
+
+      {project.images && project.images.length > 1 && (
+        <section aria-label={t.screens} className={`mt-4 grid grid-cols-1 gap-4 ${project.images.length > 2 ? "md:grid-cols-2" : ""}`}>
+          {project.images.slice(1).map((img) => (
+            <Reveal key={img.src}>
+              <div className="overflow-hidden rounded-tile p-4 sm:p-5" style={{ background: project.color }}>
+                <Image
+                  src={img.src}
+                  alt={img.alt[lang]}
+                  width={1440}
+                  height={900}
+                  sizes="(min-width: 768px) 640px, 100vw"
+                  className="h-auto w-full rounded-2xl"
+                />
+              </div>
+            </Reveal>
+          ))}
+        </section>
+      )}
 
       <Reveal>
         <Link

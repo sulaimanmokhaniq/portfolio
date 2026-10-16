@@ -49,6 +49,9 @@ export const ui = {
     period: "When",
     nextProject: "Next project",
     photoAlt: "Portrait of Sulaiman",
+    role: "My role",
+    visit: "Visit the live site",
+    screens: "Screens",
   },
   ar: {
     nav: { work: "الأعمال", about: "عنّي", contact: "تواصل" },
@@ -80,6 +83,9 @@ export const ui = {
     period: "الفترة",
     nextProject: "المشروع التالي",
     photoAlt: "صورة سليمان",
+    role: "دوري",
+    visit: "زر الموقع",
+    screens: "لقطات",
   },
 } satisfies Record<Locale, unknown>;
 
@@ -96,7 +102,11 @@ export type Project = {
   overview: Localized;
   highlights: Record<Locale, string[]>;
   stack: string[];
-  featured?: boolean;
+  /** Full-width card on the homepage. */
+  wide?: boolean;
+  role?: Localized;
+  link?: string;
+  images?: { src: string; alt: Localized }[];
 };
 
 export const projects: Project[] = [
@@ -130,7 +140,7 @@ export const projects: Project[] = [
       ],
     },
     stack: ["Next.js", "TypeScript", "Supabase", "Realtime", "Tailwind CSS"],
-    featured: true,
+    wide: true,
   },
   {
     slug: "qalam",
@@ -214,6 +224,48 @@ export const projects: Project[] = [
       ],
     },
     stack: ["Flutter", "Dart", "OOP", "Clean Architecture"],
+  },
+  {
+    slug: "cloudtrim",
+    name: { en: "CloudTrim", ar: "CloudTrim" },
+    color: "#FFB8C9",
+    shade: "#F5A3B7",
+    badge: { en: "VentureX 2026", ar: "VentureX ٢٠٢٦" },
+    kind: { en: "Web app · AI FinOps", ar: "تطبيق ويب · ذكاء اصطناعي" },
+    period: { en: "Oct 2026", ar: "أكتوبر ٢٠٢٦" },
+    summary: {
+      en: "An AI agent that finds wasted cloud spend for Saudi SMEs, and changes nothing until a human approves.",
+      ar: "وكيل ذكاء اصطناعي يكتشف الهدر في تكاليف السحابة للمنشآت الصغيرة والمتوسطة في السعودية، ولا يغيّر شيئاً قبل موافقة إنسان.",
+    },
+    overview: {
+      en: "CloudTrim is an AI FinOps product our team built for VentureX 2026. It scans a company’s cloud with read-only access, explains each saving in plain language, and only acts after an engineer approves with one click, on the web or WhatsApp. It’s designed for Saudi SMEs with 50 to 250 staff. Mentors praised the idea as one of the strongest they saw.",
+      ar: "CloudTrim منتج لإدارة تكاليف السحابة بالذكاء الاصطناعي بنيناه كفريق لمسابقة VentureX 2026. يفحص سحابة الشركة بصلاحية قراءة فقط، ويشرح كل فرصة توفير بلغة بسيطة، ولا ينفّذ أي تغيير إلا بعد موافقة المهندس بنقرة واحدة عبر الويب أو واتساب. صُمّم للمنشآت السعودية التي يعمل بها بين ٥٠ و٢٥٠ موظفاً، وأشاد المرشدون بفكرته.",
+    },
+    role: {
+      en: "Shaped and refined the product idea, then built the MVP and designed the UI.",
+      ar: "طوّرت فكرة المنتج وصقلتها، ثم بنيت النسخة الأولى (MVP) وصمّمت الواجهة.",
+    },
+    highlights: {
+      en: [
+        "A landing page and an interactive MVP demo in one Next.js app, fully in English and Arabic with RTL.",
+        "A safety-first approval flow: read-only scanning, a single-action permission that expires after 15 minutes, stop-instead-of-delete with one-click rollback, and an audit log.",
+        "AI explanations for every finding through the Claude API, with cached fallbacks so the demo never breaks.",
+        "A live demo on seeded data for a fictional company, so it never depends on a real cloud account.",
+      ],
+      ar: [
+        "صفحة تعريفية وعرض تفاعلي للمنتج في تطبيق Next.js واحد، بالعربية والإنجليزية مع دعم كامل لاتجاه RTL.",
+        "مسار موافقة يضع الأمان أولاً: فحص بصلاحية قراءة فقط، وصلاحية لإجراء واحد تنتهي خلال ١٥ دقيقة، وإيقاف بدل الحذف مع تراجع بنقرة، وسجل تدقيق.",
+        "شرح كل توصية بالذكاء الاصطناعي عبر Claude API، مع نص احتياطي حتى لا يتعطل العرض أبداً.",
+        "عرض حي يعمل على بيانات تجريبية لشركة افتراضية، فلا يعتمد على حساب سحابي حقيقي.",
+      ],
+    },
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Claude API", "Three.js", "Vercel"],
+    wide: true,
+    link: "https://cloudtrim-sa.vercel.app",
+    images: [
+      { src: "/work/cloudtrim/home.png", alt: { en: "CloudTrim landing page", ar: "الصفحة التعريفية لـ CloudTrim" } },
+      { src: "/work/cloudtrim/demo.png", alt: { en: "CloudTrim demo dashboard", ar: "لوحة العرض التجريبي لـ CloudTrim" } },
+    ],
   },
 ];
 

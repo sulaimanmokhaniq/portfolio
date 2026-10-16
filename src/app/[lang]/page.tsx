@@ -9,7 +9,6 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
   const t = ui[lang];
-  const [featured, ...rest] = projects;
 
   return (
     <main>
@@ -109,54 +108,56 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           </h2>
         </Reveal>
         <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          <Reveal className="md:col-span-2 lg:col-span-3">
-            <Link
-              href={`/${lang}/work/${featured.slug}`}
-              className="group flex flex-col gap-7 rounded-tile p-8 text-ink transition-transform hover:-translate-y-1 sm:p-10 lg:flex-row"
-              style={{ background: featured.color }}
-            >
-              <div className="flex flex-1 flex-col justify-between gap-4">
-                {featured.badge && (
-                  <span className="self-start rounded-full bg-ink px-3 py-1.5 text-sm text-sun">
-                    {featured.badge[lang]}
-                  </span>
-                )}
-                <h3 className="font-display text-5xl font-extrabold">
-                  {featured.name.en}{" "}
-                  {featured.arabicName && (
-                    <span lang="ar" className="font-sans text-3xl font-medium">
-                      {featured.arabicName}
+          {projects.map((p, i) =>
+            p.wide ? (
+              <Reveal key={p.slug} className="md:col-span-2 lg:col-span-3">
+                <Link
+                  href={`/${lang}/work/${p.slug}`}
+                  className="group flex flex-col gap-7 rounded-tile p-8 text-ink transition-transform hover:-translate-y-1 sm:p-10 lg:flex-row"
+                  style={{ background: p.color }}
+                >
+                  <div className="flex flex-1 flex-col justify-between gap-4">
+                    {p.badge && (
+                      <span className="self-start rounded-full bg-ink px-3 py-1.5 text-sm" style={{ color: p.color }}>
+                        {p.badge[lang]}
+                      </span>
+                    )}
+                    <h3 className="font-display text-5xl font-extrabold">
+                      {p.name.en}{" "}
+                      {p.arabicName && (
+                        <span lang="ar" className="font-sans text-3xl font-medium">
+                          {p.arabicName}
+                        </span>
+                      )}
+                    </h3>
+                    <p className="max-w-md text-lg leading-relaxed">{p.summary[lang]}</p>
+                    <span className="inline-flex items-center gap-2 font-semibold">
+                      {t.caseStudy}
+                      <Arrow className="transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
                     </span>
-                  )}
-                </h3>
-                <p className="max-w-md text-lg leading-relaxed">{featured.summary[lang]}</p>
-                <span className="inline-flex items-center gap-2 font-semibold">
-                  {t.caseStudy}
-                  <Arrow className="transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
-                </span>
-              </div>
-              <ProjectArt project={featured} className="min-h-[280px] flex-1" />
-            </Link>
-          </Reveal>
-
-          {rest.map((p, i) => (
-            <Reveal key={p.slug} delay={i * 0.06}>
-              <Link
-                href={`/${lang}/work/${p.slug}`}
-                className="group flex h-full flex-col gap-4 rounded-tile p-8 text-ink transition-transform hover:-translate-y-1"
-                style={{ background: p.color }}
-              >
-                <ProjectArt project={p} className="h-44" />
-                <span className="text-sm font-medium">{p.kind[lang]}</span>
-                <h3 className="font-display text-4xl font-extrabold">{p.name[lang]}</h3>
-                <p className="flex-1 leading-relaxed">{p.summary[lang]}</p>
-                <span className="inline-flex items-center gap-2 font-semibold">
-                  {t.caseStudy}
-                  <Arrow className="transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
-                </span>
-              </Link>
-            </Reveal>
-          ))}
+                  </div>
+                  <ProjectArt project={p} lang={lang} className="min-h-[280px] flex-1" />
+                </Link>
+              </Reveal>
+            ) : (
+              <Reveal key={p.slug} delay={(i % 3) * 0.06}>
+                <Link
+                  href={`/${lang}/work/${p.slug}`}
+                  className="group flex h-full flex-col gap-4 rounded-tile p-8 text-ink transition-transform hover:-translate-y-1"
+                  style={{ background: p.color }}
+                >
+                  <ProjectArt project={p} lang={lang} className="h-44" />
+                  <span className="text-sm font-medium">{p.kind[lang]}</span>
+                  <h3 className="font-display text-4xl font-extrabold">{p.name[lang]}</h3>
+                  <p className="flex-1 leading-relaxed">{p.summary[lang]}</p>
+                  <span className="inline-flex items-center gap-2 font-semibold">
+                    {t.caseStudy}
+                    <Arrow className="transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
+                  </span>
+                </Link>
+              </Reveal>
+            ),
+          )}
         </div>
       </section>
 
