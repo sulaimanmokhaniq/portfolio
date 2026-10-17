@@ -262,6 +262,8 @@ export const projects: Project[] = [
     stack: ["Flutter", "Dart", "OOP", "Clean Architecture"],
     link: "https://tahabeer.vercel.app/",
     images: [
+      { src: "/work/tahabeer/app.png", alt: { en: "TAHABEER app: reciters, the Quran reader and tafsir", ar: "تطبيق تحابير: القراء وقارئ المصحف والتفسير" } },
+      { src: "/work/tahabeer/mosques.png", alt: { en: "Mosque finder with a map of 148 mosques in Riyadh", ar: "دليل المساجد مع خريطة لـ ١٤٨ مسجداً في الرياض" } },
       { src: "/work/tahabeer/home.png", alt: { en: "TAHABEER website home page", ar: "الصفحة الرئيسية لموقع تحابير" } },
       { src: "/work/tahabeer/features.png", alt: { en: "TAHABEER features: reading, recitations, offline download and bookmarks", ar: "مميزات تحابير: القراءة والتلاوات والتحميل دون إنترنت والإشارات" } },
     ],
