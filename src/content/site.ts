@@ -221,6 +221,13 @@ export const projects: Project[] = [
       ],
     },
     stack: ["Next.js", "TypeScript", "Supabase", "Yjs", "Tailwind CSS"],
+    link: "https://smartschedule.xyz/",
+    images: [
+      { src: "/work/smartschedule/home.png", alt: { en: "SmartSchedule home page", ar: "الصفحة الرئيسية لـ SmartSchedule" } },
+      { src: "/work/smartschedule/scheduling.png", alt: { en: "Scheduling committee dashboard with zero conflicts", ar: "لوحة لجنة الجدولة بدون أي تعارضات" } },
+      { src: "/work/smartschedule/teaching-load.png", alt: { en: "Teaching load dashboard balancing instructor hours", ar: "لوحة العبء التدريسي لموازنة ساعات أعضاء هيئة التدريس" } },
+      { src: "/work/smartschedule/student.png", alt: { en: "A student's weekly schedule", ar: "الجدول الأسبوعي للطالب" } },
+    ],
   },
   {
     slug: "tahabeer",
