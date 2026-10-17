@@ -86,7 +86,7 @@ export function Header({ lang }: { lang: Locale }) {
           </LayoutGroup>
           {/* A full page load, not a client navigation: swapping the root <html> on the fly drops the
               theme for a frame, so the page flashed the other colour mode. */}
-          <a href={switchHref} hrefLang={other} aria-label={t.switchLangLabel} className={pill}>
+          <a href={switchHref} hrefLang={other} lang={other} aria-label={t.switchLangLabel} className={pill}>
             {t.switchLang}
           </a>
           <button

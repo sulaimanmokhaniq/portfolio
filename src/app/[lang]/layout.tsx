@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { Baloo_Bhaijaan_2, Bricolage_Grotesque, IBM_Plex_Sans_Arabic, Readex_Pro } from "next/font/google";
+import { Baloo_Bhaijaan_2, Bricolage_Grotesque, Readex_Pro } from "next/font/google";
 import { ThemeProvider } from "@/components/theme-provider";
 import { Header } from "@/components/header";
 import { hasLocale, locales, profile, ui } from "@/content/site";
@@ -18,20 +18,14 @@ const readex = Readex_Pro({
   weight: ["400", "500", "600"],
 });
 
-// Arabic pages use a rounded, heavy display face and a solid text face.
+// Every Arabic word, headings and body alike, uses this rounded face.
 const baloo = Baloo_Bhaijaan_2({
   variable: "--font-baloo",
   subsets: ["arabic", "latin"],
-  weight: ["600", "800"],
+  weight: ["400", "500", "600", "700", "800"],
   preload: false,
 });
 
-const plexArabic = IBM_Plex_Sans_Arabic({
-  variable: "--font-plex-arabic",
-  subsets: ["arabic", "latin"],
-  weight: ["400", "500", "600"],
-  preload: false,
-});
 
 export function generateStaticParams() {
   return locales.map((lang) => ({ lang }));
@@ -58,7 +52,7 @@ export default async function RootLayout({ children, params }: LayoutProps<"/[la
     <html
       lang={lang}
       dir={lang === "ar" ? "rtl" : "ltr"}
-      className={`${bricolage.variable} ${readex.variable} ${baloo.variable} ${plexArabic.variable} antialiased`}
+      className={`${bricolage.variable} ${readex.variable} ${baloo.variable} antialiased`}
       suppressHydrationWarning
     >
       <body className="min-h-screen font-sans">

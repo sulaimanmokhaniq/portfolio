@@ -20,12 +20,17 @@
 :lang(en) {
   --display-stack: var(--font-bricolage), system-ui, sans-serif;
   --text-stack: var(--font-readex), system-ui, sans-serif;
+  --font-display: var(--display-stack);
+  --font-sans: var(--text-stack);
 }
 
-/* Any Arabic text, including Arabic words on English pages. */
+/* Any Arabic text, including Arabic words on English pages, uses Baloo Bhaijaan 2; only the weight changes.
+   The --font-* tokens are re-declared here because :root resolves them once for the whole page. */
 :lang(ar) {
   --display-stack: var(--font-baloo), var(--font-bricolage), system-ui, sans-serif;
-  --text-stack: var(--font-plex-arabic), var(--font-readex), system-ui, sans-serif;
+  --text-stack: var(--font-baloo), var(--font-readex), system-ui, sans-serif;
+  --font-display: var(--display-stack);
+  --font-sans: var(--text-stack);
 }
 
 .dark {
@@ -92,4 +97,11 @@ body {
 /* Arabic text reads lighter than Latin at the same weight. */
 :root:lang(ar) body {
   font-weight: 500;
+}
+
+/* Arabic words that just inherit the page font (like the English page's "عربي" link) pick up Baloo too. */
+@layer base {
+  [lang="ar"] {
+    font-family: var(--font-sans);
+  }
 }

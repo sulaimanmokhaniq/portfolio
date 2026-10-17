@@ -112,7 +112,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                       <Link href={`/${lang}/work/${p.slug}`} className={stretched}>
                         {p.name.en}{" "}
                         {p.arabicName && (
-                          <span lang="ar" className="font-sans text-3xl font-medium">
+                          <span lang="ar" className="font-sans text-3xl font-semibold">
                             {p.arabicName}
                           </span>
                         )}
