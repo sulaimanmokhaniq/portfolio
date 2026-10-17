@@ -115,6 +115,47 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    slug: "tahabeer",
+    name: { en: "TAHABEER", ar: "تحابير" },
+    arabicName: "تحابير",
+    color: "#9BE3C1",
+    shade: "#85D6AF",
+    kind: { en: "Mobile app + website", ar: "تطبيق جوال + موقع" },
+    period: { en: "2023 – present", ar: "٢٠٢٣ – الآن" },
+    summary: {
+      en: "A Quran recitation app, 99% crash-free for 18+ months.",
+      ar: "تطبيق لتلاوة القرآن الكريم، خالٍ من الأعطال بنسبة ٩٩٪ لأكثر من ١٨ شهراً.",
+    },
+    overview: {
+      en: "TAHABEER brings the Quran into one calm, Arabic-first app: read the full Mushaf, listen to famous reciters, open the tafsir of any verse and find nearby mosques. It is built with strict OOP and Clean Architecture, which has kept it stable for well over a year, and it has its own landing website.",
+      ar: "يجمع تحابير القرآن الكريم في تطبيق عربي هادئ واحد: قراءة المصحف كاملاً، والاستماع لأشهر القراء، وتفسير أي آية، والعثور على المساجد القريبة. بُني وفق مبادئ البرمجة الكائنية والبنية النظيفة مما حافظ على استقراره لأكثر من عام، وله موقع تعريفي خاص.",
+    },
+    highlights: {
+      en: [
+        "The full 604-page Mushaf with day and night reading modes, bookmarks and a page slider.",
+        "Recitations from 8+ famous reciters, with offline downloads so you can listen without internet.",
+        "Tafsir right next to each verse, including Al-Muyassar and Al-Jalalayn.",
+        "A mosque finder: 148 mosques in Riyadh on a map, with their imams, filters and directions.",
+        "Built with Clean Architecture, keeping a 99% crash-free session rate for 18+ months.",
+      ],
+      ar: [
+        "المصحف كاملاً في ٦٠٤ صفحات مع وضعين ليلي ونهاري وإشارات مرجعية وشريط للتنقل بين الصفحات.",
+        "تلاوات لأكثر من ٨ من أشهر القراء، مع التحميل للاستماع دون إنترنت.",
+        "التفسير بجانب كل آية، ومنه الميسّر والجلالين.",
+        "دليل للمساجد: ١٤٨ مسجداً في الرياض على الخريطة مع أئمتها وفلاتر للبحث والاتجاهات.",
+        "مبني وفق البنية النظيفة، وحافظ على نسبة جلسات خالية من الأعطال تبلغ ٩٩٪ لأكثر من ١٨ شهراً.",
+      ],
+    },
+    stack: ["Flutter", "Dart", "Supabase", "Google Maps", "just_audio", "Clean Architecture"],
+    wide: true,
+    link: "https://tahabeer.vercel.app/",
+    images: [
+      { src: "/work/tahabeer/app.png", alt: { en: "TAHABEER app: reciters, the Quran reader and tafsir", ar: "تطبيق تحابير: القراء وقارئ المصحف والتفسير" } },
+      { src: "/work/tahabeer/mosques.png", alt: { en: "Mosque finder with a map of 148 mosques in Riyadh", ar: "دليل المساجد مع خريطة لـ ١٤٨ مسجداً في الرياض" } },
+      { src: "/work/tahabeer/home.png", alt: { en: "TAHABEER website home page", ar: "الصفحة الرئيسية لموقع تحابير" } },
+    ],
+  },
+  {
     slug: "wamdah",
     name: { en: "Wamdah", ar: "ومضة" },
     arabicName: "ومضة",
@@ -225,47 +266,13 @@ export const projects: Project[] = [
       ],
     },
     stack: ["Next.js", "TypeScript", "Supabase", "Yjs", "Tailwind CSS"],
+    wide: true,
     link: "https://smartschedule.xyz/",
     images: [
       { src: "/work/smartschedule/home.png", alt: { en: "SmartSchedule home page", ar: "الصفحة الرئيسية لـ SmartSchedule" } },
       { src: "/work/smartschedule/scheduling.png", alt: { en: "Scheduling committee dashboard with zero conflicts", ar: "لوحة لجنة الجدولة بدون أي تعارضات" } },
       { src: "/work/smartschedule/teaching-load.png", alt: { en: "Teaching load dashboard balancing instructor hours", ar: "لوحة العبء التدريسي لموازنة ساعات أعضاء هيئة التدريس" } },
       { src: "/work/smartschedule/student.png", alt: { en: "A student's weekly schedule", ar: "الجدول الأسبوعي للطالب" } },
-    ],
-  },
-  {
-    slug: "tahabeer",
-    name: { en: "TAHABEER", ar: "تحابير" },
-    arabicName: "تحابير",
-    color: "#9BE3C1",
-    shade: "#85D6AF",
-    kind: { en: "Mobile app", ar: "تطبيق جوال" },
-    period: { en: "2023 – present", ar: "٢٠٢٣ – الآن" },
-    summary: {
-      en: "A Quran recitation app, 99% crash-free for 18+ months.",
-      ar: "تطبيق لتلاوة القرآن الكريم، خالٍ من الأعطال بنسبة ٩٩٪ لأكثر من ١٨ شهراً.",
-    },
-    overview: {
-      en: "TAHABEER is a Quran recitation application built with strict OOP and Clean Architecture principles, which has kept it stable for well over a year.",
-      ar: "تحابير تطبيق لتلاوة القرآن الكريم بُني وفق مبادئ البرمجة الكائنية والبنية النظيفة، مما حافظ على استقراره لأكثر من عام.",
-    },
-    highlights: {
-      en: [
-        "Secure authentication, audio playback and file handling, architected with Clean Architecture.",
-        "A 99% crash-free session rate sustained over 18+ months.",
-      ],
-      ar: [
-        "مصادقة آمنة وتشغيل صوتي وإدارة للملفات وفق البنية النظيفة.",
-        "نسبة جلسات خالية من الأعطال تبلغ ٩٩٪ لأكثر من ١٨ شهراً.",
-      ],
-    },
-    stack: ["Flutter", "Dart", "OOP", "Clean Architecture"],
-    link: "https://tahabeer.vercel.app/",
-    images: [
-      { src: "/work/tahabeer/app.png", alt: { en: "TAHABEER app: reciters, the Quran reader and tafsir", ar: "تطبيق تحابير: القراء وقارئ المصحف والتفسير" } },
-      { src: "/work/tahabeer/mosques.png", alt: { en: "Mosque finder with a map of 148 mosques in Riyadh", ar: "دليل المساجد مع خريطة لـ ١٤٨ مسجداً في الرياض" } },
-      { src: "/work/tahabeer/home.png", alt: { en: "TAHABEER website home page", ar: "الصفحة الرئيسية لموقع تحابير" } },
-      { src: "/work/tahabeer/features.png", alt: { en: "TAHABEER features: reading, recitations, offline download and bookmarks", ar: "مميزات تحابير: القراءة والتلاوات والتحميل دون إنترنت والإشارات" } },
     ],
   },
   {
