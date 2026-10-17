@@ -260,6 +260,11 @@ export const projects: Project[] = [
       ],
     },
     stack: ["Flutter", "Dart", "OOP", "Clean Architecture"],
+    link: "https://tahabeer.vercel.app/",
+    images: [
+      { src: "/work/tahabeer/home.png", alt: { en: "TAHABEER website home page", ar: "الصفحة الرئيسية لموقع تحابير" } },
+      { src: "/work/tahabeer/features.png", alt: { en: "TAHABEER features: reading, recitations, offline download and bookmarks", ar: "مميزات تحابير: القراءة والتلاوات والتحميل دون إنترنت والإشارات" } },
+    ],
   },
   {
     slug: "cloudtrim",
