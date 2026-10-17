@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Arrow } from "@/components/arrow";
+import { CvButton } from "@/components/cv-button";
 import { HeroCards } from "@/components/hero-cards";
 import { ProjectArt } from "@/components/project-art";
 import { StackChip } from "@/components/stack-chip";
@@ -38,13 +39,12 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                 {t.seeProjects}
                 <Arrow />
               </Link>
-              <a
+              <CvButton
                 href={profile.cv}
-                download
+                label={t.downloadCv}
+                printingLabel={t.printingCv}
                 className="inline-flex min-h-12 items-center rounded-full bg-ground px-6 font-medium text-text transition-transform hover:-translate-y-0.5"
-              >
-                {t.downloadCv}
-              </a>
+              />
             </div>
           </div>
         </Reveal>
