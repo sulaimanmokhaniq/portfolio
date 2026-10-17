@@ -20,7 +20,7 @@ export const profile = {
 
 export const ui = {
   en: {
-    nav: { intro: "Intro", work: "Work", about: "About", contact: "Contact" },
+    nav: { intro: "Intro", work: "Projects", about: "About", contact: "Contact" },
     switchLang: "عربي",
     switchLangLabel: "اقرأ الموقع بالعربية",
     themeLabel: "Toggle dark mode",
@@ -70,7 +70,7 @@ export const ui = {
     nextScreen: "Next screen",
   },
   ar: {
-    nav: { intro: "نبذة", work: "الأعمال", about: "عنّي", contact: "تواصل" },
+    nav: { intro: "نبذة", work: "المشاريع", about: "عنّي", contact: "تواصل" },
     switchLang: "English",
     switchLangLabel: "Read the site in English",
     themeLabel: "تبديل الوضع الليلي",
