@@ -3,10 +3,41 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
-import { useSyncExternalStore } from "react";
+import { LayoutGroup, motion, useReducedMotion } from "motion/react";
+import { useEffect, useState, useSyncExternalStore } from "react";
 import { ui, type Locale } from "@/content/site";
 
 const subscribe = () => () => {};
+const sections = ["work", "about", "contact"] as const;
+type Section = (typeof sections)[number];
+
+// Tracks which home-page section is on screen; case pages always count as "work".
+function useActiveSection(isHome: boolean) {
+  const [active, setActive] = useState<Section | null>(null);
+
+  useEffect(() => {
+    if (!isHome) return;
+    const update = () => {
+      const line = window.innerHeight * 0.4;
+      const atBottom = window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+      let current: Section | null = null;
+      for (const id of sections) {
+        const el = document.getElementById(id);
+        if (el && el.getBoundingClientRect().top <= line) current = id;
+      }
+      setActive(atBottom ? "contact" : current);
+    };
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, [isHome]);
+
+  return isHome ? active : "work";
+}
 
 export function Header({ lang }: { lang: Locale }) {
   const t = ui[lang];
@@ -16,6 +47,9 @@ export function Header({ lang }: { lang: Locale }) {
   const { resolvedTheme, setTheme } = useTheme();
   const mounted = useSyncExternalStore(subscribe, () => true, () => false);
   const isDark = mounted && resolvedTheme === "dark";
+  const isHome = /^\/(en|ar)\/?$/.test(pathname);
+  const active = useActiveSection(isHome);
+  const reduce = useReducedMotion();
 
   const pill =
     "inline-flex min-h-11 items-center rounded-full px-4 text-[15px] transition-colors hover:bg-chip";
@@ -31,15 +65,25 @@ export function Header({ lang }: { lang: Locale }) {
           aria-label="Main"
           className="flex flex-wrap items-center gap-1 rounded-full border border-line bg-surface p-1.5"
         >
-          <Link href={`/${lang}#work`} className={`${pill} bg-hero text-hero-text hover:bg-hero`}>
-            {t.nav.work}
-          </Link>
-          <Link href={`/${lang}#about`} className={pill}>
-            {t.nav.about}
-          </Link>
-          <Link href={`/${lang}#contact`} className={pill}>
-            {t.nav.contact}
-          </Link>
+          <LayoutGroup>
+            {sections.map((id) => (
+              <Link
+                key={id}
+                href={`/${lang}#${id}`}
+                aria-current={active === id ? "location" : undefined}
+                className={`${pill} relative ${active === id ? "text-hero-text hover:bg-transparent" : ""}`}
+              >
+                {active === id && (
+                  <motion.span
+                    layoutId="nav-pill"
+                    className="absolute inset-0 rounded-full bg-hero"
+                    transition={reduce ? { duration: 0 } : { type: "spring", stiffness: 380, damping: 32 }}
+                  />
+                )}
+                <span className="relative">{t.nav[id]}</span>
+              </Link>
+            ))}
+          </LayoutGroup>
           <Link href={switchHref} hrefLang={other} aria-label={t.switchLangLabel} className={pill}>
             {t.switchLang}
           </Link>
