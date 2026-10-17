@@ -210,6 +210,10 @@ export const projects: Project[] = [
       en: "SmartSchedule is an intelligent academic scheduling platform. It resolves timetable conflicts automatically and lets several people edit the same schedule at once.",
       ar: "SmartSchedule منصة ذكية لجدولة المقررات الأكاديمية. تحل تعارضات الجداول تلقائياً وتتيح لعدة أشخاص تحرير الجدول نفسه في الوقت ذاته.",
     },
+    role: {
+      en: "Improved the product idea, built parts of the UI and tested the app.",
+      ar: "طوّرت فكرة المنتج، وبنيت أجزاء من الواجهة، واختبرت التطبيق.",
+    },
     highlights: {
       en: [
         "An automated conflict-resolution scheduling algorithm supporting 5 distinct user roles.",
