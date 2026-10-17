@@ -1,7 +1,9 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Arrow } from "@/components/arrow";
+import { HeroCards } from "@/components/hero-cards";
 import { ProjectArt } from "@/components/project-art";
+import { StackChip } from "@/components/stack-chip";
 import { Reveal } from "@/components/reveal";
 import { experience, hasLocale, profile, projects, ui } from "@/content/site";
 
@@ -48,24 +50,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         </Reveal>
 
         <Reveal delay={0.08}>
-          <div
-            role="img"
-            aria-label={t.photoAlt}
-            className="relative flex h-full min-h-[300px] items-center justify-center overflow-hidden rounded-tile bg-chip"
-          >
-            {/* Swap for <Image src="/me.jpg" … /> once a photo is added. */}
-            <svg viewBox="0 0 200 200" className="absolute inset-0 size-full opacity-60" aria-hidden="true">
-              <defs>
-                <pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse">
-                  <circle cx="2" cy="2" r="1.6" fill="currentColor" className="text-line" />
-                </pattern>
-              </defs>
-              <rect width="200" height="200" fill="url(#dots)" />
-            </svg>
-            <span className="relative font-display text-[8rem] leading-none font-extrabold text-flame">
-              {lang === "ar" ? "س" : "S"}
-            </span>
-          </div>
+          <HeroCards lines={t.heroCards} label={t.heroCardsLabel} nextLabel={t.nextCard} rtl={lang === "ar"} />
         </Reveal>
 
         <Reveal delay={0.12}>
@@ -80,9 +65,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             <span className="text-muted">{t.stackLabel}</span>
             <ul className="flex flex-wrap gap-2" dir="ltr">
               {profile.stack.map((s) => (
-                <li key={s} className="rounded-full bg-chip px-3.5 py-2 text-[15px]">
-                  {s}
-                </li>
+                <StackChip key={s} name={s} />
               ))}
             </ul>
           </div>
