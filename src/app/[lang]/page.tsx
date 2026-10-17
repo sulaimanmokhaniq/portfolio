@@ -3,10 +3,14 @@ import { notFound } from "next/navigation";
 import { Arrow } from "@/components/arrow";
 import { CvButton } from "@/components/cv-button";
 import { HeroCards } from "@/components/hero-cards";
-import { ProjectArt } from "@/components/project-art";
+import { ProjectVisual } from "@/components/project-visual";
 import { StackChip } from "@/components/stack-chip";
 import { Reveal } from "@/components/reveal";
 import { experience, hasLocale, profile, projects, ui } from "@/content/site";
+
+// The card title's link covers the whole card; the project visual sits above it so its buttons still work.
+const stretched =
+  "after:absolute after:inset-0 after:z-[5] after:rounded-tile focus-visible:outline-none focus-visible:after:outline-2 focus-visible:after:outline-offset-4 focus-visible:after:outline-ink";
 
 export default async function Home({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
@@ -94,9 +98,8 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           {projects.map((p, i) =>
             p.wide ? (
               <Reveal key={p.slug} className="md:col-span-2 lg:col-span-3">
-                <Link
-                  href={`/${lang}/work/${p.slug}`}
-                  className="group flex flex-col gap-7 rounded-tile p-8 text-ink transition-transform hover:-translate-y-1 sm:p-10 lg:flex-row"
+                <div
+                  className="group relative flex flex-col gap-7 rounded-tile p-8 text-ink transition-transform hover:-translate-y-1 sm:p-10 lg:flex-row"
                   style={{ background: p.color }}
                 >
                   <div className="flex flex-1 flex-col justify-between gap-4">
@@ -106,12 +109,14 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                       </span>
                     )}
                     <h3 className="font-display text-5xl font-extrabold">
-                      {p.name.en}{" "}
-                      {p.arabicName && (
-                        <span lang="ar" className="font-sans text-3xl font-medium">
-                          {p.arabicName}
-                        </span>
-                      )}
+                      <Link href={`/${lang}/work/${p.slug}`} className={stretched}>
+                        {p.name.en}{" "}
+                        {p.arabicName && (
+                          <span lang="ar" className="font-sans text-3xl font-medium">
+                            {p.arabicName}
+                          </span>
+                        )}
+                      </Link>
                     </h3>
                     <p className="max-w-md text-lg leading-relaxed">{p.summary[lang]}</p>
                     <span className="inline-flex items-center gap-2 font-semibold">
@@ -119,25 +124,28 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                       <Arrow className="transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
                     </span>
                   </div>
-                  <ProjectArt project={p} lang={lang} className="min-h-[280px] flex-1" />
-                </Link>
+                  <ProjectVisual project={p} lang={lang} className="min-h-[280px] flex-1" />
+                </div>
               </Reveal>
             ) : (
               <Reveal key={p.slug} delay={(i % 3) * 0.06}>
-                <Link
-                  href={`/${lang}/work/${p.slug}`}
-                  className="group flex h-full flex-col gap-4 rounded-tile p-8 text-ink transition-transform hover:-translate-y-1"
+                <div
+                  className="group relative flex h-full flex-col gap-4 rounded-tile p-8 text-ink transition-transform hover:-translate-y-1"
                   style={{ background: p.color }}
                 >
-                  <ProjectArt project={p} lang={lang} className="h-44" />
+                  <ProjectVisual project={p} lang={lang} className="h-44" />
                   <span className="text-sm font-medium">{p.kind[lang]}</span>
-                  <h3 className="font-display text-4xl font-extrabold">{p.name[lang]}</h3>
+                  <h3 className="font-display text-4xl font-extrabold">
+                    <Link href={`/${lang}/work/${p.slug}`} className={stretched}>
+                      {p.name[lang]}
+                    </Link>
+                  </h3>
                   <p className="flex-1 leading-relaxed">{p.summary[lang]}</p>
                   <span className="inline-flex items-center gap-2 font-semibold">
                     {t.caseStudy}
                     <Arrow className="transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
                   </span>
-                </Link>
+                </div>
               </Reveal>
             ),
           )}

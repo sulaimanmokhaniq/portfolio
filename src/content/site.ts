@@ -62,6 +62,12 @@ export const ui = {
     visit: "Visit the live site",
     code: "View the code",
     screens: "Screens",
+    tryLive: "Try it live",
+    openSite: "Open in a new tab",
+    close: "Close",
+    appScreens: "App screens",
+    prevScreen: "Previous screen",
+    nextScreen: "Next screen",
   },
   ar: {
     nav: { intro: "نبذة", work: "الأعمال", about: "عنّي", contact: "تواصل" },
@@ -106,6 +112,12 @@ export const ui = {
     visit: "زر الموقع",
     code: "شاهد الكود",
     screens: "لقطات",
+    tryLive: "جرّبه مباشرة",
+    openSite: "افتحه في تبويب جديد",
+    close: "إغلاق",
+    appScreens: "شاشات التطبيق",
+    prevScreen: "الشاشة السابقة",
+    nextScreen: "الشاشة التالية",
   },
 } satisfies Record<Locale, unknown>;
 
@@ -129,6 +141,10 @@ export type Project = {
   /** What the link points to; defaults to a live site. */
   linkKind?: "site" | "code";
   images?: { src: string; alt: Localized }[];
+  /** Phone screenshots (9:19.5) shown in a tappable phone frame instead of the cover. */
+  phone?: { src: string; alt: Localized }[];
+  /** Set to false when the live site refuses to load inside a frame. */
+  embed?: boolean;
 };
 
 export const projects: Project[] = [
@@ -167,6 +183,15 @@ export const projects: Project[] = [
     stack: ["Flutter", "Dart", "Supabase", "Google Maps", "just_audio", "Clean Architecture"],
     wide: true,
     link: "https://tahabeer.vercel.app/",
+    // The site sends X-Frame-Options: SAMEORIGIN.
+    embed: false,
+    phone: [
+      { src: "/work/tahabeer/phone/home.jpg", alt: { en: "Home: search and pick a reciter", ar: "الرئيسية: ابحث عن قارئ واختره" } },
+      { src: "/work/tahabeer/phone/quran.jpg", alt: { en: "Reading Surat Al-Baqarah in the Mushaf", ar: "قراءة سورة البقرة في المصحف" } },
+      { src: "/work/tahabeer/phone/tafsir.jpg", alt: { en: "Tafsir of Al-Fatihah", ar: "تفسير سورة الفاتحة" } },
+      { src: "/work/tahabeer/phone/mosques.jpg", alt: { en: "Mosque list with imams and filters", ar: "قائمة المساجد مع الأئمة والفلاتر" } },
+      { src: "/work/tahabeer/phone/map.jpg", alt: { en: "Map of 148 mosques in Riyadh", ar: "خريطة ١٤٨ مسجداً في الرياض" } },
+    ],
     images: [
       { src: "/work/tahabeer/app.png", alt: { en: "TAHABEER app: reciters, the Quran reader and tafsir", ar: "تطبيق تحابير: القراء وقارئ المصحف والتفسير" } },
       { src: "/work/tahabeer/mosques.png", alt: { en: "Mosque finder with a map of 148 mosques in Riyadh", ar: "دليل المساجد مع خريطة لـ ١٤٨ مسجداً في الرياض" } },

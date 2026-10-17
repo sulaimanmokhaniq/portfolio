@@ -3,7 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Arrow } from "@/components/arrow";
-import { ProjectArt } from "@/components/project-art";
+import { ProjectVisual } from "@/components/project-visual";
 import { Reveal } from "@/components/reveal";
 import { hasLocale, locales, profile, projects, ui } from "@/content/site";
 
@@ -53,7 +53,7 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/work/[s
             </h1>
             <p className="max-w-lg text-xl leading-relaxed">{project.summary[lang]}</p>
           </div>
-          <ProjectArt project={project} lang={lang} priority className="min-h-[320px]" />
+          <ProjectVisual project={project} lang={lang} priority className="min-h-[320px]" />
         </section>
       </Reveal>
 
