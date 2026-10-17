@@ -84,9 +84,11 @@ export function Header({ lang }: { lang: Locale }) {
               </Link>
             ))}
           </LayoutGroup>
-          <Link href={switchHref} hrefLang={other} aria-label={t.switchLangLabel} className={pill}>
+          {/* A full page load, not a client navigation: swapping the root <html> on the fly drops the
+              theme for a frame, so the page flashed the other colour mode. */}
+          <a href={switchHref} hrefLang={other} aria-label={t.switchLangLabel} className={pill}>
             {t.switchLang}
-          </Link>
+          </a>
           <button
             type="button"
             onClick={() => setTheme(isDark ? "light" : "dark")}
