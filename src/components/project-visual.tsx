@@ -56,7 +56,6 @@ export function ProjectVisual({
           tryLabel={t.tryLive}
           openLabel={t.openSite}
           closeLabel={t.close}
-          className="absolute bottom-5 left-1/2 z-10 -translate-x-1/2"
         />
       )}
     </div>
