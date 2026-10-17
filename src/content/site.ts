@@ -145,6 +145,12 @@ export const projects: Project[] = [
     },
     stack: ["Next.js", "TypeScript", "Supabase", "Realtime", "Tailwind CSS"],
     wide: true,
+    link: "https://wamdah-ksu.vercel.app/",
+    images: [
+      { src: "/work/wamdah/home.png", alt: { en: "Wamdah home page", ar: "الصفحة الرئيسية لومضة" } },
+      { src: "/work/wamdah/send.png", alt: { en: "Send screen: enter the receiver’s 6-digit code", ar: "شاشة الإرسال: أدخل رمز المستقبل المكوّن من ٦ أرقام" } },
+      { src: "/work/wamdah/showcase.png", alt: { en: "App screens showcase on the landing page", ar: "عرض شاشات التطبيق في الصفحة الرئيسية" } },
+    ],
   },
   {
     slug: "qalam",
