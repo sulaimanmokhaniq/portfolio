@@ -348,7 +348,6 @@ export const projects: Project[] = [
       ],
     },
     stack: ["JavaScript", "Chrome Extensions", "Manifest V3"],
-    wide: true,
     link: "https://github.com/sulaimanmokhaniq/keyboard-fixer",
     linkKind: "code",
     images: [
@@ -390,7 +389,6 @@ export const projects: Project[] = [
       ],
     },
     stack: ["HTML", "CSS", "JavaScript"],
-    wide: true,
     link: "https://github.com/sulaimanmokhaniq/handcraft",
     linkKind: "code",
     images: [
@@ -435,7 +433,6 @@ export const projects: Project[] = [
       ],
     },
     stack: ["React", "Vite", "React Router"],
-    wide: true,
     link: "https://github.com/sulaimanmokhaniq/used-books-store",
     linkKind: "code",
     images: [
@@ -480,7 +477,6 @@ export const projects: Project[] = [
       ],
     },
     stack: ["Flutter", "Firebase", "Python", "FastAPI", "Whisper", "librosa"],
-    wide: true,
     link: "https://github.com/Devsm7/Oratory",
     linkKind: "code",
     images: [
@@ -528,7 +524,6 @@ export const projects: Project[] = [
       ],
     },
     stack: ["React", "TypeScript", "Vite", "Tailwind CSS", "i18next", "Firebase", "Gemini API"],
-    wide: true,
     link: "https://github.com/Yazeed-AK/SAY",
     linkKind: "code",
     images: [
@@ -568,7 +563,6 @@ export const projects: Project[] = [
       ],
     },
     stack: ["React", "TypeScript", "Tailwind CSS", "shadcn/ui", "Lovable"],
-    wide: true,
     link: "https://github.com/yohanmkh/smart-attendance-system",
     linkKind: "code",
     images: [
