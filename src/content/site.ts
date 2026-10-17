@@ -24,6 +24,7 @@ export const ui = {
     switchLang: "عربي",
     switchLangLabel: "اقرأ الموقع بالعربية",
     themeLabel: "Toggle dark mode",
+    menuLabel: "Menu",
     tagline: "Product Engineer · Riyadh",
     heroTitle: ["Hi, I’m Sulaiman.", "I ship apps people love to open."],
     heroBody:
@@ -74,6 +75,7 @@ export const ui = {
     switchLang: "English",
     switchLangLabel: "Read the site in English",
     themeLabel: "تبديل الوضع الليلي",
+    menuLabel: "القائمة",
     tagline: "مهندس منتجات · الرياض",
     heroTitle: ["أهلاً، أنا سليمان.", "أبني تطبيقات يحب الناس فتحها."],
     heroBody:

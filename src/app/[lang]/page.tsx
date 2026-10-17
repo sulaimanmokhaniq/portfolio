@@ -108,7 +108,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                         {p.badge[lang]}
                       </span>
                     )}
-                    <h3 className="font-display text-5xl font-extrabold">
+                    <h3 className="font-display text-[clamp(2.25rem,9vw,3rem)] font-extrabold [overflow-wrap:anywhere]">
                       <Link href={`/${lang}/work/${p.slug}`} className={stretched}>
                         {p.name.en}{" "}
                         {p.arabicName && (
@@ -135,7 +135,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                 >
                   <ProjectVisual project={p} lang={lang} className="h-44" />
                   <span className="text-sm font-medium">{p.kind[lang]}</span>
-                  <h3 className="font-display text-4xl font-extrabold">
+                  <h3 className="font-display text-4xl font-extrabold [overflow-wrap:anywhere]">
                     <Link href={`/${lang}/work/${p.slug}`} className={stretched}>
                       {p.name[lang]}
                     </Link>
