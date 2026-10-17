@@ -15,7 +15,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
   return (
     <main>
       {/* Hero bento */}
-      <section className="mx-auto grid max-w-[1280px] grid-cols-1 gap-4 px-4 pt-4 sm:px-6 md:grid-cols-2 lg:grid-cols-3">
+      <section id="intro" className="mx-auto grid max-w-[1280px] scroll-mt-24 grid-cols-1 gap-4 px-4 pt-4 sm:px-6 md:grid-cols-2 lg:grid-cols-3">
         <Reveal className="md:col-span-2">
           <div className="flex h-full min-h-[440px] flex-col justify-between gap-8 rounded-tile bg-hero p-8 text-hero-text sm:p-11">
             <span className="inline-flex items-center gap-2 self-start rounded-full bg-hero-chip px-3.5 py-2 text-sm">

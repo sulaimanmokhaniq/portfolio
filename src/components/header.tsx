@@ -8,10 +8,10 @@ import { useEffect, useState, useSyncExternalStore } from "react";
 import { ui, type Locale } from "@/content/site";
 
 const subscribe = () => () => {};
-const sections = ["work", "about", "contact"] as const;
+const sections = ["intro", "work", "about", "contact"] as const;
 type Section = (typeof sections)[number];
 
-// Tracks which home-page section is on screen; case pages always count as "work".
+// Tracks which home-page section is on screen (the hero counts as "intro"); case pages always count as "work".
 function useActiveSection(isHome: boolean) {
   const [active, setActive] = useState<Section | null>(null);
 
