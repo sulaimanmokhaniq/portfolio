@@ -85,7 +85,7 @@ export function HeroCards({
             <motion.p
               custom={direction}
               variants={reduce ? fade : content}
-              className="font-display text-[clamp(2.1rem,3.2vw,3rem)] leading-[1.04] font-extrabold tracking-tight"
+              className="font-display text-[clamp(2.1rem,3.2vw,3rem)] leading-[1.1] font-extrabold tracking-tight rtl:leading-[1.4]"
             >
               {lines[index]}
             </motion.p>

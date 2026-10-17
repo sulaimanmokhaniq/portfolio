@@ -48,7 +48,7 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/work/[s
               </span>
             )}
             <span className="font-medium">{project.kind[lang]}</span>
-            <h1 className="font-display text-[clamp(3rem,7vw,6.5rem)] leading-[0.95] font-extrabold tracking-tight">
+            <h1 className="font-display text-[clamp(3rem,7vw,6.5rem)] leading-[1.02] font-extrabold tracking-tight rtl:leading-[1.35]">
               {project.name[lang]}
             </h1>
             <p className="max-w-lg text-xl leading-relaxed">{project.summary[lang]}</p>

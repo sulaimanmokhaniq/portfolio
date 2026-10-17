@@ -23,7 +23,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
               {t.tagline}
             </span>
             <div className="space-y-5">
-              <h1 className="font-display text-[clamp(2.6rem,5.6vw,5.25rem)] leading-[0.98] font-extrabold tracking-tight">
+              <h1 className="font-display text-[clamp(2.6rem,5.6vw,5.25rem)] leading-[1.06] font-extrabold tracking-tight rtl:leading-[1.38]">
                 {t.heroTitle[0]}
                 <br />
                 {t.heroTitle[1]}
@@ -74,7 +74,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         <Reveal delay={0.2}>
           <div className="flex h-full min-h-[210px] flex-col justify-between rounded-tile bg-peri p-8 text-ink">
             <span>{t.winLabel}</span>
-            <span className="font-display text-4xl leading-tight font-extrabold">
+            <span className="font-display text-4xl leading-tight font-extrabold rtl:leading-[1.4]">
               {t.winValue[0]}
               <br />
               {t.winValue[1]}
@@ -181,7 +181,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       <section id="contact" className="mx-auto max-w-[1280px] scroll-mt-24 px-4 pt-24 pb-6 sm:px-6">
         <Reveal>
           <div className="flex flex-wrap items-end justify-between gap-8 rounded-tile bg-flame p-8 text-ink sm:p-14">
-            <h2 className="font-display text-[clamp(2.75rem,6vw,6rem)] leading-[0.95] font-extrabold tracking-tight">
+            <h2 className="font-display text-[clamp(2.75rem,6vw,6rem)] leading-[1.02] rtl:leading-[1.35] font-extrabold tracking-tight">
               {t.contactTitle[0]}
               <br />
               {t.contactTitle[1]}
