@@ -1,18 +1,25 @@
 "use client";
 
-import { AnimatePresence, motion, useReducedMotion } from "motion/react";
+import { AnimatePresence, motion, useReducedMotion, type Variants } from "motion/react";
 import { useEffect, useState } from "react";
 
 const COLORS = ["bg-flame", "bg-sun", "bg-peri", "bg-mint", "bg-coral"];
 const INTERVAL = 5000;
 
-// Where each card sits in the deck: 0 is the front card, 1 and 2 peek out behind it.
-const slots = [
-  { y: 0, scale: 1, rotate: 0, opacity: 1 },
-  { y: -18, scale: 0.94, rotate: -3, opacity: 1 },
-  { y: -36, scale: 0.88, rotate: 3, opacity: 1 },
-  { y: -54, scale: 0.82, rotate: 0, opacity: 0 },
-];
+// Each card fills the whole tile. The next one pushes the current one out sideways.
+const card: Variants = {
+  enter: (dir: number) => ({ x: `${100 * dir}%`, scale: 0.86, rotate: 8 * dir }),
+  center: { x: "0%", scale: 1, rotate: 0 },
+  exit: (dir: number) => ({ x: `${-100 * dir}%`, scale: 0.86, rotate: -8 * dir }),
+};
+
+const content: Variants = {
+  enter: (dir: number) => ({ x: 80 * dir, opacity: 0 }),
+  center: { x: 0, opacity: 1, transition: { delay: 0.25, type: "spring", stiffness: 140, damping: 18 } },
+  exit: { opacity: 0, transition: { duration: 0.15 } },
+};
+
+const fade: Variants = { enter: { opacity: 0 }, center: { opacity: 1 }, exit: { opacity: 0 } };
 
 export function HeroCards({
   lines,
@@ -39,8 +46,6 @@ export function HeroCards({
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [paused, reduce, index]);
 
-  const visible = [0, 1, 2].map((offset) => (index + offset) % lines.length);
-
   return (
     <div
       role="region"
@@ -52,68 +57,49 @@ export function HeroCards({
       onFocus={() => setPaused(true)}
       onBlur={() => setPaused(false)}
     >
-      <svg viewBox="0 0 200 200" className="absolute inset-0 size-full opacity-60" aria-hidden="true">
-        <defs>
-          <pattern id="dots" width="16" height="16" patternUnits="userSpaceOnUse">
-            <circle cx="2" cy="2" r="1.6" fill="currentColor" className="text-line" />
-          </pattern>
-        </defs>
-        <rect width="200" height="200" fill="url(#dots)" />
-      </svg>
-
       <button
         type="button"
         onClick={next}
         aria-label={nextLabel}
-        className="absolute inset-x-6 top-16 bottom-14 cursor-pointer rounded-[1.5rem] text-start"
+        className="absolute inset-0 cursor-pointer rounded-tile text-start"
       >
-        <AnimatePresence initial={false}>
-          {visible
-            .map((line, slot) => ({ line, slot }))
-            .reverse()
-            .map(({ line, slot }) => (
-              <motion.div
-                key={line}
-                aria-hidden={slot !== 0}
-                className={`absolute inset-0 flex flex-col justify-between rounded-[1.5rem] p-7 text-ink shadow-[0_18px_40px_-18px_rgb(0_0_0/0.35)] ${COLORS[line % COLORS.length]}`}
-                style={{ zIndex: 3 - slot, transformOrigin: "50% 0%" }}
-                initial={reduce ? { opacity: 0 } : slots[3]}
-                animate={reduce ? { opacity: slot === 0 ? 1 : 0 } : slots[slot]}
-                exit={
-                  reduce
-                    ? { opacity: 0, zIndex: 4 }
-                    : {
-                        x: `${135 * direction}%`,
-                        rotate: 14 * direction,
-                        zIndex: 4,
-                        transition: { duration: 0.5, ease: [0.4, 0, 0.2, 1] },
-                      }
-                }
-                transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-              >
-                <span
-                  dir="ltr"
-                  className={`self-start font-display text-sm font-bold tabular-nums transition-opacity duration-300 ${slot === 0 ? "delay-200" : "opacity-0"}`}
-                >
-                  {String(line + 1).padStart(2, "0")} / {String(lines.length).padStart(2, "0")}
-                </span>
-                <p
-                  className={`font-display text-[clamp(1.9rem,2.9vw,2.75rem)] leading-[1.06] font-extrabold tracking-tight transition-opacity duration-300 ${slot === 0 ? "delay-200" : "opacity-0"}`}
-                >
-                  {lines[line]}
-                </p>
-              </motion.div>
-            ))}
+        <AnimatePresence initial={false} custom={direction}>
+          <motion.div
+            key={index}
+            custom={direction}
+            variants={reduce ? fade : card}
+            initial="enter"
+            animate="center"
+            exit="exit"
+            transition={reduce ? { duration: 0.3 } : { type: "spring", stiffness: 90, damping: 17, mass: 0.9 }}
+            className={`absolute inset-0 flex flex-col justify-between rounded-tile p-8 pb-14 text-ink sm:p-10 sm:pb-14 ${COLORS[index % COLORS.length]}`}
+          >
+            <motion.span
+              custom={direction}
+              variants={reduce ? fade : content}
+              dir="ltr"
+              className="self-start font-display text-sm font-bold tabular-nums"
+            >
+              {String(index + 1).padStart(2, "0")} / {String(lines.length).padStart(2, "0")}
+            </motion.span>
+            <motion.p
+              custom={direction}
+              variants={reduce ? fade : content}
+              className="font-display text-[clamp(2.1rem,3.2vw,3rem)] leading-[1.04] font-extrabold tracking-tight"
+            >
+              {lines[index]}
+            </motion.p>
+          </motion.div>
         </AnimatePresence>
       </button>
 
       <p className="sr-only">{lines[index]}</p>
 
-      <div className="absolute inset-x-0 bottom-5 flex justify-center gap-1.5" aria-hidden="true">
+      <div className="pointer-events-none absolute inset-x-0 bottom-6 flex justify-center gap-1.5" aria-hidden="true">
         {lines.map((_, i) => (
           <span
             key={i}
-            className={`h-1.5 rounded-full bg-text transition-all duration-500 ${i === index ? "w-6" : "w-1.5 opacity-25"}`}
+            className={`h-1.5 rounded-full bg-ink transition-all duration-500 ${i === index ? "w-6" : "w-1.5 opacity-30"}`}
           />
         ))}
       </div>
