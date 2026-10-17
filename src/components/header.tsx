@@ -71,12 +71,12 @@ export function Header({ lang }: { lang: Locale }) {
                 key={id}
                 href={`/${lang}#${id}`}
                 aria-current={active === id ? "location" : undefined}
-                className={`${pill} relative ${active === id ? "text-hero-text hover:bg-transparent" : ""}`}
+                className={`${pill} relative ${active === id ? "text-ground hover:bg-transparent" : ""}`}
               >
                 {active === id && (
                   <motion.span
                     layoutId="nav-pill"
-                    className="absolute inset-0 rounded-full bg-hero"
+                    className="absolute inset-0 rounded-full bg-text"
                     transition={reduce ? { duration: 0 } : { type: "spring", stiffness: 380, damping: 32 }}
                   />
                 )}
