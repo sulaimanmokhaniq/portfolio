@@ -4,7 +4,7 @@ import { AnimatePresence, motion, useReducedMotion, type Variants } from "motion
 import { useEffect, useState } from "react";
 
 // Leaves out sun and peri (they sit next to this tile) and coral (too close to flame).
-const COLORS = ["bg-flame", "bg-mint", "bg-pink"];
+const COLORS = ["bg-flame", "bg-mint", "bg-sky"];
 const INTERVAL = 2000;
 
 // Each card fills the whole tile. The next one pushes the current one out sideways.
