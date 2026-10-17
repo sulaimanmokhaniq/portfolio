@@ -76,6 +76,8 @@ html {
 body {
   background: var(--ground);
   color: var(--text);
+  /* Slide-in animations start off-screen; never let them widen the page on phones. */
+  overflow-x: clip;
 }
 
 ::selection {

@@ -29,7 +29,7 @@ export function ProjectVisual({
   if (project.phone) {
     return (
       <div
-        className={`relative z-10 flex items-center justify-center rounded-[1.25rem] px-4 py-7 ${className}`}
+        className={`relative z-10 flex items-center justify-center overflow-hidden rounded-[1.25rem] px-4 py-7 ${className}`}
         style={{ background: project.shade }}
       >
         <PhoneDemo

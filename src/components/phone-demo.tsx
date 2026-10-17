@@ -1,19 +1,21 @@
 "use client";
 
 import Image from "next/image";
-import { AnimatePresence, motion, useReducedMotion, type Variants } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { useState } from "react";
 import { Arrow } from "@/components/arrow";
 
 type Shot = { src: string; alt: string };
 
-const screen: Variants = {
-  enter: (d: number) => ({ x: `${100 * d}%` }),
-  center: { x: "0%" },
-  exit: (d: number) => ({ x: `${-30 * d}%`, filter: "brightness(0.7)" }),
+// Where a phone sits for its distance from the current screen: centre, beside it, or tucked away behind.
+const SLOTS: Record<number, { x: string; scale: number; z: number; shade: number }> = {
+  0: { x: "0%", scale: 1, z: 3, shade: 1 },
+  1: { x: "62%", scale: 0.8, z: 2, shade: 0.88 },
+  2: { x: "84%", scale: 0.6, z: 1, shade: 0.75 },
 };
 
-// A phone frame you can tap, swipe or click through, like moving between screens of the real app.
+// Three phones side by side, the current screen big in the middle. Tap a side phone, swipe or use the
+// arrows to bring the next screen to the centre, like moving through the real app.
 export function PhoneDemo({
   shots,
   label,
@@ -28,49 +30,68 @@ export function PhoneDemo({
   rtl?: boolean;
 }) {
   const reduce = useReducedMotion();
-  const [[index, step], setState] = useState([0, 1]);
-  const go = (s: number) => setState(([i]) => [(i + s + shots.length) % shots.length, s]);
-  // In Arabic the next screen comes in from the left.
-  const dir = step * (rtl ? -1 : 1);
+  const [index, setIndex] = useState(0);
+  const n = shots.length;
+  const go = (step: number) => setIndex((i) => (i + step + n) % n);
+  // In Arabic the next screen waits on the left.
+  const side = rtl ? -1 : 1;
 
   return (
-    <div role="region" aria-roledescription="carousel" aria-label={label} className="flex flex-col items-center gap-4">
-      <div className="relative aspect-[9/19.5] w-[190px] rounded-[2.2rem] bg-ink p-[7px] shadow-[0_24px_48px_-18px_rgba(0,0,0,0.45)] sm:w-[200px]">
-        <span aria-hidden="true" className="absolute top-24 -right-[3px] h-14 w-[3px] rounded-r bg-ink" />
-        <span aria-hidden="true" className="absolute top-20 -left-[3px] h-8 w-[3px] rounded-l bg-ink" />
-        <span aria-hidden="true" className="absolute top-32 -left-[3px] h-12 w-[3px] rounded-l bg-ink" />
-        <div className="relative size-full overflow-hidden rounded-[1.75rem] bg-ink">
-          <AnimatePresence initial={false} custom={dir}>
-            <motion.div
-              key={index}
-              custom={dir}
-              variants={screen}
-              initial="enter"
-              animate="center"
-              exit="exit"
-              transition={reduce ? { duration: 0 } : { type: "spring", stiffness: 260, damping: 30 }}
-              drag={reduce ? false : "x"}
-              dragConstraints={{ left: 0, right: 0 }}
-              dragElastic={0.5}
-              onDragEnd={(_, info) => {
-                if (Math.abs(info.offset.x) < 50) return;
-                const forward = info.offset.x < 0 !== rtl;
-                go(forward ? 1 : -1);
-              }}
-              onTap={() => go(1)}
-              className="absolute inset-0 cursor-pointer touch-pan-y"
-            >
-              <Image
-                src={shots[index].src}
-                alt={shots[index].alt}
-                fill
-                sizes="200px"
-                draggable={false}
-                className="pointer-events-none object-cover select-none"
-              />
-            </motion.div>
-          </AnimatePresence>
-        </div>
+    <div
+      role="region"
+      aria-roledescription="carousel"
+      aria-label={label}
+      className="flex w-full flex-col items-center gap-5"
+    >
+      <div className="relative h-[420px] w-full max-w-[520px] sm:h-[460px]">
+        {shots.map((shot, i) => {
+          // Signed distance from the current screen, wrapped to -2..2.
+          let d = (i - index + n) % n;
+          if (d > n / 2) d -= n;
+          const slot = SLOTS[Math.abs(d)] ?? SLOTS[2];
+          const x = Math.abs(d) === 0 ? "0%" : `${Math.sign(d) * side * parseFloat(slot.x)}%`;
+          const hidden = Math.abs(d) > 1;
+          return (
+            <div key={shot.src} className="pointer-events-none absolute inset-0 flex justify-center" style={{ zIndex: slot.z }}>
+              <motion.button
+                type="button"
+                tabIndex={-1}
+                aria-hidden={d !== 0}
+                aria-label={d === 0 ? undefined : d > 0 ? nextLabel : prevLabel}
+                onClick={() => d !== 0 && go(d)}
+                drag={d === 0 && !reduce ? "x" : false}
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.4}
+                onDragEnd={(_, info) => {
+                  if (Math.abs(info.offset.x) < 50) return;
+                  go(info.offset.x < 0 !== rtl ? 1 : -1);
+                }}
+                initial={false}
+                animate={{
+                  x,
+                  scale: slot.scale,
+                  filter: `brightness(${slot.shade})`,
+                  opacity: hidden ? 0 : 1,
+                }}
+                transition={reduce ? { duration: 0 } : { type: "spring", stiffness: 220, damping: 28 }}
+                className={`aspect-[9/19.5] h-full rounded-[2.2rem] bg-ink p-[7px] shadow-[0_24px_48px_-18px_rgba(0,0,0,0.45)] ${
+                  d === 0 ? "cursor-grab touch-pan-y active:cursor-grabbing" : "cursor-pointer"
+                } ${hidden ? "" : "pointer-events-auto"}`}
+              >
+                <span className="relative block size-full overflow-hidden rounded-[1.75rem] bg-ink">
+                  <Image
+                    src={shot.src}
+                    alt={d === 0 ? shot.alt : ""}
+                    fill
+                    sizes="220px"
+                    draggable={false}
+                    className="pointer-events-none object-cover select-none"
+                  />
+                </span>
+              </motion.button>
+            </div>
+          );
+        })}
       </div>
 
       <div className="flex items-center gap-3">
@@ -78,9 +99,9 @@ export function PhoneDemo({
           type="button"
           onClick={() => go(-1)}
           aria-label={prevLabel}
-          className="grid size-11 place-items-center rounded-full bg-ink text-white transition-transform hover:-translate-y-0.5"
+          className="grid size-9 place-items-center rounded-full bg-white text-ink transition-transform hover:-translate-y-0.5"
         >
-          <Arrow className="rotate-180" />
+          <Arrow className="size-4 rotate-180" />
         </button>
         <div className="flex gap-1.5" aria-hidden="true">
           {shots.map((s, i) => (
@@ -94,9 +115,9 @@ export function PhoneDemo({
           type="button"
           onClick={() => go(1)}
           aria-label={nextLabel}
-          className="grid size-11 place-items-center rounded-full bg-ink text-white transition-transform hover:-translate-y-0.5"
+          className="grid size-9 place-items-center rounded-full bg-white text-ink transition-transform hover:-translate-y-0.5"
         >
-          <Arrow />
+          <Arrow className="size-4" />
         </button>
       </div>
       <p className="sr-only" aria-live="polite">
