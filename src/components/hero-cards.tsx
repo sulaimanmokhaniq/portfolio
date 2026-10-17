@@ -3,8 +3,9 @@
 import { AnimatePresence, motion, useReducedMotion, type Variants } from "motion/react";
 import { useEffect, useState } from "react";
 
-const COLORS = ["bg-flame", "bg-sun", "bg-peri", "bg-mint", "bg-coral"];
-const INTERVAL = 5000;
+// Leaves out sun and peri: those tiles sit right next to this one on some screen sizes.
+const COLORS = ["bg-flame", "bg-mint", "bg-coral"];
+const INTERVAL = 2000;
 
 // Each card fills the whole tile. The next one pushes the current one out sideways.
 const card: Variants = {
@@ -15,7 +16,7 @@ const card: Variants = {
 
 const content: Variants = {
   enter: (dir: number) => ({ x: 80 * dir, opacity: 0 }),
-  center: { x: 0, opacity: 1, transition: { delay: 0.25, type: "spring", stiffness: 140, damping: 18 } },
+  center: { x: 0, opacity: 1, transition: { delay: 0.15, type: "spring", stiffness: 160, damping: 18 } },
   exit: { opacity: 0, transition: { duration: 0.15 } },
 };
 
@@ -71,14 +72,14 @@ export function HeroCards({
             initial="enter"
             animate="center"
             exit="exit"
-            transition={reduce ? { duration: 0.3 } : { type: "spring", stiffness: 90, damping: 17, mass: 0.9 }}
-            className={`absolute inset-0 flex flex-col justify-between rounded-tile p-8 pb-14 text-ink sm:p-10 sm:pb-14 ${COLORS[index % COLORS.length]}`}
+            transition={reduce ? { duration: 0.3 } : { type: "spring", stiffness: 130, damping: 19, mass: 0.8 }}
+            className={`absolute inset-0 flex flex-col justify-center rounded-tile p-8 py-16 text-ink sm:px-10 ${COLORS[index % COLORS.length]}`}
           >
             <motion.span
               custom={direction}
               variants={reduce ? fade : content}
               dir="ltr"
-              className="self-start font-display text-sm font-bold tabular-nums"
+              className={`absolute top-8 font-display text-sm font-bold tabular-nums sm:top-10 ${rtl ? "right-8 sm:right-10" : "left-8 sm:left-10"}`}
             >
               {String(index + 1).padStart(2, "0")} / {String(lines.length).padStart(2, "0")}
             </motion.span>
