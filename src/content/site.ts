@@ -735,8 +735,8 @@ export const clubs = [
   {
     name: { en: "Digital Innovation Unit", ar: "Digital Innovation Unit" },
     role: { en: "Technical Committee Member", ar: "عضو اللجنة التقنية" },
-    period: { en: "2025 – Now", ar: "٢٠٢٥ – الآن" },
-    current: true,
+    period: { en: "2025 – 2026", ar: "٢٠٢٥ – ٢٠٢٦" },
+    current: false,
     logo: "/clubs/diu.png",
   },
   {
