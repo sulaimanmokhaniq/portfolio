@@ -165,38 +165,80 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             {t.clubsTitle}
           </h2>
         </Reveal>
-        <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
-          {clubs.map((c, i) => (
-            <li key={c.logo}>
-              <Reveal delay={(i % 3) * 0.06} className="h-full">
-                <div className="flex h-full flex-col gap-6 rounded-tile border border-line bg-surface p-7 transition-transform hover:-translate-y-1 sm:p-8">
-                  <div className="flex items-start justify-between gap-4">
-                    <Image
-                      src={c.logo}
-                      alt=""
-                      width={88}
-                      height={88}
-                      className="size-[88px] rounded-[1.4rem] border border-line object-cover"
-                    />
-                    {c.current && (
-                      <span className="flex items-center gap-2 rounded-full bg-mint px-3 py-1.5 text-sm font-semibold text-ink">
-                        <span className="size-2 rounded-full bg-ink" />
-                        {t.clubsNow}
-                      </span>
-                    )}
+        <ul className="grid grid-flow-dense grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
+          {clubs.map((c, i) => {
+            const big = c.size === "big";
+            const dark = c.color === "var(--hero)";
+            return (
+              <li
+                key={c.logo}
+                className={big ? "md:col-span-2 lg:row-span-2" : c.size === "wide" ? "md:col-span-2" : ""}
+              >
+                <Reveal delay={(i % 4) * 0.06} className="h-full">
+                  <div
+                    className={`flex h-full flex-col gap-6 rounded-tile p-7 transition-transform hover:-translate-y-1 sm:p-8 ${
+                      big ? "lg:p-10" : ""
+                    } ${dark ? "border border-line text-hero-text" : "text-ink"}`}
+                    style={{ background: c.color }}
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <Image
+                        src={c.logo}
+                        alt=""
+                        width={big ? 160 : 96}
+                        height={big ? 160 : 96}
+                        className={`rounded-[1.4rem] object-cover shadow-[0_14px_30px_-14px_rgba(0,0,0,0.55)] ${
+                          big ? "size-24 sm:size-36 lg:size-40 lg:rounded-[2rem]" : "size-20 sm:size-24"
+                        }`}
+                      />
+                      {c.current ? (
+                        <span
+                          className={`flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-semibold ${
+                            dark ? "bg-white text-ink" : "bg-ink text-white"
+                          }`}
+                        >
+                          <span className="relative flex size-2">
+                            <span className="absolute inline-flex size-full animate-ping rounded-full bg-[#5BE38C] motion-reduce:hidden" />
+                            <span className="relative inline-flex size-2 rounded-full bg-[#5BE38C]" />
+                          </span>
+                          {t.clubsNow}
+                        </span>
+                      ) : (
+                        <span
+                          className={`rounded-full px-3 py-1.5 text-sm font-semibold ${
+                            dark ? "bg-white text-ink" : "bg-ink text-white"
+                          }`}
+                        >
+                          {c.period[lang]}
+                        </span>
+                      )}
+                    </div>
+                    <div className="mt-auto flex flex-wrap items-end justify-between gap-x-6 gap-y-4">
+                      <div className="flex flex-col gap-2">
+                        <h3
+                          className={`font-display leading-tight font-extrabold tracking-tight rtl:leading-[1.4] ${
+                            big ? "text-[clamp(2rem,7vw,3.25rem)] leading-[1.05]" : "text-2xl sm:text-[1.7rem]"
+                          }`}
+                        >
+                          {c.name[lang]}
+                        </h3>
+                        <p className={big ? "text-xl" : "text-lg"}>{c.role[lang]}</p>
+                        {c.current && <p className="font-medium">{c.period[lang]}</p>}
+                      </div>
+                      {"stat" in c && (
+                        <p className="flex items-baseline gap-2 rounded-2xl bg-ink px-4 py-3 text-white">
+                          <span className="font-display text-4xl leading-none font-extrabold">
+                            {c.stat.value[lang]}
+                          </span>
+                          <span>{c.stat.label[lang]}</span>
+                        </p>
+                      )}
+                    </div>
                   </div>
-                  <div className="mt-auto flex flex-col gap-2">
-                    <h3 className="font-display text-2xl leading-tight font-extrabold tracking-tight rtl:leading-[1.4]">
-                      {c.name[lang]}
-                    </h3>
-                    <p className="text-lg">{c.role[lang]}</p>
-                    {c.note && <p className="text-muted">{c.note[lang]}</p>}
-                    <p className="text-muted">{c.period[lang]}</p>
-                  </div>
-                </div>
-              </Reveal>
-            </li>
-          ))}
+                </Reveal>
+              </li>
+            );
+          })}
         </ul>
       </section>
 

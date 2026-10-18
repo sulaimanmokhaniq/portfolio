@@ -716,28 +716,17 @@ export const experience = [
   },
 ];
 
-// Student clubs and teams, newest role first. Logos live in public/clubs/.
+// Student clubs and teams, laid out as bento tiles. Logos live in public/clubs/.
+// size: "big" takes a 2×2 block on wide screens, "wide" spans two columns, "small" one.
 export const clubs = [
-  {
-    name: { en: "KSU CPC", ar: "KSU CPC" },
-    role: { en: "Vice Leader, Executive Committee", ar: "نائب قائد اللجنة التنفيذية" },
-    period: { en: "2025 – 2026", ar: "٢٠٢٥ – ٢٠٢٦" },
-    current: false,
-    logo: "/clubs/cpc.png",
-  },
   {
     name: { en: "Future Technology Club", ar: "Future Technology Club" },
     role: { en: "Vice President of Membership Affairs", ar: "نائب الرئيس لشؤون العضوية" },
     period: { en: "2025 – Now", ar: "٢٠٢٥ – الآن" },
     current: true,
     logo: "/clubs/ftc.png",
-  },
-  {
-    name: { en: "Digital Innovation Unit", ar: "Digital Innovation Unit" },
-    role: { en: "Technical Committee Member", ar: "عضو اللجنة التقنية" },
-    period: { en: "2025 – 2026", ar: "٢٠٢٥ – ٢٠٢٦" },
-    current: false,
-    logo: "/clubs/diu.png",
+    color: "#FF6A2B",
+    size: "big",
   },
   {
     name: { en: "3DC · 3D Printing Club", ar: "3DC · نادي الطباعة ثلاثية الأبعاد" },
@@ -745,13 +734,26 @@ export const clubs = [
     period: { en: "2024 – Now", ar: "٢٠٢٤ – الآن" },
     current: true,
     logo: "/clubs/3dc.png",
+    color: "#6FC8FF",
+    size: "wide",
   },
   {
-    name: { en: "BIG n", ar: "BIG n" },
-    role: { en: "Member Affairs Team, HR Committee", ar: "فريق شؤون الأعضاء، لجنة الموارد البشرية" },
-    period: { en: "2024 – 2025", ar: "٢٠٢٤ – ٢٠٢٥" },
+    name: { en: "KSU CPC", ar: "KSU CPC" },
+    role: { en: "Vice Leader, Executive Committee", ar: "نائب قائد اللجنة التنفيذية" },
+    period: { en: "2025 – 2026", ar: "٢٠٢٥ – ٢٠٢٦" },
     current: false,
-    logo: "/clubs/bign.png",
+    logo: "/clubs/cpc.png",
+    color: "#9BE3C1",
+    size: "small",
+  },
+  {
+    name: { en: "Digital Innovation Unit", ar: "Digital Innovation Unit" },
+    role: { en: "Technical Committee Member", ar: "عضو اللجنة التقنية" },
+    period: { en: "2025 – 2026", ar: "٢٠٢٥ – ٢٠٢٦" },
+    current: false,
+    logo: "/clubs/diu.png",
+    color: "#FFD43B",
+    size: "small",
   },
   {
     name: { en: "Artificial Intelligence Club", ar: "نادي الذكاء الاصطناعي" },
@@ -759,6 +761,17 @@ export const clubs = [
     period: { en: "2025 – 2026", ar: "٢٠٢٥ – ٢٠٢٦" },
     current: false,
     logo: "/clubs/ai.png",
-    note: { en: "30 volunteer hours · certificate of appreciation", ar: "٣٠ ساعة تطوعية · شهادة شكر وتقدير" },
+    color: "#B8C4FF",
+    size: "wide",
+    stat: { value: { en: "30", ar: "٣٠" }, label: { en: "volunteer hours", ar: "ساعة تطوعية" } },
   },
-];
+  {
+    name: { en: "BIG n", ar: "BIG n" },
+    role: { en: "Member Affairs Team, HR Committee", ar: "فريق شؤون الأعضاء، لجنة الموارد البشرية" },
+    period: { en: "2024 – 2025", ar: "٢٠٢٤ – ٢٠٢٥" },
+    current: false,
+    logo: "/clubs/bign.png",
+    color: "var(--hero)",
+    size: "wide",
+  },
+] as const;
