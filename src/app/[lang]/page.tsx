@@ -51,7 +51,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                 href={profile.cv}
                 label={t.downloadCv}
                 printingLabel={t.printingCv}
-                className="inline-flex min-h-12 items-center rounded-full bg-ground px-6 font-medium text-text transition-transform hover:-translate-y-0.5"
+                className="inline-flex min-h-12 items-center rounded-full bg-ground px-6 font-medium text-text transition-transform hover:-translate-y-0.5 dark:bg-[#f3f1ec] dark:text-ink"
               />
             </div>
           </div>
