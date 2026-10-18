@@ -71,7 +71,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         </Reveal>
 
         <Reveal delay={0.16}>
-          <div className="flex h-full min-h-[210px] flex-col gap-4 rounded-tile border border-line bg-surface p-8">
+          <div className="flex h-full min-h-[210px] flex-col gap-4 rounded-tile border border-line bg-surface p-8 dark-teal">
             <span className="text-muted">{t.stackLabel}</span>
             <ul className="flex flex-wrap gap-2" dir="ltr">
               {profile.stack.map((s) => (
@@ -258,7 +258,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         className="mx-auto grid max-w-[1280px] scroll-mt-24 grid-cols-1 gap-4 px-4 pt-24 sm:px-6 lg:grid-cols-3"
       >
         <Reveal className="lg:col-span-2">
-          <div className="h-full rounded-tile border border-line bg-surface p-8 sm:p-10">
+          <div className="h-full rounded-tile border border-line bg-surface p-8 sm:p-10 dark-navy">
             <h2 className="mb-6 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">{t.workedTitle}</h2>
             <ol>
               {experience.map((e) => (
@@ -277,7 +277,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           </div>
         </Reveal>
         <Reveal delay={0.08}>
-          <div className="flex h-full flex-col justify-between gap-5 rounded-tile bg-hero p-8 text-hero-text sm:p-10">
+          <div className="flex h-full flex-col justify-between gap-5 rounded-tile bg-hero p-8 text-hero-text sm:p-10 dark-teal">
             <span className="text-hero-muted">{t.communityLabel}</span>
             <span dir="ltr" className="font-display text-6xl leading-none font-extrabold">
               500+

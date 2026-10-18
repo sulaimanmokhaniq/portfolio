@@ -35,15 +35,40 @@
 
 .dark {
   --ground: #111110;
-  --surface: #1b1b19;
-  --line: #2c2c29;
-  --chip: #262623;
+  --surface: #1e1e1b;
+  --line: #34332f;
+  --chip: #2a2a26;
   --text: #f3f1ec;
   --muted: #b3afa6;
-  --hero: #1f1f1d;
+  --hero: #172038;
   --hero-text: #f3f1ec;
-  --hero-chip: #31312d;
-  --hero-muted: #cdc9c0;
+  --hero-chip: #253155;
+  --hero-muted: #cfd5e6;
+}
+
+/* Dark mode: the feature tiles turn deep navy with a soft sky glow, and plain cards get a faint top
+   light, so neither melts into the near-black page. */
+.dark .bg-hero {
+  background-image: radial-gradient(120% 90% at 100% 0%, rgb(111 200 255 / 0.16), transparent 60%);
+}
+.dark .bg-surface {
+  background-image: linear-gradient(180deg, rgb(255 255 255 / 0.045), transparent 55%);
+}
+/* Home-page info tiles get their own deep colour in dark mode instead of plain charcoal. */
+.dark .dark-navy {
+  --muted: #c3cbe0;
+  --line: #2b3759;
+  border-color: transparent;
+  background-color: #172038;
+  background-image: radial-gradient(120% 90% at 100% 0%, rgb(111 200 255 / 0.14), transparent 60%);
+}
+.dark .dark-teal {
+  --muted: #bfe3d6;
+  --hero-muted: #cdeae0;
+  --chip: #1c4a41;
+  border-color: transparent;
+  background-color: #10302a;
+  background-image: radial-gradient(120% 90% at 100% 0%, rgb(155 227 193 / 0.14), transparent 60%);
 }
 
 @theme inline {
