@@ -168,17 +168,25 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         <ul className="grid grid-flow-dense grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-4">
           {clubs.map((c, i) => {
             const big = c.size === "big";
-            const dark = c.color === "var(--hero)";
+            const dark = "dark" in c;
             return (
               <li
                 key={c.logo}
-                className={big ? "md:col-span-2 lg:row-span-2" : c.size === "wide" ? "md:col-span-2" : ""}
+                className={
+                  big
+                    ? "md:col-span-2 lg:row-span-2"
+                    : c.size === "wide"
+                      ? "md:col-span-2"
+                      : c.size === "half"
+                        ? "lg:col-span-2"
+                        : ""
+                }
               >
                 <Reveal delay={(i % 4) * 0.06} className="h-full">
                   <div
                     className={`flex h-full flex-col gap-6 rounded-tile p-7 transition-transform hover:-translate-y-1 sm:p-8 ${
                       big ? "lg:p-10" : ""
-                    } ${dark ? "border border-line text-hero-text" : "text-ink"}`}
+                    } ${dark ? "text-[#F3F1EC] dark:border dark:border-line" : "text-ink"}`}
                     style={{ background: c.color }}
                   >
                     <div className="flex items-start justify-between gap-4">
@@ -226,7 +234,9 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                         {c.current && <p className="font-medium">{c.period[lang]}</p>}
                       </div>
                       {"stat" in c && (
-                        <p className="flex items-baseline gap-2 rounded-2xl bg-ink px-4 py-3 text-white">
+                        <p
+                          className={`flex items-baseline gap-2 rounded-2xl px-4 py-3 ${dark ? "bg-white text-ink" : "bg-ink text-white"}`}
+                        >
                           <span className="font-display text-4xl leading-none font-extrabold">
                             {c.stat.value[lang]}
                           </span>

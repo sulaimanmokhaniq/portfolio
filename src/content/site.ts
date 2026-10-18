@@ -717,7 +717,9 @@ export const experience = [
 ];
 
 // Student clubs and teams, laid out as bento tiles. Logos live in public/clubs/.
-// size: "big" takes a 2×2 block on wide screens, "wide" spans two columns, "small" one.
+// Each tile is a soft tint of its club's logo colour (dark tiles for the clubs with dark logos).
+// size: "big" is a 2×2 block on wide screens, "wide" spans two columns from tablets up,
+// "half" spans two columns on desktop only, "small" is one column.
 export const clubs = [
   {
     name: { en: "Future Technology Club", ar: "Future Technology Club" },
@@ -725,7 +727,7 @@ export const clubs = [
     period: { en: "2025 – Now", ar: "٢٠٢٥ – الآن" },
     current: true,
     logo: "/clubs/ftc.png",
-    color: "#FF6A2B",
+    color: "#DDD0F6",
     size: "big",
   },
   {
@@ -734,8 +736,17 @@ export const clubs = [
     period: { en: "2024 – Now", ar: "٢٠٢٤ – الآن" },
     current: true,
     logo: "/clubs/3dc.png",
-    color: "#6FC8FF",
+    color: "#FDDCC6",
     size: "wide",
+  },
+  {
+    name: { en: "BIG n", ar: "BIG n" },
+    role: { en: "Member Affairs Team, HR Committee", ar: "فريق شؤون الأعضاء، لجنة الموارد البشرية" },
+    period: { en: "2024 – 2025", ar: "٢٠٢٤ – ٢٠٢٥" },
+    current: false,
+    logo: "/clubs/bign.png",
+    color: "#D6D3FA",
+    size: "small",
   },
   {
     name: { en: "KSU CPC", ar: "KSU CPC" },
@@ -743,16 +754,8 @@ export const clubs = [
     period: { en: "2025 – 2026", ar: "٢٠٢٥ – ٢٠٢٦" },
     current: false,
     logo: "/clubs/cpc.png",
-    color: "#9BE3C1",
-    size: "small",
-  },
-  {
-    name: { en: "Digital Innovation Unit", ar: "Digital Innovation Unit" },
-    role: { en: "Technical Committee Member", ar: "عضو اللجنة التقنية" },
-    period: { en: "2025 – 2026", ar: "٢٠٢٥ – ٢٠٢٦" },
-    current: false,
-    logo: "/clubs/diu.png",
-    color: "#FFD43B",
+    color: "#0E1C38",
+    dark: true,
     size: "small",
   },
   {
@@ -761,17 +764,18 @@ export const clubs = [
     period: { en: "2025 – 2026", ar: "٢٠٢٥ – ٢٠٢٦" },
     current: false,
     logo: "/clubs/ai.png",
-    color: "#B8C4FF",
-    size: "wide",
+    color: "#1A2342",
+    dark: true,
+    size: "half",
     stat: { value: { en: "30", ar: "٣٠" }, label: { en: "volunteer hours", ar: "ساعة تطوعية" } },
   },
   {
-    name: { en: "BIG n", ar: "BIG n" },
-    role: { en: "Member Affairs Team, HR Committee", ar: "فريق شؤون الأعضاء، لجنة الموارد البشرية" },
-    period: { en: "2024 – 2025", ar: "٢٠٢٤ – ٢٠٢٥" },
+    name: { en: "Digital Innovation Unit", ar: "Digital Innovation Unit" },
+    role: { en: "Technical Committee Member", ar: "عضو اللجنة التقنية" },
+    period: { en: "2025 – 2026", ar: "٢٠٢٥ – ٢٠٢٦" },
     current: false,
-    logo: "/clubs/bign.png",
-    color: "var(--hero)",
-    size: "wide",
+    logo: "/clubs/diu.png",
+    color: "#D6EBF8",
+    size: "half",
   },
 ] as const;
