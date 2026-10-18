@@ -745,7 +745,7 @@ export const clubs = [
     period: { en: "2024 – 2025", ar: "٢٠٢٤ – ٢٠٢٥" },
     current: false,
     logo: "/clubs/bign.png",
-    color: "#D6D3FA",
+    color: "#CDEFDF",
     size: "small",
   },
   {
@@ -754,7 +754,7 @@ export const clubs = [
     period: { en: "2025 – 2026", ar: "٢٠٢٥ – ٢٠٢٦" },
     current: false,
     logo: "/clubs/cpc.png",
-    color: "#0E1C38",
+    color: "#2E1A66",
     dark: true,
     size: "small",
   },
