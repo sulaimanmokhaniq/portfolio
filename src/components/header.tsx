@@ -8,7 +8,7 @@ import { useEffect, useState, useSyncExternalStore } from "react";
 import { ui, type Locale } from "@/content/site";
 
 const subscribe = () => () => {};
-const sections = ["intro", "work", "about", "contact"] as const;
+const sections = ["intro", "work", "clubs", "about", "contact"] as const;
 type Section = (typeof sections)[number];
 
 // Tracks which home-page section is on screen (the hero counts as "intro"); case pages always count as "work".
@@ -104,7 +104,7 @@ export function Header({ lang }: { lang: Locale }) {
         {/* Wide screens: one pill with every section, the language and the theme. */}
         <nav
           aria-label="Main"
-          className="hidden items-center gap-1 rounded-full border border-line bg-surface p-1.5 sm:flex"
+          className="hidden items-center gap-1 rounded-full border border-line bg-surface p-1.5 md:flex"
         >
           <LayoutGroup id="desktop-nav">
             {sections.map((id) => (
@@ -130,7 +130,7 @@ export function Header({ lang }: { lang: Locale }) {
         </nav>
 
         {/* Phones: language, theme and a menu button in one small pill; the sections open below. */}
-        <div className="flex items-center gap-0.5 rounded-full border border-line bg-surface p-1 sm:hidden">
+        <div className="flex items-center gap-0.5 rounded-full border border-line bg-surface p-1 md:hidden">
           {langLink}
           {themeButton}
           <button
@@ -154,7 +154,7 @@ export function Header({ lang }: { lang: Locale }) {
               animate={{ opacity: 1, y: 0, scale: 1 }}
               exit={reduce ? undefined : { opacity: 0, y: -8, scale: 0.98 }}
               transition={{ duration: 0.18 }}
-              className="absolute inset-x-4 top-full flex origin-top flex-col gap-1 rounded-[1.5rem] border border-line bg-surface p-2 shadow-[0_24px_48px_-24px_rgba(0,0,0,0.35)] sm:hidden"
+              className="absolute inset-x-4 top-full flex origin-top flex-col gap-1 rounded-[1.5rem] border border-line bg-surface p-2 shadow-[0_24px_48px_-24px_rgba(0,0,0,0.35)] md:hidden"
             >
               <LayoutGroup id="mobile-nav">
                 {sections.map((id) => (

@@ -1,8 +1,7 @@
 export const locales = ["en", "ar"] as const;
 export type Locale = (typeof locales)[number];
 
-export const hasLocale = (value: string): value is Locale =>
-  (locales as readonly string[]).includes(value);
+export const hasLocale = (value: string): value is Locale => (locales as readonly string[]).includes(value);
 
 type Localized = Record<Locale, string>;
 
@@ -20,7 +19,7 @@ export const profile = {
 
 export const ui = {
   en: {
-    nav: { intro: "Intro", work: "Projects", about: "About", contact: "Contact" },
+    nav: { intro: "Intro", work: "Projects", clubs: "Clubs", about: "About", contact: "Contact" },
     switchLang: "عربي",
     switchLangLabel: "اقرأ الموقع بالعربية",
     themeLabel: "Toggle dark mode",
@@ -38,6 +37,8 @@ export const ui = {
     winValue: ["1st place", "DAICOthon 2026"],
     projectsTitle: "Projects",
     caseStudy: "Read the case study",
+    clubsTitle: "Clubs & volunteering",
+    clubsNow: "Now",
     workedTitle: "Where I’ve worked",
     communityLabel: "Community",
     communityBody:
@@ -71,7 +72,7 @@ export const ui = {
     nextScreen: "Next screen",
   },
   ar: {
-    nav: { intro: "نبذة", work: "المشاريع", about: "عنّي", contact: "تواصل" },
+    nav: { intro: "نبذة", work: "المشاريع", clubs: "الأندية", about: "عنّي", contact: "تواصل" },
     switchLang: "English",
     switchLangLabel: "Read the site in English",
     themeLabel: "تبديل الوضع الليلي",
@@ -89,6 +90,8 @@ export const ui = {
     winValue: ["المركز الأول", "هاكاثون DAICOthon ٢٠٢٦"],
     projectsTitle: "المشاريع",
     caseStudy: "اقرأ دراسة الحالة",
+    clubsTitle: "الأندية والتطوع",
+    clubsNow: "حالياً",
     workedTitle: "أين عملت",
     communityLabel: "المجتمع",
     communityBody:
@@ -188,15 +191,39 @@ export const projects: Project[] = [
     // The site sends X-Frame-Options: SAMEORIGIN.
     embed: false,
     phone: [
-      { src: "/work/tahabeer/phone/home.jpg", alt: { en: "Home: search and pick a reciter", ar: "الرئيسية: ابحث عن قارئ واختره" } },
-      { src: "/work/tahabeer/phone/quran.jpg", alt: { en: "Reading Surat Al-Baqarah in the Mushaf", ar: "قراءة سورة البقرة في المصحف" } },
+      {
+        src: "/work/tahabeer/phone/home.jpg",
+        alt: { en: "Home: search and pick a reciter", ar: "الرئيسية: ابحث عن قارئ واختره" },
+      },
+      {
+        src: "/work/tahabeer/phone/quran.jpg",
+        alt: { en: "Reading Surat Al-Baqarah in the Mushaf", ar: "قراءة سورة البقرة في المصحف" },
+      },
       { src: "/work/tahabeer/phone/tafsir.jpg", alt: { en: "Tafsir of Al-Fatihah", ar: "تفسير سورة الفاتحة" } },
-      { src: "/work/tahabeer/phone/mosques.jpg", alt: { en: "Mosque list with imams and filters", ar: "قائمة المساجد مع الأئمة والفلاتر" } },
-      { src: "/work/tahabeer/phone/map.jpg", alt: { en: "Map of 148 mosques in Riyadh", ar: "خريطة ١٤٨ مسجداً في الرياض" } },
+      {
+        src: "/work/tahabeer/phone/mosques.jpg",
+        alt: { en: "Mosque list with imams and filters", ar: "قائمة المساجد مع الأئمة والفلاتر" },
+      },
+      {
+        src: "/work/tahabeer/phone/map.jpg",
+        alt: { en: "Map of 148 mosques in Riyadh", ar: "خريطة ١٤٨ مسجداً في الرياض" },
+      },
     ],
     images: [
-      { src: "/work/tahabeer/app.png", alt: { en: "TAHABEER app: reciters, the Quran reader and tafsir", ar: "تطبيق تحابير: القراء وقارئ المصحف والتفسير" } },
-      { src: "/work/tahabeer/mosques.png", alt: { en: "Mosque finder with a map of 148 mosques in Riyadh", ar: "دليل المساجد مع خريطة لـ ١٤٨ مسجداً في الرياض" } },
+      {
+        src: "/work/tahabeer/app.png",
+        alt: {
+          en: "TAHABEER app: reciters, the Quran reader and tafsir",
+          ar: "تطبيق تحابير: القراء وقارئ المصحف والتفسير",
+        },
+      },
+      {
+        src: "/work/tahabeer/mosques.png",
+        alt: {
+          en: "Mosque finder with a map of 148 mosques in Riyadh",
+          ar: "دليل المساجد مع خريطة لـ ١٤٨ مسجداً في الرياض",
+        },
+      },
       { src: "/work/tahabeer/home.png", alt: { en: "TAHABEER website home page", ar: "الصفحة الرئيسية لموقع تحابير" } },
     ],
   },
@@ -234,8 +261,17 @@ export const projects: Project[] = [
     link: "https://wamdah-ksu.vercel.app/",
     images: [
       { src: "/work/wamdah/home.png", alt: { en: "Wamdah home page", ar: "الصفحة الرئيسية لومضة" } },
-      { src: "/work/wamdah/send.png", alt: { en: "Send screen: enter the receiver’s 6-digit code", ar: "شاشة الإرسال: أدخل رمز المستقبل المكوّن من ٦ أرقام" } },
-      { src: "/work/wamdah/showcase.png", alt: { en: "App screens showcase on the landing page", ar: "عرض شاشات التطبيق في الصفحة الرئيسية" } },
+      {
+        src: "/work/wamdah/send.png",
+        alt: {
+          en: "Send screen: enter the receiver’s 6-digit code",
+          ar: "شاشة الإرسال: أدخل رمز المستقبل المكوّن من ٦ أرقام",
+        },
+      },
+      {
+        src: "/work/wamdah/showcase.png",
+        alt: { en: "App screens showcase on the landing page", ar: "عرض شاشات التطبيق في الصفحة الرئيسية" },
+      },
     ],
   },
   {
@@ -276,9 +312,15 @@ export const projects: Project[] = [
     wide: true,
     link: "https://devsm7.github.io/qalam/",
     images: [
-      { src: "/work/qalam/app.png", alt: { en: "Hebr AI style scanner and the community feed", ar: "ماسح «حِبر AI» لأنواع الخط وصفحة المجتمع" } },
+      {
+        src: "/work/qalam/app.png",
+        alt: { en: "Hebr AI style scanner and the community feed", ar: "ماسح «حِبر AI» لأنواع الخط وصفحة المجتمع" },
+      },
       { src: "/work/qalam/website.png", alt: { en: "Qalam website home page", ar: "الصفحة الرئيسية لموقع قلم" } },
-      { src: "/work/qalam/scanner.png", alt: { en: "Hebr AI calligraphy analyser on the website", ar: "محلل الخط العربي «حِبر AI» في الموقع" } },
+      {
+        src: "/work/qalam/scanner.png",
+        alt: { en: "Hebr AI calligraphy analyser on the website", ar: "محلل الخط العربي «حِبر AI» في الموقع" },
+      },
     ],
   },
   {
@@ -314,10 +356,25 @@ export const projects: Project[] = [
     wide: true,
     link: "https://smartschedule.xyz/",
     images: [
-      { src: "/work/smartschedule/home.png", alt: { en: "SmartSchedule home page", ar: "الصفحة الرئيسية لـ SmartSchedule" } },
-      { src: "/work/smartschedule/scheduling.png", alt: { en: "Scheduling committee dashboard with zero conflicts", ar: "لوحة لجنة الجدولة بدون أي تعارضات" } },
-      { src: "/work/smartschedule/teaching-load.png", alt: { en: "Teaching load dashboard balancing instructor hours", ar: "لوحة العبء التدريسي لموازنة ساعات أعضاء هيئة التدريس" } },
-      { src: "/work/smartschedule/student.png", alt: { en: "A student's weekly schedule", ar: "الجدول الأسبوعي للطالب" } },
+      {
+        src: "/work/smartschedule/home.png",
+        alt: { en: "SmartSchedule home page", ar: "الصفحة الرئيسية لـ SmartSchedule" },
+      },
+      {
+        src: "/work/smartschedule/scheduling.png",
+        alt: { en: "Scheduling committee dashboard with zero conflicts", ar: "لوحة لجنة الجدولة بدون أي تعارضات" },
+      },
+      {
+        src: "/work/smartschedule/teaching-load.png",
+        alt: {
+          en: "Teaching load dashboard balancing instructor hours",
+          ar: "لوحة العبء التدريسي لموازنة ساعات أعضاء هيئة التدريس",
+        },
+      },
+      {
+        src: "/work/smartschedule/student.png",
+        alt: { en: "A student's weekly schedule", ar: "الجدول الأسبوعي للطالب" },
+      },
     ],
   },
   {
@@ -359,7 +416,10 @@ export const projects: Project[] = [
     link: "https://cloudtrim-sa.vercel.app",
     images: [
       { src: "/work/cloudtrim/home.png", alt: { en: "CloudTrim landing page", ar: "الصفحة التعريفية لـ CloudTrim" } },
-      { src: "/work/cloudtrim/demo.png", alt: { en: "CloudTrim demo dashboard", ar: "لوحة العرض التجريبي لـ CloudTrim" } },
+      {
+        src: "/work/cloudtrim/demo.png",
+        alt: { en: "CloudTrim demo dashboard", ar: "لوحة العرض التجريبي لـ CloudTrim" },
+      },
     ],
   },
   {
@@ -398,7 +458,10 @@ export const projects: Project[] = [
     images: [
       {
         src: "/work/keyboard-fixer/demo.png",
-        alt: { en: "Mistyped text converted to Arabic with Ctrl+Shift+E", ar: "تحويل نص مكتوب بالتخطيط الخطأ إلى العربية باختصار Ctrl+Shift+E" },
+        alt: {
+          en: "Mistyped text converted to Arabic with Ctrl+Shift+E",
+          ar: "تحويل نص مكتوب بالتخطيط الخطأ إلى العربية باختصار Ctrl+Shift+E",
+        },
       },
     ],
   },
@@ -427,7 +490,7 @@ export const projects: Project[] = [
         "Smooth scroll effects and animations in plain HTML, CSS and JavaScript, with no framework.",
       ],
       ar: [
-        "واجهة متجاوبة بالكامل باتجاه RTL، تضم قسماً رئيسياً ومعرض منتجات وقسم \"من نحن\" ونموذج تواصل.",
+        'واجهة متجاوبة بالكامل باتجاه RTL، تضم قسماً رئيسياً ومعرض منتجات وقسم "من نحن" ونموذج تواصل.',
         "معرض منتجات تفاعلي مع فلترة حسب الفئة، وشارات للمنتجات (جديد، الأكثر مبيعاً)، ونافذة للتفاصيل وزر للطلب.",
         "هوية بصرية تراثية: ألوان دافئة وخلفيات مزخرفة وثلاثة خطوط عربية (Amiri للعناوين، وCairo وTajawal للنصوص).",
         "حركات وتأثيرات سلسة بـ HTML وCSS وJavaScript فقط دون أي إطار عمل.",
@@ -527,7 +590,10 @@ export const projects: Project[] = [
     images: [
       {
         src: "/work/oratory/screens.png",
-        alt: { en: "Oratory home, recording, session report and progress screens", ar: "شاشات Oratory: الرئيسية والتسجيل وتقرير الجلسة والتقدّم" },
+        alt: {
+          en: "Oratory home, recording, session report and progress screens",
+          ar: "شاشات Oratory: الرئيسية والتسجيل وتقرير الجلسة والتقدّم",
+        },
       },
       {
         src: "/work/oratory/history.png",
@@ -573,7 +639,10 @@ export const projects: Project[] = [
     linkKind: "code",
     images: [
       { src: "/work/say/home.png", alt: { en: "SAY home page", ar: "الصفحة الرئيسية لـ SAY" } },
-      { src: "/work/say/tools.png", alt: { en: "Tool directory with category filters", ar: "دليل الأدوات مع التصنيفات" } },
+      {
+        src: "/work/say/tools.png",
+        alt: { en: "Tool directory with category filters", ar: "دليل الأدوات مع التصنيفات" },
+      },
       { src: "/work/say/prompts.png", alt: { en: "Prompt library with filters", ar: "مكتبة الأوامر مع الفلاتر" } },
     ],
   },
@@ -613,11 +682,17 @@ export const projects: Project[] = [
     images: [
       {
         src: "/work/smart-attendance/screens.png",
-        alt: { en: "Role selection, live QR session, nearby sessions and check-in screens", ar: "شاشات اختيار الدور وجلسة QR والجلسات القريبة وتسجيل الحضور" },
+        alt: {
+          en: "Role selection, live QR session, nearby sessions and check-in screens",
+          ar: "شاشات اختيار الدور وجلسة QR والجلسات القريبة وتسجيل الحضور",
+        },
       },
       {
         src: "/work/smart-attendance/lecturer.png",
-        alt: { en: "Lecturer dashboard, create session and live session screens", ar: "لوحة المحاضر وإنشاء الجلسة والجلسة المباشرة" },
+        alt: {
+          en: "Lecturer dashboard, create session and live session screens",
+          ar: "لوحة المحاضر وإنشاء الجلسة والجلسة المباشرة",
+        },
       },
     ],
   },
@@ -638,5 +713,52 @@ export const experience = [
     org: { en: "King Saud University", ar: "جامعة الملك سعود" },
     role: { en: "B.Sc. Software Engineering", ar: "بكالوريوس هندسة البرمجيات" },
     period: { en: "2022 – 2026", ar: "٢٠٢٢ – ٢٠٢٦" },
+  },
+];
+
+// Student clubs and teams, newest role first. Logos live in public/clubs/.
+export const clubs = [
+  {
+    name: { en: "KSU CPC", ar: "KSU CPC" },
+    role: { en: "Vice Leader, Executive Committee", ar: "نائب قائد اللجنة التنفيذية" },
+    period: { en: "2025 – Now", ar: "٢٠٢٥ – الآن" },
+    current: true,
+    logo: "/clubs/cpc.png",
+  },
+  {
+    name: { en: "Future Technology Club", ar: "Future Technology Club" },
+    role: { en: "Vice President of Membership Affairs", ar: "نائب الرئيس لشؤون العضوية" },
+    period: { en: "2025 – Now", ar: "٢٠٢٥ – الآن" },
+    current: true,
+    logo: "/clubs/ftc.png",
+  },
+  {
+    name: { en: "Digital Innovation Unit", ar: "Digital Innovation Unit" },
+    role: { en: "Technical Committee Member", ar: "عضو اللجنة التقنية" },
+    period: { en: "2025 – Now", ar: "٢٠٢٥ – الآن" },
+    current: true,
+    logo: "/clubs/diu.png",
+  },
+  {
+    name: { en: "3DC · 3D Printing Club", ar: "3DC · نادي الطباعة ثلاثية الأبعاد" },
+    role: { en: "Technical Committee Member", ar: "عضو اللجنة التقنية" },
+    period: { en: "2024 – Now", ar: "٢٠٢٤ – الآن" },
+    current: true,
+    logo: "/clubs/3dc.png",
+  },
+  {
+    name: { en: "BIG n", ar: "BIG n" },
+    role: { en: "Member Affairs Team, HR Committee", ar: "فريق شؤون الأعضاء، لجنة الموارد البشرية" },
+    period: { en: "2024 – Now", ar: "٢٠٢٤ – الآن" },
+    current: true,
+    logo: "/clubs/bign.png",
+  },
+  {
+    name: { en: "Artificial Intelligence Club", ar: "نادي الذكاء الاصطناعي" },
+    role: { en: "Research Committee Member", ar: "عضو لجنة الأبحاث" },
+    period: { en: "2025 – 2026", ar: "٢٠٢٥ – ٢٠٢٦" },
+    current: false,
+    logo: "/clubs/ai.png",
+    note: { en: "30 volunteer hours · certificate of appreciation", ar: "٣٠ ساعة تطوعية · شهادة شكر وتقدير" },
   },
 ];

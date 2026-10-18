@@ -6,7 +6,8 @@ import { HeroCards } from "@/components/hero-cards";
 import { ProjectVisual } from "@/components/project-visual";
 import { StackChip } from "@/components/stack-chip";
 import { Reveal } from "@/components/reveal";
-import { experience, hasLocale, profile, projects, ui } from "@/content/site";
+import Image from "next/image";
+import { clubs, experience, hasLocale, profile, projects, ui } from "@/content/site";
 
 // The card title's link covers the whole card; the project visual sits above it so its buttons still work.
 const stretched =
@@ -20,7 +21,10 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
   return (
     <main>
       {/* Hero bento */}
-      <section id="intro" className="mx-auto grid max-w-[1280px] scroll-mt-24 grid-cols-1 gap-4 px-4 pt-4 sm:px-6 md:grid-cols-2 lg:grid-cols-3">
+      <section
+        id="intro"
+        className="mx-auto grid max-w-[1280px] scroll-mt-24 grid-cols-1 gap-4 px-4 pt-4 sm:px-6 md:grid-cols-2 lg:grid-cols-3"
+      >
         <Reveal className="md:col-span-2">
           <div className="flex h-full min-h-[440px] flex-col justify-between gap-8 rounded-tile bg-hero p-8 text-hero-text sm:p-11">
             <span className="inline-flex items-center gap-2 self-start rounded-full bg-hero-chip px-3.5 py-2 text-sm">
@@ -60,7 +64,9 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         <Reveal delay={0.12}>
           <div className="flex h-full min-h-[210px] flex-col justify-between rounded-tile bg-sun p-8 text-ink">
             <span>{t.usersStat}</span>
-            <span dir="ltr" className="font-display text-7xl leading-none font-extrabold">100K+</span>
+            <span dir="ltr" className="font-display text-7xl leading-none font-extrabold">
+              100K+
+            </span>
           </div>
         </Reveal>
 
@@ -152,6 +158,48 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         </div>
       </section>
 
+      {/* Clubs */}
+      <section id="clubs" className="mx-auto max-w-[1280px] scroll-mt-24 px-4 pt-24 sm:px-6">
+        <Reveal>
+          <h2 className="mb-6 px-2 font-display text-5xl font-extrabold tracking-tight sm:text-6xl rtl:leading-[1.3]">
+            {t.clubsTitle}
+          </h2>
+        </Reveal>
+        <ul className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
+          {clubs.map((c, i) => (
+            <li key={c.logo}>
+              <Reveal delay={(i % 3) * 0.06} className="h-full">
+                <div className="flex h-full flex-col gap-6 rounded-tile border border-line bg-surface p-7 transition-transform hover:-translate-y-1 sm:p-8">
+                  <div className="flex items-start justify-between gap-4">
+                    <Image
+                      src={c.logo}
+                      alt=""
+                      width={88}
+                      height={88}
+                      className="size-[88px] rounded-[1.4rem] border border-line object-cover"
+                    />
+                    {c.current && (
+                      <span className="flex items-center gap-2 rounded-full bg-mint px-3 py-1.5 text-sm font-semibold text-ink">
+                        <span className="size-2 rounded-full bg-ink" />
+                        {t.clubsNow}
+                      </span>
+                    )}
+                  </div>
+                  <div className="mt-auto flex flex-col gap-2">
+                    <h3 className="font-display text-2xl leading-tight font-extrabold tracking-tight rtl:leading-[1.4]">
+                      {c.name[lang]}
+                    </h3>
+                    <p className="text-lg">{c.role[lang]}</p>
+                    {c.note && <p className="text-muted">{c.note[lang]}</p>}
+                    <p className="text-muted">{c.period[lang]}</p>
+                  </div>
+                </div>
+              </Reveal>
+            </li>
+          ))}
+        </ul>
+      </section>
+
       {/* About */}
       <section
         id="about"
@@ -179,7 +227,9 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         <Reveal delay={0.08}>
           <div className="flex h-full flex-col justify-between gap-5 rounded-tile bg-hero p-8 text-hero-text sm:p-10">
             <span className="text-hero-muted">{t.communityLabel}</span>
-            <span dir="ltr" className="font-display text-6xl leading-none font-extrabold">500+</span>
+            <span dir="ltr" className="font-display text-6xl leading-none font-extrabold">
+              500+
+            </span>
             <p className="leading-relaxed text-hero-muted">{t.communityBody}</p>
           </div>
         </Reveal>
@@ -199,10 +249,20 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                 {profile.email}
               </a>
               <div className="flex gap-5">
-                <a href={profile.linkedin} target="_blank" rel="noreferrer" className="underline-offset-4 hover:underline">
+                <a
+                  href={profile.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="underline-offset-4 hover:underline"
+                >
                   LinkedIn
                 </a>
-                <a href={profile.github} target="_blank" rel="noreferrer" className="underline-offset-4 hover:underline">
+                <a
+                  href={profile.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="underline-offset-4 hover:underline"
+                >
                   GitHub
                 </a>
               </div>
