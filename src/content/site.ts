@@ -749,8 +749,8 @@ export const clubs = [
   {
     name: { en: "BIG n", ar: "BIG n" },
     role: { en: "Member Affairs Team, HR Committee", ar: "فريق شؤون الأعضاء، لجنة الموارد البشرية" },
-    period: { en: "2024 – Now", ar: "٢٠٢٤ – الآن" },
-    current: true,
+    period: { en: "2024 – 2025", ar: "٢٠٢٤ – ٢٠٢٥" },
+    current: false,
     logo: "/clubs/bign.png",
   },
   {
