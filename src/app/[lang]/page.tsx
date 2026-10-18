@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Arrow } from "@/components/arrow";
+import { GitHubIcon, LinkedInIcon, MailIcon } from "@/components/contact-icons";
 import { CvButton } from "@/components/cv-button";
 import { HeroCards } from "@/components/hero-cards";
 import { ProjectVisual } from "@/components/project-visual";
@@ -296,25 +297,31 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
               <br />
               {t.contactTitle[1]}
             </h2>
-            <div className="flex flex-col gap-3 text-lg" dir="ltr">
-              <a href={`mailto:${profile.email}`} className="font-semibold underline-offset-4 hover:underline">
+            <div className="flex flex-col gap-4 text-lg" dir="ltr">
+              <a
+                href={`mailto:${profile.email}`}
+                className="flex items-center gap-3 font-semibold underline-offset-4 hover:underline"
+              >
+                <MailIcon className="size-6 shrink-0" />
                 {profile.email}
               </a>
-              <div className="flex gap-5">
+              <div className="flex flex-wrap gap-x-7 gap-y-3">
                 <a
                   href={profile.linkedin}
                   target="_blank"
                   rel="noreferrer"
-                  className="underline-offset-4 hover:underline"
+                  className="flex items-center gap-3 underline-offset-4 hover:underline"
                 >
+                  <LinkedInIcon className="size-[22px] shrink-0" />
                   LinkedIn
                 </a>
                 <a
                   href={profile.github}
                   target="_blank"
                   rel="noreferrer"
-                  className="underline-offset-4 hover:underline"
+                  className="flex items-center gap-3 underline-offset-4 hover:underline"
                 >
+                  <GitHubIcon className="size-[22px] shrink-0" />
                   GitHub
                 </a>
               </div>
