@@ -721,8 +721,8 @@ export const clubs = [
   {
     name: { en: "KSU CPC", ar: "KSU CPC" },
     role: { en: "Vice Leader, Executive Committee", ar: "نائب قائد اللجنة التنفيذية" },
-    period: { en: "2025 – Now", ar: "٢٠٢٥ – الآن" },
-    current: true,
+    period: { en: "2025 – 2026", ar: "٢٠٢٥ – ٢٠٢٦" },
+    current: false,
     logo: "/clubs/cpc.png",
   },
   {
