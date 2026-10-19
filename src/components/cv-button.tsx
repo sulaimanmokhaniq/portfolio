@@ -14,7 +14,7 @@ export function CvButton({
   className,
 }: {
   href: string;
-  label: string;
+  label: React.ReactNode;
   printingLabel: string;
   className?: string;
 }) {

@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Arrow } from "@/components/arrow";
-import { GitHubIcon, LinkedInIcon, MailIcon } from "@/components/contact-icons";
+import { GitHubIcon, LinkedInIcon, MailIcon, PrinterIcon } from "@/components/contact-icons";
 import { CvButton } from "@/components/cv-button";
 import { HeroCards } from "@/components/hero-cards";
 import { ProjectVisual } from "@/components/project-visual";
@@ -43,16 +43,28 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             <div className="flex flex-wrap gap-3">
               <Link
                 href={`/${lang}#work`}
-                className="inline-flex min-h-12 items-center gap-2 rounded-full bg-flame px-6 font-semibold text-ink transition-transform hover:-translate-y-0.5"
+                className="swap min-h-12 rounded-full bg-flame font-semibold text-ink transition-transform hover:-translate-y-0.5"
               >
-                {t.seeProjects}
-                <Arrow />
+                <span className="swap-front inline-flex items-center gap-2 px-6">
+                  {t.seeProjects}
+                  <Arrow />
+                </span>
+                <span aria-hidden="true" className="swap-back flex items-center justify-center bg-mint text-ink">
+                  <Arrow className="size-6 rotate-90" />
+                </span>
               </Link>
               <CvButton
                 href={profile.cv}
-                label={t.downloadCv}
+                label={
+                  <>
+                    <span className="swap-front inline-flex items-center px-6">{t.downloadCv}</span>
+                    <span aria-hidden="true" className="swap-back flex items-center justify-center bg-sun text-ink">
+                      <PrinterIcon className="size-6" />
+                    </span>
+                  </>
+                }
                 printingLabel={t.printingCv}
-                className="inline-flex min-h-12 items-center rounded-full bg-ground px-6 font-medium text-text transition-transform hover:-translate-y-0.5 dark:bg-[#f3f1ec] dark:text-ink"
+                className="swap min-h-12 rounded-full bg-ground font-medium text-text transition-transform hover:-translate-y-0.5 dark:bg-[#f3f1ec] dark:text-ink"
               />
             </div>
           </div>
@@ -83,12 +95,20 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         </Reveal>
 
         <Reveal delay={0.2}>
-          <div className="flex h-full min-h-[210px] flex-col justify-between rounded-tile bg-peri p-8 text-ink">
+          <div className="swap-trigger flex h-full min-h-[210px] flex-col justify-between rounded-tile bg-peri p-8 text-ink">
             <span>{t.winLabel}</span>
-            <span className="font-display text-4xl leading-tight font-extrabold rtl:leading-[1.4]">
-              {t.winValue[0]}
-              <br />
-              {t.winValue[1]}
+            <span className="swap">
+              <span className="swap-front font-display text-4xl leading-tight font-extrabold rtl:leading-[1.4]">
+                {t.winValue[0]}
+                <br />
+                {t.winValue[1]}
+              </span>
+              <span aria-hidden="true" className="swap-back flex flex-col justify-end">
+                <span className="font-display text-4xl leading-tight font-extrabold rtl:leading-[1.4]">
+                  {t.winBack[0]}
+                </span>
+                <span className="text-lg">{t.winBack[1]}</span>
+              </span>
             </span>
           </div>
         </Reveal>
@@ -106,7 +126,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             p.wide ? (
               <Reveal key={p.slug} className="md:col-span-2 lg:col-span-3">
                 <div
-                  className="group relative flex flex-col gap-7 rounded-tile p-8 text-ink transition-transform hover:-translate-y-1 sm:p-10 lg:flex-row"
+                  className="group swap-trigger relative flex flex-col gap-7 rounded-tile p-8 text-ink transition-transform hover:-translate-y-1 sm:p-10 lg:flex-row"
                   style={{ background: p.color }}
                 >
                   <div className="flex flex-1 flex-col justify-between gap-4">
@@ -127,8 +147,20 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                     </h3>
                     <p className="max-w-md text-lg leading-relaxed">{p.summary[lang]}</p>
                     <span className="inline-flex items-center gap-2 font-semibold">
-                      {t.caseStudy}
-                      <Arrow className="transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
+                      <span className="swap">
+                        <span className="swap-front inline-flex items-center gap-2 py-1.5">
+                          {t.caseStudy}
+                          <Arrow />
+                        </span>
+                        <span
+                          aria-hidden="true"
+                          className="swap-back flex items-center gap-2 self-center justify-self-start rounded-full bg-ink px-4 py-1.5"
+                          style={{ color: p.color }}
+                        >
+                          {t.openCase}
+                          <Arrow />
+                        </span>
+                      </span>
                     </span>
                   </div>
                   <ProjectVisual project={p} lang={lang} className="min-h-[280px] flex-1" />
@@ -137,7 +169,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             ) : (
               <Reveal key={p.slug} delay={(i % 3) * 0.06}>
                 <div
-                  className="group relative flex h-full flex-col gap-4 rounded-tile p-8 text-ink transition-transform hover:-translate-y-1"
+                  className="group swap-trigger relative flex h-full flex-col gap-4 rounded-tile p-8 text-ink transition-transform hover:-translate-y-1"
                   style={{ background: p.color }}
                 >
                   <ProjectVisual project={p} lang={lang} className="h-44" />
@@ -149,8 +181,20 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                   </h3>
                   <p className="flex-1 leading-relaxed">{p.summary[lang]}</p>
                   <span className="inline-flex items-center gap-2 font-semibold">
-                    {t.caseStudy}
-                    <Arrow className="transition-transform group-hover:translate-x-1 rtl:group-hover:-translate-x-1" />
+                    <span className="swap">
+                      <span className="swap-front inline-flex items-center gap-2 py-1.5">
+                        {t.caseStudy}
+                        <Arrow />
+                      </span>
+                      <span
+                        aria-hidden="true"
+                        className="swap-back flex items-center gap-2 self-center justify-self-start rounded-full bg-ink px-4 py-1.5"
+                        style={{ color: p.color }}
+                      >
+                        {t.openCase}
+                        <Arrow />
+                      </span>
+                    </span>
                   </span>
                 </div>
               </Reveal>
@@ -185,21 +229,33 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
               >
                 <Reveal delay={(i % 4) * 0.06} className="h-full">
                   <div
-                    className={`flex h-full flex-col gap-6 rounded-tile p-7 transition-transform hover:-translate-y-1 sm:p-8 ${
+                    className={`swap-trigger flex h-full flex-col gap-6 rounded-tile p-7 transition-transform hover:-translate-y-1 sm:p-8 ${
                       big ? "lg:p-10" : ""
                     } ${dark ? "text-[#F3F1EC] dark:border dark:border-line" : "text-ink"}`}
                     style={{ background: c.color }}
                   >
                     <div className="flex items-start justify-between gap-4">
-                      <Image
-                        src={c.logo}
-                        alt=""
-                        width={big ? 160 : 96}
-                        height={big ? 160 : 96}
-                        className={`rounded-[1.4rem] object-cover shadow-[0_14px_30px_-14px_rgba(0,0,0,0.55)] ${
+                      <span
+                        className={`swap rounded-[1.4rem] shadow-[0_14px_30px_-14px_rgba(0,0,0,0.55)] ${
                           big ? "size-24 sm:size-36 lg:size-40 lg:rounded-[2rem]" : "size-20 sm:size-24"
                         }`}
-                      />
+                      >
+                        <Image
+                          src={c.logo}
+                          alt=""
+                          width={big ? 160 : 96}
+                          height={big ? 160 : 96}
+                          className="swap-front size-full object-cover"
+                        />
+                        <span
+                          aria-hidden="true"
+                          className={`swap-back flex flex-col items-center justify-center p-2 text-center font-display leading-tight font-extrabold ${
+                            dark ? "bg-white text-ink" : "bg-ink text-white"
+                          } ${big ? "text-xl sm:text-3xl" : "text-sm sm:text-base"}`}
+                        >
+                          {c.period[lang]}
+                        </span>
+                      </span>
                       {c.current ? (
                         <span
                           className={`flex items-center gap-2 rounded-full px-3 py-1.5 text-sm font-semibold ${
@@ -297,33 +353,42 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
               <br />
               {t.contactTitle[1]}
             </h2>
-            <div className="flex flex-col gap-4 text-lg" dir="ltr">
-              <a
-                href={`mailto:${profile.email}`}
-                className="flex items-center gap-3 font-semibold underline-offset-4 hover:underline"
-              >
-                <MailIcon className="size-6 shrink-0" />
-                {profile.email}
+            <div className="flex flex-col items-start gap-4 text-lg" dir="ltr">
+              <a href={`mailto:${profile.email}`} className="swap max-w-full rounded-full text-base font-semibold sm:text-lg">
+                <span className="swap-front flex items-center gap-3 py-1.5">
+                  <MailIcon className="size-6 shrink-0" />
+                  {profile.email}
+                </span>
+                <span
+                  aria-hidden="true"
+                  className="swap-back flex items-center justify-center gap-3 rounded-full bg-[#EA4335] px-4 text-white"
+                >
+                  <MailIcon className="size-6 shrink-0" />
+                  {t.mailCta}
+                </span>
               </a>
-              <div className="flex flex-wrap gap-x-7 gap-y-3">
-                <a
-                  href={profile.linkedin}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center gap-3 underline-offset-4 hover:underline"
-                >
-                  <LinkedInIcon className="size-[22px] shrink-0" />
-                  LinkedIn
-                </a>
-                <a
-                  href={profile.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center gap-3 underline-offset-4 hover:underline"
-                >
-                  <GitHubIcon className="size-[22px] shrink-0" />
-                  GitHub
-                </a>
+              <div className="flex flex-wrap gap-x-5 gap-y-3">
+                {(
+                  [
+                    [profile.linkedin, LinkedInIcon, "LinkedIn", t.linkedinCta, "#0A66C2"],
+                    [profile.github, GitHubIcon, "GitHub", t.githubCta, "#181717"],
+                  ] as const
+                ).map(([href, Icon, name, cta, color]) => (
+                  <a key={name} href={href} target="_blank" rel="noreferrer" className="swap rounded-full">
+                    <span className="swap-front flex items-center gap-3 py-1.5 pe-2">
+                      <Icon className="size-[22px] shrink-0" />
+                      {name}
+                    </span>
+                    <span
+                      aria-hidden="true"
+                      className="swap-back flex items-center justify-center gap-2 rounded-full px-3 text-base font-semibold whitespace-nowrap text-white"
+                      style={{ background: color }}
+                    >
+                      <Icon className="size-5 shrink-0" />
+                      {cta}
+                    </span>
+                  </a>
+                ))}
               </div>
             </div>
           </div>
