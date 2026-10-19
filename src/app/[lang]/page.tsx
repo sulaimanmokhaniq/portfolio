@@ -338,41 +338,34 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
               <br />
               {t.contactTitle[1]}
             </h2>
-            <div className="flex flex-col items-start gap-3 text-lg" dir="ltr">
-              {(
-                [
-                  [`mailto:${profile.email}`, MailIcon, profile.email, t.mailCta, "#EA4335"],
-                  [profile.linkedin, LinkedInIcon, "LinkedIn", t.linkedinCta, "#0A66C2"],
-                  [profile.github, GitHubIcon, "GitHub", t.githubCta, "#181717"],
-                ] as const
-              ).map(([href, Icon, name, cta, color], i) => (
+            <div className="flex flex-col gap-4 text-lg" dir="ltr">
+              <a
+                href={`mailto:${profile.email}`}
+                className="flex items-center gap-3 font-semibold underline-offset-4 hover:underline"
+              >
+                <MailIcon className="size-6 shrink-0" />
+                {profile.email}
+              </a>
+              <div className="flex flex-wrap gap-x-7 gap-y-3">
                 <a
-                  key={name}
-                  href={href}
-                  {...(i ? { target: "_blank", rel: "noreferrer" } : {})}
-                  className="swap max-w-full rounded-full bg-[#F3F1EC] text-[15px] font-semibold text-ink sm:text-lg"
+                  href={profile.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-3 underline-offset-4 hover:underline"
                 >
-                  {/* The hidden second row keeps the pill wide enough for the hover label. */}
-                  <span className="swap-front grid px-3 py-2 sm:px-4">
-                    <span className="col-start-1 row-start-1 flex items-center gap-3">
-                      <Icon className="size-[22px] shrink-0" />
-                      {name}
-                    </span>
-                    <span aria-hidden="true" className="invisible col-start-1 row-start-1 flex gap-2 px-1">
-                      <span className="size-[22px]" />
-                      {cta}
-                    </span>
-                  </span>
-                  <span
-                    aria-hidden="true"
-                    className="swap-back flex items-center justify-center gap-2 whitespace-nowrap text-white"
-                    style={{ background: color }}
-                  >
-                    <Icon className="size-[22px] shrink-0" />
-                    {cta}
-                  </span>
+                  <LinkedInIcon className="size-[22px] shrink-0" />
+                  LinkedIn
                 </a>
-              ))}
+                <a
+                  href={profile.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-3 underline-offset-4 hover:underline"
+                >
+                  <GitHubIcon className="size-[22px] shrink-0" />
+                  GitHub
+                </a>
+              </div>
             </div>
           </div>
         </Reveal>
