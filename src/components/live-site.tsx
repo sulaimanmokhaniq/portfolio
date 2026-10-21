@@ -42,7 +42,7 @@ export function LiveSite({
   };
 
   const iconButton =
-    "grid size-6 place-items-center rounded-full bg-[#f1efea] text-ink transition-colors hover:bg-[#e4e1d9]";
+    "grid size-6 place-items-center rounded-full bg-paper text-ink transition-colors hover:bg-paper-line";
 
   if (!active) {
     return (
@@ -56,8 +56,8 @@ export function LiveSite({
         className="absolute end-9 bottom-5 z-10 inline-flex min-h-11 items-center gap-2 rounded-full bg-ink px-5 font-semibold whitespace-nowrap text-white shadow-[0_10px_24px_-10px_rgba(0,0,0,0.6)] transition-transform hover:-translate-y-0.5"
       >
         <span className="relative flex size-2.5">
-          <span className="absolute inline-flex size-full animate-ping rounded-full bg-[#5BE38C] motion-reduce:hidden" />
-          <span className="relative inline-flex size-2.5 rounded-full bg-[#5BE38C]" />
+          <span className="absolute inline-flex size-full animate-ping rounded-full bg-live motion-reduce:hidden" />
+          <span className="relative inline-flex size-2.5 rounded-full bg-live" />
         </span>
         {tryLabel}
       </button>
@@ -107,7 +107,7 @@ export function LiveSite({
       <div ref={screen} dir="ltr" className="absolute inset-x-5 top-[3.25rem] bottom-0 z-10 overflow-hidden bg-white">
         {!loaded && (
           <div className="absolute inset-0 grid place-items-center" aria-hidden="true">
-            <span className="size-7 animate-spin rounded-full border-[3px] border-[#e4e1d9] border-t-flame" />
+            <span className="size-7 animate-spin rounded-full border-[3px] border-paper-line border-t-flame" />
           </div>
         )}
         <iframe

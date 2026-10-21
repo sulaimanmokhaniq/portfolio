@@ -28,7 +28,7 @@ export function ProjectArt({
               <span className="size-2 rounded-full bg-[#febc2e]" />
               <span className="size-2 rounded-full bg-[#28c840]" />
             </span>
-            <span className="mx-auto truncate rounded-full bg-[#f1efea] px-3 py-0.5 text-[11px] text-ink">
+            <span className="mx-auto truncate rounded-full bg-paper px-3 py-0.5 text-[11px] text-ink">
               {new URL(url).host}
             </span>
           </div>

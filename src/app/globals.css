@@ -78,9 +78,14 @@
   --color-flame: #ff6a2b;
   --color-sun: #ffd43b;
   --color-peri: #b8c4ff;
-  --color-coral: #ff8a5b;
   --color-mint: #9be3c1;
   --color-sky: #6fc8ff;
+  /* Fixed light neutrals for things that stay light in both themes (CV paper, browser frames, swap faces). */
+  --color-cream: #f3f1ec;
+  --color-paper: #f1efea;
+  --color-paper-line: #e4e1d9;
+  /* The green "now / live" dot. */
+  --color-live: #5be38c;
   --color-hero-muted: var(--hero-muted);
   --font-display: var(--display-stack);
   --font-sans: var(--text-stack);

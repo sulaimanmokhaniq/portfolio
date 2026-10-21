@@ -62,17 +62,22 @@ export function WinDeck({
             animate="center"
             exit="exit"
             transition={reduce ? { duration: 0.3 } : SLIDE}
-            className="absolute inset-0 flex flex-col justify-between rounded-tile p-8 pb-14 text-ink"
+            className={`absolute inset-0 flex flex-col rounded-tile p-8 pb-14 text-ink ${win.stat ? "justify-end" : "justify-between"}`}
             style={{ background: win.color }}
           >
-            <motion.span custom={direction} variants={reduce ? fade : content}>
-              {win.kind}
-            </motion.span>
+            {!win.stat && (
+              <motion.span custom={direction} variants={reduce ? fade : content}>
+                {win.kind}
+              </motion.span>
+            )}
             <motion.span custom={direction} variants={reduce ? fade : content} className="flex flex-col gap-1.5">
               {win.stat ? (
-                <span dir="ltr" className="font-display text-7xl leading-none font-extrabold rtl:text-end">
-                  {win.place}
-                </span>
+                <>
+                  <span dir="ltr" className="font-display text-7xl leading-none font-extrabold rtl:text-end">
+                    {win.place}
+                  </span>
+                  <span className="text-lg leading-snug font-semibold">{win.kind}</span>
+                </>
               ) : (
                 <>
                   <span className="font-display text-4xl leading-tight font-extrabold rtl:leading-[1.4]">
