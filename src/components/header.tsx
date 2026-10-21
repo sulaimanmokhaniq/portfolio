@@ -4,8 +4,9 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { AnimatePresence, LayoutGroup, motion, useReducedMotion } from "motion/react";
-import { useEffect, useState, useSyncExternalStore } from "react";
+import { useCallback, useEffect, useState, useSyncExternalStore } from "react";
 import { ui, type Locale } from "@/content/site";
+import { NameCalligraphy } from "@/components/name-calligraphy";
 
 const subscribe = () => () => {};
 const sections = ["intro", "work", "clubs", "about", "contact"] as const;
@@ -52,6 +53,8 @@ export function Header({ lang }: { lang: Locale }) {
   );
   const isDark = mounted && resolvedTheme === "dark";
   const isHome = /^\/(en|ar)\/?$/.test(pathname);
+  const [calligraphy, setCalligraphy] = useState(false);
+  const closeCalligraphy = useCallback(() => setCalligraphy(false), []);
   const active = useActiveSection(isHome);
   const reduce = useReducedMotion();
 
@@ -96,10 +99,24 @@ export function Header({ lang }: { lang: Locale }) {
   return (
     <header className="sticky top-0 z-40 bg-ground/80 backdrop-blur-md">
       <div className="relative mx-auto flex max-w-[1280px] items-center justify-between gap-3 px-4 py-3 sm:px-6 sm:py-4">
-        <Link href={`/${lang}`} className="font-display text-2xl font-extrabold tracking-tight">
-          {lang === "ar" ? "سليمان" : "sulaiman"}
-          <span className="text-flame">.</span>
-        </Link>
+        {/* On the home page the name plays the calligraphy; on other pages it still goes home. */}
+        {isHome ? (
+          <button
+            type="button"
+            onClick={() => setCalligraphy(true)}
+            aria-label={lang === "ar" ? "سليمان" : "sulaiman"}
+            className="cursor-pointer font-display text-2xl font-extrabold tracking-tight"
+          >
+            {lang === "ar" ? "سليمان" : "sulaiman"}
+            <span className="text-flame">.</span>
+          </button>
+        ) : (
+          <Link href={`/${lang}`} className="font-display text-2xl font-extrabold tracking-tight">
+            {lang === "ar" ? "سليمان" : "sulaiman"}
+            <span className="text-flame">.</span>
+          </Link>
+        )}
+        <NameCalligraphy open={calligraphy} onClose={closeCalligraphy} />
 
         {/* Wide screens: one pill with every section, the language and the theme. */}
         <nav

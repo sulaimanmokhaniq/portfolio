@@ -196,3 +196,45 @@ body::before {
     transition: none;
   }
 }
+
+/* Logo tap: the Arabic name is drawn stroke by stroke in flame, filled in ink, then the layer fades away. */
+.calli {
+  animation: calli-out 0.5s 3.1s ease forwards;
+}
+.calli text {
+  font-size: 170px;
+  fill: transparent;
+  stroke: #ff6a2b;
+  stroke-width: 1.8;
+  stroke-dasharray: 700;
+  stroke-dashoffset: 700;
+  animation:
+    calli-draw 2.2s ease forwards,
+    calli-fill 0.8s 1.9s ease forwards;
+}
+@keyframes calli-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+@keyframes calli-fill {
+  to {
+    fill: var(--text);
+    stroke: var(--text);
+  }
+}
+@keyframes calli-out {
+  to {
+    opacity: 0;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .calli,
+  .calli text {
+    animation: none;
+  }
+  .calli text {
+    fill: var(--text);
+    stroke: none;
+  }
+}
