@@ -25,7 +25,7 @@ export const ui = {
     themeLabel: "Toggle dark mode",
     menuLabel: "Menu",
     tagline: "Based in Riyadh",
-    heroName: "Sulaiman Mokhaniq.",
+    heroName: "Sulaiman Mokhaniq",
     heroRoles: ["Product Engineer", "Software Engineer", "Mobile App Developer"],
     heroBody:
       "Computer Engineering graduate from King Saud University. I turn ideas into real products that people use.",
@@ -79,7 +79,7 @@ export const ui = {
     themeLabel: "تبديل الوضع الليلي",
     menuLabel: "القائمة",
     tagline: "مقيم في الرياض",
-    heroName: "سليمان مخانق.",
+    heroName: "سليمان مخانق",
     heroRoles: ["مهندس منتجات", "مهندس برمجيات", "مطوّر تطبيقات جوال"],
     heroBody: "خريج هندسة حاسب من جامعة الملك سعود، أحوّل الأفكار إلى منتجات حقيقية يستخدمها الناس.",
     seeProjects: "شاهد المشاريع",
