@@ -97,7 +97,7 @@ body {
   background-image:
     linear-gradient(to right, var(--grid) 1px, transparent 1px),
     linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
-  background-size: 96px 96px;
+  background-size: 48px 48px;
   background-position: center top;
   color: var(--text);
   /* Slide-in animations start off-screen; never let them widen the page on phones. */
