@@ -729,11 +729,11 @@ export const stats = [
     color: "#FFD43B",
   },
   {
-    kind: { en: "Views on the launch of FutureU", ar: "مشاهدة لإطلاق اختبار FutureU" },
+    kind: { en: "Views on the launch of a test I built", ar: "مشاهدة لإطلاق اختبار بنيته" },
     place: { en: "1M+", ar: "1M+" },
     detail: {
-      en: "A 40-question career test I built with my team that points students to their best-fit tech field.",
-      ar: "اختبار مسار من ٤٠ سؤالاً بنيته مع فريقي، يوجّه الطالب لمجال التقنية الأنسب له.",
+      en: "FutureU: a 40-question career test that points students to their best-fit tech field.",
+      ar: "FutureU: اختبار مسار من ٤٠ سؤالاً يوجّه الطالب لمجال التقنية الأنسب له.",
     },
     color: "#DCCBFF",
   },
