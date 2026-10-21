@@ -31,7 +31,7 @@ export function NameCalligraphy({ open, onClose }: { open: boolean; onClose: () 
       onClick={onClose}
       aria-hidden="true"
     >
-      <svg viewBox="0 0 600 260" className="w-[min(640px,88vw)] overflow-visible">
+      <svg viewBox="0 0 600 260" className="w-[min(1100px,96vw)] overflow-visible">
         <text x="300" y="190" textAnchor="middle" className={ruqaa.className}>
           سليمان
         </text>
