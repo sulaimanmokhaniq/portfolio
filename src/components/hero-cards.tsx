@@ -78,14 +78,6 @@ export function HeroCards({
             transition={reduce ? { duration: 0.3 } : SLIDE}
             className={`absolute inset-0 flex flex-col justify-center rounded-tile p-8 py-16 text-ink sm:px-10 ${COLORS[index % COLORS.length]}`}
           >
-            <motion.span
-              custom={direction}
-              variants={reduce ? fade : content}
-              dir="ltr"
-              className={`absolute top-8 font-display text-sm font-bold tabular-nums sm:top-10 ${rtl ? "right-8 sm:right-10" : "left-8 sm:left-10"}`}
-            >
-              {String(index + 1).padStart(2, "0")} / {String(lines.length).padStart(2, "0")}
-            </motion.span>
             <motion.p
               custom={direction}
               variants={reduce ? fade : content}

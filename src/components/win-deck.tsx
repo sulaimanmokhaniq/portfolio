@@ -65,15 +65,8 @@ export function WinDeck({
             className="absolute inset-0 flex flex-col justify-between rounded-tile p-8 pb-14 text-ink"
             style={{ background: win.color }}
           >
-            <motion.span
-              custom={direction}
-              variants={reduce ? fade : content}
-              className="flex items-center justify-between gap-4"
-            >
-              <span>{win.kind}</span>
-              <span dir="ltr" className="font-display text-sm font-bold tabular-nums">
-                {String(index + 1).padStart(2, "0")} / {String(wins.length).padStart(2, "0")}
-              </span>
+            <motion.span custom={direction} variants={reduce ? fade : content}>
+              {win.kind}
             </motion.span>
             <motion.span custom={direction} variants={reduce ? fade : content} className="flex flex-col gap-1.5">
               {win.stat ? (
