@@ -134,12 +134,13 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                   className="group swap-trigger relative flex flex-col gap-7 rounded-tile p-8 text-ink transition-transform hover:-translate-y-1 sm:p-10 lg:flex-row"
                   style={{ background: p.color }}
                 >
-                  <div className="flex flex-1 flex-col justify-between gap-4">
+                  <div className="flex flex-1 flex-col justify-center gap-4">
                     {p.badge && (
                       <span className="self-start rounded-full bg-ink px-3 py-1.5 text-sm" style={{ color: p.color }}>
                         {p.badge[lang]}
                       </span>
                     )}
+                    <span className="-mb-2 text-sm font-medium">{p.kind[lang]}</span>
                     <h3 className="font-display text-[clamp(2.25rem,9vw,3rem)] font-extrabold [overflow-wrap:anywhere]">
                       <Link href={`/${lang}/work/${p.slug}`} className={stretched}>
                         {p.name.en}{" "}
@@ -151,7 +152,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                       </Link>
                     </h3>
                     <p className="max-w-md text-lg leading-relaxed">{p.summary[lang]}</p>
-                    <span className="swap self-start rounded-full bg-ink font-semibold" style={{ color: p.color }}>
+                    <span className="swap mt-2 self-start rounded-full bg-ink font-semibold" style={{ color: p.color }}>
                       <span className="swap-front flex items-center gap-2 px-4 py-2">
                         {t.caseStudy}
                         <Arrow />
