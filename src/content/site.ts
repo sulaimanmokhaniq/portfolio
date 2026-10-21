@@ -24,8 +24,9 @@ export const ui = {
     switchLangLabel: "اقرأ الموقع بالعربية",
     themeLabel: "Toggle dark mode",
     menuLabel: "Menu",
-    tagline: "Product Engineer · Riyadh",
-    heroTitle: ["Hi, I’m Sulaiman.", "I ship apps people love to open."],
+    tagline: "Based in Riyadh",
+    heroName: "Sulaiman Mokhaniq.",
+    heroRoles: ["Product Engineer", "Software Engineer", "Mobile App Developer"],
     heroBody:
       "I turn Figma designs into production features with Flutter and Next.js, for apps with 100K+ users and hackathon-winning tools alike.",
     seeProjects: "See projects",
@@ -77,8 +78,9 @@ export const ui = {
     switchLangLabel: "Read the site in English",
     themeLabel: "تبديل الوضع الليلي",
     menuLabel: "القائمة",
-    tagline: "مهندس منتجات · الرياض",
-    heroTitle: ["أهلاً، أنا سليمان.", "أبني تطبيقات يحب الناس فتحها."],
+    tagline: "مقيم في الرياض",
+    heroName: "سليمان مخانق.",
+    heroRoles: ["مهندس منتجات", "مهندس برمجيات", "مطوّر تطبيقات جوال"],
     heroBody:
       "أحوّل تصاميم Figma إلى مزايا جاهزة للإنتاج باستخدام Flutter و Next.js، من تطبيقات يستخدمها أكثر من ١٠٠ ألف مستخدم إلى أدوات فازت في الهاكاثونات.",
     seeProjects: "شاهد المشاريع",

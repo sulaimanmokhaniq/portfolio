@@ -8,6 +8,7 @@ import { ProjectVisual } from "@/components/project-visual";
 import { StackChip } from "@/components/stack-chip";
 import { WinDeck } from "@/components/win-deck";
 import { Reveal } from "@/components/reveal";
+import { RoleCycler } from "@/components/role-cycler";
 import Image from "next/image";
 import { clubs, experience, hasLocale, profile, projects, stats, ui, wins } from "@/content/site";
 
@@ -35,9 +36,9 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             </span>
             <div className="space-y-5">
               <h1 className="font-display text-[clamp(2.6rem,5.6vw,5.25rem)] leading-[1.06] font-extrabold tracking-tight rtl:leading-[1.38]">
-                {t.heroTitle[0]}
-                <br />
-                {t.heroTitle[1]}
+                {t.heroName}
+                <span className="sr-only"> {t.heroRoles.join(", ")}.</span>
+                <RoleCycler roles={[...t.heroRoles]} />
               </h1>
               <p className="max-w-xl text-lg leading-relaxed text-hero-muted">{t.heroBody}</p>
             </div>
