@@ -9,7 +9,7 @@ import { StackChip } from "@/components/stack-chip";
 import { WinDeck } from "@/components/win-deck";
 import { Reveal } from "@/components/reveal";
 import Image from "next/image";
-import { clubs, experience, hasLocale, profile, projects, ui, wins } from "@/content/site";
+import { clubs, experience, hasLocale, profile, projects, stats, ui, wins } from "@/content/site";
 
 // The card title's link covers the whole card; the project visual sits above it so its buttons still work.
 const stretched =
@@ -76,12 +76,19 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         </Reveal>
 
         <Reveal delay={0.12}>
-          <div className="flex h-full min-h-[210px] flex-col justify-between rounded-tile bg-sun p-8 text-ink">
-            <span>{t.usersStat}</span>
-            <span dir="ltr" className="font-display text-7xl leading-none font-extrabold">
-              100K+
-            </span>
-          </div>
+          <WinDeck
+            wins={stats.map((st) => ({
+              kind: st.kind[lang],
+              place: st.place[lang],
+              detail: st.detail[lang],
+              color: st.color,
+              stat: true,
+            }))}
+            label={t.usersStat}
+            nextLabel={t.nextCard}
+            interval={4200}
+            rtl={lang === "ar"}
+          />
         </Reveal>
 
         <Reveal delay={0.16}>

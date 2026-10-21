@@ -4,20 +4,21 @@ import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect, useState } from "react";
 import { card, content, fade } from "@/components/hero-cards";
 
-const INTERVAL = 3500;
+// A stat card shows one big number in place of the place/event pair.
+type Win = { kind: string; place: string; event?: string; detail: string; color: string; stat?: boolean };
 
-type Win = { kind: string; place: string; event: string; detail: string; color: string };
-
-// The hackathon wins as a card deck, with the same slide as the hero cards. Tap for the next one.
+// A bento tile as a card deck (hackathon wins, stats), with the same slide as the hero cards. Tap for the next one.
 export function WinDeck({
   wins,
   label,
   nextLabel,
+  interval = 3500,
   rtl = false,
 }: {
   wins: Win[];
   label: string;
   nextLabel: string;
+  interval?: number;
   rtl?: boolean;
 }) {
   const reduce = useReducedMotion();
@@ -30,7 +31,7 @@ export function WinDeck({
 
   useEffect(() => {
     if (paused || reduce || wins.length < 2) return;
-    const id = setInterval(next, INTERVAL);
+    const id = setInterval(next, interval);
     return () => clearInterval(id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [paused, reduce, index]);
@@ -75,17 +76,25 @@ export function WinDeck({
               </span>
             </motion.span>
             <motion.span custom={direction} variants={reduce ? fade : content} className="flex flex-col gap-1.5">
-              <span className="font-display text-4xl leading-tight font-extrabold rtl:leading-[1.4]">{win.place}</span>
-              <span className="font-display text-2xl leading-tight font-bold rtl:leading-[1.4]">{win.event}</span>
+              {win.stat ? (
+                <span dir="ltr" className="font-display text-7xl leading-none font-extrabold rtl:text-end">
+                  {win.place}
+                </span>
+              ) : (
+                <>
+                  <span className="font-display text-4xl leading-tight font-extrabold rtl:leading-[1.4]">
+                    {win.place}
+                  </span>
+                  <span className="font-display text-2xl leading-tight font-bold rtl:leading-[1.4]">{win.event}</span>
+                </>
+              )}
               <span className="leading-snug">{win.detail}</span>
             </motion.span>
           </motion.div>
         </AnimatePresence>
       </button>
 
-      <p className="sr-only">
-        {win.place}, {win.event}. {win.detail}
-      </p>
+      <p className="sr-only">{[win.kind, win.place, win.event, win.detail].filter(Boolean).join(". ")}</p>
 
       <div className="pointer-events-none absolute inset-x-0 bottom-5 flex justify-center gap-1.5" aria-hidden="true">
         {wins.map((_, i) => (

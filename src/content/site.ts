@@ -720,6 +720,25 @@ export const experience = [
 // Each tile is a soft tint of its club's logo colour (dark tiles for the clubs with dark logos).
 // size: "big" is a 2×2 block on wide screens, "wide" spans two columns from tablets up,
 // "half" spans two columns on desktop only, "small" is one column.
+// The yellow stat tile, as a deck.
+export const stats = [
+  {
+    kind: { en: "Users on an app I built auth for", ar: "مستخدم في تطبيق بنيت نظام دخوله" },
+    place: { en: "100K+", ar: "100K+" },
+    detail: { en: "", ar: "" },
+    color: "#FFD43B",
+  },
+  {
+    kind: { en: "Views on the launch of FutureU", ar: "مشاهدة لإطلاق اختبار FutureU" },
+    place: { en: "1M+", ar: "1M+" },
+    detail: {
+      en: "A 40-question career test I built with my team that points students to their best-fit tech field.",
+      ar: "اختبار مسار من ٤٠ سؤالاً بنيته مع فريقي، يوجّه الطالب لمجال التقنية الأنسب له.",
+    },
+    color: "#DCCBFF",
+  },
+] as const;
+
 // Wins, newest first. Add a card by adding an entry. Colours avoid flame, mint and sky (the hero deck above) and sun.
 export const wins = [
   {
