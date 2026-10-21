@@ -2,7 +2,7 @@
 
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect, useState } from "react";
-import { card, content, fade } from "@/components/hero-cards";
+import { SLIDE, card, content, fade } from "@/components/hero-cards";
 
 // A stat card shows one big number in place of the place/event pair.
 type Win = { kind: string; place: string; event?: string; detail: string; color: string; stat?: boolean };
@@ -61,7 +61,7 @@ export function WinDeck({
             initial="enter"
             animate="center"
             exit="exit"
-            transition={reduce ? { duration: 0.3 } : { type: "spring", stiffness: 130, damping: 19, mass: 0.8 }}
+            transition={reduce ? { duration: 0.3 } : SLIDE}
             className="absolute inset-0 flex flex-col justify-between rounded-tile p-8 pb-14 text-ink"
             style={{ background: win.color }}
           >

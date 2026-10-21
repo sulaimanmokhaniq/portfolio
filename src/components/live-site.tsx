@@ -68,12 +68,38 @@ export function LiveSite({
     <>
       <div dir="ltr" className="absolute inset-x-5 top-5 z-10 flex h-8 items-center justify-end gap-1.5 px-2">
         <a href={url} target="_blank" rel="noreferrer" aria-label={openLabel} title={openLabel} className={iconButton}>
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.6"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            aria-hidden="true"
+          >
             <path d="M14 4h6v6M20 4l-9 9M18 14v5a1 1 0 0 1-1 1H5a1 1 0 0 1-1-1V7a1 1 0 0 1 1-1h5" />
           </svg>
         </a>
-        <button type="button" onClick={close} aria-label={closeLabel} title={closeLabel} className={iconButton} autoFocus>
-          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.8" strokeLinecap="round" aria-hidden="true">
+        <button
+          type="button"
+          onClick={close}
+          aria-label={closeLabel}
+          title={closeLabel}
+          className={iconButton}
+          autoFocus
+        >
+          <svg
+            width="12"
+            height="12"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.8"
+            strokeLinecap="round"
+            aria-hidden="true"
+          >
             <path d="M6 6l12 12M18 6L6 18" />
           </svg>
         </button>

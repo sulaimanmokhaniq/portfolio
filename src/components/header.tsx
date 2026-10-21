@@ -67,7 +67,7 @@ export function Header({ lang }: { lang: Locale }) {
   const pill = "inline-flex min-h-11 items-center rounded-full px-4 text-[15px] transition-colors hover:bg-chip";
   const iconButton =
     "inline-flex size-10 shrink-0 items-center justify-center rounded-full transition-colors hover:bg-chip sm:size-11";
-  const spring = reduce ? { duration: 0 } : { type: "spring" as const, stiffness: 380, damping: 32 };
+  const spring = reduce ? { duration: 0 } : { type: "spring" as const, stiffness: 120, damping: 22 };
 
   const langLink = (
     // A full page load, not a client navigation: swapping the root <html> on the fly drops the

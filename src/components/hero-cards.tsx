@@ -7,6 +7,9 @@ import { useEffect, useState } from "react";
 const COLORS = ["bg-flame", "bg-mint", "bg-sky"];
 const INTERVAL = 2000;
 
+// How long one card takes to slide across. Slow and smooth on purpose.
+export const SLIDE = { duration: 1.1, ease: [0.65, 0, 0.35, 1] as const };
+
 // Each card fills the whole tile. The next one pushes the current one out sideways.
 export const card: Variants = {
   enter: (dir: number) => ({ x: `${100 * dir}%`, scale: 0.86, rotate: 8 * dir }),
@@ -16,8 +19,8 @@ export const card: Variants = {
 
 export const content: Variants = {
   enter: (dir: number) => ({ x: 80 * dir, opacity: 0 }),
-  center: { x: 0, opacity: 1, transition: { delay: 0.15, type: "spring", stiffness: 160, damping: 18 } },
-  exit: { opacity: 0, transition: { duration: 0.15 } },
+  center: { x: 0, opacity: 1, transition: { delay: 0.35, duration: 0.8, ease: [0.22, 1, 0.36, 1] } },
+  exit: { opacity: 0, transition: { duration: 0.3 } },
 };
 
 export const fade: Variants = { enter: { opacity: 0 }, center: { opacity: 1 }, exit: { opacity: 0 } };
@@ -72,7 +75,7 @@ export function HeroCards({
             initial="enter"
             animate="center"
             exit="exit"
-            transition={reduce ? { duration: 0.3 } : { type: "spring", stiffness: 130, damping: 19, mass: 0.8 }}
+            transition={reduce ? { duration: 0.3 } : SLIDE}
             className={`absolute inset-0 flex flex-col justify-center rounded-tile p-8 py-16 text-ink sm:px-10 ${COLORS[index % COLORS.length]}`}
           >
             <motion.span

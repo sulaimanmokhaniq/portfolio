@@ -52,7 +52,11 @@ export function PhoneDemo({
           const x = Math.abs(d) === 0 ? "0%" : `${Math.sign(d) * side * parseFloat(slot.x)}%`;
           const hidden = Math.abs(d) > 1;
           return (
-            <div key={shot.src} className="pointer-events-none absolute inset-0 flex justify-center" style={{ zIndex: slot.z }}>
+            <div
+              key={shot.src}
+              className="pointer-events-none absolute inset-0 flex justify-center"
+              style={{ zIndex: slot.z }}
+            >
               <motion.button
                 type="button"
                 tabIndex={-1}
@@ -73,7 +77,7 @@ export function PhoneDemo({
                   filter: `brightness(${slot.shade})`,
                   opacity: hidden ? 0 : 1,
                 }}
-                transition={reduce ? { duration: 0 } : { type: "spring", stiffness: 220, damping: 28 }}
+                transition={reduce ? { duration: 0 } : { type: "spring", stiffness: 90, damping: 20 }}
                 className={`aspect-[9/19.5] h-full rounded-[2.2rem] bg-ink p-[7px] shadow-[0_24px_48px_-18px_rgba(0,0,0,0.45)] ${
                   d === 0 ? "cursor-grab touch-pan-y active:cursor-grabbing" : "cursor-pointer"
                 } ${hidden ? "" : "pointer-events-auto"}`}

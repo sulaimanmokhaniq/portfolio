@@ -1,6 +1,6 @@
 import { stackLogos } from "@/content/stack-logos";
 
-const slide = "transition-transform duration-500 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none";
+const slide = "transition-transform duration-900 ease-[cubic-bezier(0.22,1,0.36,1)] motion-reduce:transition-none";
 
 // On hover the name card slides sideways out while a brand-coloured logo card slides in over it.
 export function StackChip({ name }: { name: string }) {
