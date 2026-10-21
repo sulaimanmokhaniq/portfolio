@@ -53,7 +53,7 @@ export function LiveSite({
           setLoaded(false);
           setActive(true);
         }}
-        className="absolute bottom-5 left-1/2 z-10 inline-flex min-h-11 -translate-x-1/2 items-center gap-2 rounded-full bg-ink px-5 font-semibold whitespace-nowrap text-white shadow-[0_10px_24px_-10px_rgba(0,0,0,0.6)] transition-transform hover:-translate-y-0.5"
+        className="absolute end-9 bottom-5 z-10 inline-flex min-h-11 items-center gap-2 rounded-full bg-ink px-5 font-semibold whitespace-nowrap text-white shadow-[0_10px_24px_-10px_rgba(0,0,0,0.6)] transition-transform hover:-translate-y-0.5"
       >
         <span className="relative flex size-2.5">
           <span className="absolute inline-flex size-full animate-ping rounded-full bg-[#5BE38C] motion-reduce:hidden" />
