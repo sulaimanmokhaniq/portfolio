@@ -28,7 +28,7 @@ export const ui = {
     heroName: "Sulaiman Mokhaniq",
     heroRoles: ["Product Engineer", "Software Engineer", "Mobile App Developer"],
     heroBody:
-      "Computer Engineering graduate from King Saud University. I turn ideas into real products that people use.",
+      "Software Engineering graduate from King Saud University. I turn ideas into real products that people use.",
     seeProjects: "See projects",
     downloadCv: "Download CV",
     printingCv: "Printing my CV…",
@@ -81,7 +81,7 @@ export const ui = {
     tagline: "مقيم في الرياض",
     heroName: "سليمان مخانق",
     heroRoles: ["مهندس منتجات", "مهندس برمجيات", "مطوّر تطبيقات جوال"],
-    heroBody: "خريج هندسة حاسب من جامعة الملك سعود، أحوّل الأفكار إلى منتجات حقيقية يستخدمها الناس.",
+    heroBody: "خريج هندسة برمجيات من جامعة الملك سعود، أحوّل الأفكار إلى منتجات حقيقية يستخدمها الناس.",
     seeProjects: "شاهد المشاريع",
     downloadCv: "حمّل السيرة الذاتية",
     printingCv: "جارٍ طباعة سيرتي…",
