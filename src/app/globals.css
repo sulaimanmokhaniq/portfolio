@@ -4,6 +4,7 @@
 
 :root {
   --ground: #fafaf7;
+  --grid: #ecebe5;
   --surface: #ffffff;
   --line: #e6e4de;
   --chip: #f1efea;
@@ -35,6 +36,7 @@
 
 .dark {
   --ground: #111110;
+  --grid: #1f1f1d;
   --surface: #1e1e1b;
   --line: #34332f;
   --chip: #2a2a26;
@@ -90,7 +92,13 @@ html {
 }
 
 body {
-  background: var(--ground);
+  /* A faint square grid behind the tiles, drawn in a solid colour a step off the background. */
+  background-color: var(--ground);
+  background-image:
+    linear-gradient(to right, var(--grid) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
+  background-size: 96px 96px;
+  background-position: center top;
   color: var(--text);
   /* Slide-in animations start off-screen; never let them widen the page on phones. */
   overflow-x: clip;
