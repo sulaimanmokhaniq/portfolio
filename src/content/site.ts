@@ -33,9 +33,7 @@ export const ui = {
     printingCv: "Printing my CV…",
     usersStat: "Users on an app I built auth for",
     stackLabel: "My stack",
-    winLabel: "Hackathon win",
-    winValue: ["1st place", "DAICOthon 2026"],
-    winBack: ["Wamdah", "Classroom file sharing"],
+    winsLabel: "Hackathon wins",
     openCase: "Open",
     projectsTitle: "Projects",
     caseStudy: "Read the case study",
@@ -88,9 +86,7 @@ export const ui = {
     printingCv: "جارٍ طباعة سيرتي…",
     usersStat: "مستخدم في تطبيق بنيت نظام دخوله",
     stackLabel: "أدواتي",
-    winLabel: "فوز في هاكاثون",
-    winValue: ["المركز الأول", "هاكاثون DAICOthon ٢٠٢٦"],
-    winBack: ["ومضة", "مشاركة الملفات في الفصل"],
+    winsLabel: "الفوز في الهاكاثونات",
     openCase: "افتح",
     projectsTitle: "المشاريع",
     caseStudy: "اقرأ دراسة الحالة",
@@ -724,6 +720,37 @@ export const experience = [
 // Each tile is a soft tint of its club's logo colour (dark tiles for the clubs with dark logos).
 // size: "big" is a 2×2 block on wide screens, "wide" spans two columns from tablets up,
 // "half" spans two columns on desktop only, "small" is one column.
+// Wins, newest first. Add a card by adding an entry. Colours avoid flame, mint and sky (the hero deck above) and sun.
+export const wins = [
+  {
+    kind: { en: "Hackathon win", ar: "فوز في هاكاثون" },
+    place: { en: "1st place", ar: "المركز الأول" },
+    event: { en: "DAICOthon 2026", ar: "هاكاثون DAICOthon ٢٠٢٦" },
+    detail: { en: "Wamdah · Classroom file sharing", ar: "ومضة · مشاركة الملفات في الفصل" },
+    color: "#B8C4FF",
+  },
+  {
+    kind: { en: "Hackathon win", ar: "فوز في هاكاثون" },
+    place: { en: "4th place", ar: "المركز الرابع" },
+    event: { en: "Projecton Hackathon 2025", ar: "هاكاثون بروجيكتون ٢٠٢٥" },
+    detail: {
+      en: "3 days as project managers on 3 real challenges",
+      ar: "٣ أيام بدور مدير المشروع في ٣ تحديات حقيقية",
+    },
+    color: "#D4F07A",
+  },
+  {
+    kind: { en: "Robotics challenge", ar: "تحدي روبوتات" },
+    place: { en: "2nd place", ar: "المركز الثاني" },
+    event: { en: "Bingo Bot V2 2025", ar: "تحدي Bingo Bot V2 ٢٠٢٥" },
+    detail: {
+      en: "Drones and Robotics Club · team of 3",
+      ar: "نادي الدرونز والروبوت · فريق من ٣",
+    },
+    color: "#F2D6A2",
+  },
+] as const;
+
 export const clubs = [
   {
     name: { en: "Future Technology Club", ar: "Future Technology Club" },

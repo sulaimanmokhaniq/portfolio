@@ -8,19 +8,19 @@ const COLORS = ["bg-flame", "bg-mint", "bg-sky"];
 const INTERVAL = 2000;
 
 // Each card fills the whole tile. The next one pushes the current one out sideways.
-const card: Variants = {
+export const card: Variants = {
   enter: (dir: number) => ({ x: `${100 * dir}%`, scale: 0.86, rotate: 8 * dir }),
   center: { x: "0%", scale: 1, rotate: 0 },
   exit: (dir: number) => ({ x: `${-100 * dir}%`, scale: 0.86, rotate: -8 * dir }),
 };
 
-const content: Variants = {
+export const content: Variants = {
   enter: (dir: number) => ({ x: 80 * dir, opacity: 0 }),
   center: { x: 0, opacity: 1, transition: { delay: 0.15, type: "spring", stiffness: 160, damping: 18 } },
   exit: { opacity: 0, transition: { duration: 0.15 } },
 };
 
-const fade: Variants = { enter: { opacity: 0 }, center: { opacity: 1 }, exit: { opacity: 0 } };
+export const fade: Variants = { enter: { opacity: 0 }, center: { opacity: 1 }, exit: { opacity: 0 } };
 
 export function HeroCards({
   lines,

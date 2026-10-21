@@ -6,9 +6,10 @@ import { CvButton } from "@/components/cv-button";
 import { HeroCards } from "@/components/hero-cards";
 import { ProjectVisual } from "@/components/project-visual";
 import { StackChip } from "@/components/stack-chip";
+import { WinDeck } from "@/components/win-deck";
 import { Reveal } from "@/components/reveal";
 import Image from "next/image";
-import { clubs, experience, hasLocale, profile, projects, ui } from "@/content/site";
+import { clubs, experience, hasLocale, profile, projects, ui, wins } from "@/content/site";
 
 // The card title's link covers the whole card; the project visual sits above it so its buttons still work.
 const stretched =
@@ -95,25 +96,18 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         </Reveal>
 
         <Reveal delay={0.2}>
-          <div className="swap flex h-full min-h-[210px] w-full rounded-tile bg-peri text-ink">
-            <div className="swap-front flex w-full flex-col justify-between p-8">
-              <span>{t.winLabel}</span>
-              <span className="font-display text-4xl leading-tight font-extrabold rtl:leading-[1.4]">
-                {t.winValue[0]}
-                <br />
-                {t.winValue[1]}
-              </span>
-            </div>
-            <div aria-hidden="true" className="swap-back flex flex-col justify-between bg-ink p-8 text-peri">
-              <span>{t.winLabel}</span>
-              <span className="flex flex-col">
-                <span className="font-display text-4xl leading-tight font-extrabold rtl:leading-[1.4]">
-                  {t.winBack[0]}
-                </span>
-                <span className="text-lg text-[#F3F1EC]">{t.winBack[1]}</span>
-              </span>
-            </div>
-          </div>
+          <WinDeck
+            wins={wins.map((w) => ({
+              kind: w.kind[lang],
+              place: w.place[lang],
+              event: w.event[lang],
+              detail: w.detail[lang],
+              color: w.color,
+            }))}
+            label={t.winsLabel}
+            nextLabel={t.nextCard}
+            rtl={lang === "ar"}
+          />
         </Reveal>
       </section>
 
