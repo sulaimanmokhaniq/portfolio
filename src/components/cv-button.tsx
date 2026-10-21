@@ -121,12 +121,12 @@ function Printer() {
             <span className="h-2.5 w-20 rounded-full bg-ink" />
           </div>
           <span className="h-1.5 w-full rounded-full bg-flame" />
-          <span className="h-1.5 w-11/12 rounded-full bg-[#e4e1d9]" />
-          <span className="h-1.5 w-4/5 rounded-full bg-[#e4e1d9]" />
-          <span className="h-1.5 w-full rounded-full bg-[#e4e1d9]" />
-          <span className="h-1.5 w-2/3 rounded-full bg-[#e4e1d9]" />
+          <span className="h-1.5 w-11/12 rounded-full bg-paper-line" />
+          <span className="h-1.5 w-4/5 rounded-full bg-paper-line" />
+          <span className="h-1.5 w-full rounded-full bg-paper-line" />
+          <span className="h-1.5 w-2/3 rounded-full bg-paper-line" />
           <span className="mt-1 h-1.5 w-1/2 rounded-full bg-mint" />
-          <span className="h-1.5 w-5/6 rounded-full bg-[#e4e1d9]" />
+          <span className="h-1.5 w-5/6 rounded-full bg-paper-line" />
         </motion.div>
       </div>
     </div>

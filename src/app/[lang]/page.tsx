@@ -31,7 +31,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         <Reveal className="md:col-span-2">
           <div className="flex h-full min-h-[440px] flex-col justify-between gap-8 rounded-tile bg-hero p-8 text-hero-text sm:p-11">
             <span className="inline-flex items-center gap-2 self-start rounded-full bg-hero-chip px-3.5 py-2 text-sm">
-              <span className="size-2 rounded-full bg-[#5BE38C]" />
+              <span className="size-2 rounded-full bg-live" />
               {t.tagline}
             </span>
             <div className="space-y-5">
@@ -66,7 +66,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                   </>
                 }
                 printingLabel={t.printingCv}
-                className="swap inline-flex min-h-12 items-stretch rounded-full bg-ground font-medium text-text transition-transform hover:-translate-y-0.5 dark:bg-[#f3f1ec] dark:text-ink"
+                className="swap inline-flex min-h-12 items-stretch rounded-full bg-ground font-medium text-text transition-transform hover:-translate-y-0.5 dark:bg-cream dark:text-ink"
               />
             </div>
           </div>
@@ -159,7 +159,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                       </span>
                       <span
                         aria-hidden="true"
-                        className="swap-back flex items-center justify-center gap-2 bg-[#F3F1EC] text-ink"
+                        className="swap-back flex items-center justify-center gap-2 bg-cream text-ink"
                       >
                         {t.openCase}
                         <Arrow />
@@ -190,7 +190,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                     </span>
                     <span
                       aria-hidden="true"
-                      className="swap-back flex items-center justify-center gap-2 bg-[#F3F1EC] text-ink"
+                      className="swap-back flex items-center justify-center gap-2 bg-cream text-ink"
                     >
                       {t.openCase}
                       <Arrow />
@@ -231,7 +231,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                   <div
                     className={`flex h-full flex-col gap-6 rounded-tile p-7 transition-transform hover:-translate-y-1 sm:p-8 ${
                       big ? "lg:p-10" : ""
-                    } ${dark ? "text-[#F3F1EC] dark:border dark:border-line" : "text-ink"}`}
+                    } ${dark ? "text-cream dark:border dark:border-line" : "text-ink"}`}
                     style={{ background: c.color }}
                   >
                     <div className="flex items-start justify-between gap-4">
@@ -241,6 +241,8 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                         width={big ? 160 : 96}
                         height={big ? 160 : 96}
                         className={`rounded-[1.4rem] object-cover shadow-[0_14px_30px_-14px_rgba(0,0,0,0.55)] ${
+                          dark ? "ring-2 ring-white/35" : ""
+                        } ${
                           big ? "size-24 sm:size-36 lg:size-40 lg:rounded-[2rem]" : "size-20 sm:size-24"
                         }`}
                       />
@@ -251,8 +253,8 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                           }`}
                         >
                           <span className="relative flex size-2">
-                            <span className="absolute inline-flex size-full animate-ping rounded-full bg-[#5BE38C] motion-reduce:hidden" />
-                            <span className="relative inline-flex size-2 rounded-full bg-[#5BE38C]" />
+                            <span className="absolute inline-flex size-full animate-ping rounded-full bg-live motion-reduce:hidden" />
+                            <span className="relative inline-flex size-2 rounded-full bg-live" />
                           </span>
                           {t.clubsNow}
                         </span>
@@ -266,7 +268,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                         </span>
                       )}
                     </div>
-                    <div className="mt-auto flex flex-wrap items-end justify-between gap-x-6 gap-y-4">
+                    <div className="mt-auto flex flex-wrap items-end justify-between gap-x-6 gap-y-4 lg:flex-nowrap">
                       <div className="flex flex-col gap-2">
                         <h3
                           className={`font-display leading-tight font-extrabold tracking-tight rtl:leading-[1.4] ${
@@ -280,12 +282,12 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                       </div>
                       {"stat" in c && (
                         <p
-                          className={`flex items-baseline gap-2 rounded-2xl px-4 py-3 ${dark ? "bg-white text-ink" : "bg-ink text-white"}`}
+                          className={`flex shrink-0 items-baseline gap-2 rounded-2xl px-4 py-3 lg:px-3.5 lg:py-2.5 ${dark ? "bg-white text-ink" : "bg-ink text-white"}`}
                         >
-                          <span className="font-display text-4xl leading-none font-extrabold">
+                          <span className="font-display text-4xl leading-none lg:text-3xl font-extrabold">
                             {c.stat.value[lang]}
                           </span>
-                          <span>{c.stat.label[lang]}</span>
+                          <span className="lg:text-sm">{c.stat.label[lang]}</span>
                         </p>
                       )}
                     </div>

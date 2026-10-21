@@ -96,7 +96,7 @@ export const ui = {
     workedTitle: "أين عملت",
     communityLabel: "المجتمع",
     communityBody:
-      "مشارك قدتُ تنظيمهم في أكثر من ٣ هاكاثونات بجوائز تجاوزت ١٣٠ ألف ريال. وترأست اللجنة التنفيذية لمسابقة BIG O’s الوطنية للبرمجة (أكثر من ٣٠٠ متسابق).",
+      "مشارك قدتُ تنظيمهم في أكثر من 3 هاكاثونات بجوائز تجاوزت 130 ألف ريال. وترأست اللجنة التنفيذية لمسابقة BIG O’s الوطنية للبرمجة (أكثر من 300 متسابق).",
     contactTitle: ["لنصنع", "شيئاً معاً."],
     footer: "صُمّم وبُني بواسطتي باستخدام Next.js.",
     back: "كل المشاريع",
@@ -161,10 +161,10 @@ export const projects: Project[] = [
     color: "#9BE3C1",
     shade: "#85D6AF",
     kind: { en: "Mobile app + website", ar: "تطبيق جوال + موقع" },
-    period: { en: "2023 – present", ar: "٢٠٢٣ – الآن" },
+    period: { en: "2023 – present", ar: "2023 – الآن" },
     summary: {
       en: "A Quran recitation app, 99% crash-free for 18+ months.",
-      ar: "تطبيق لتلاوة القرآن الكريم، خالٍ من الأعطال بنسبة ٩٩٪ لأكثر من ١٨ شهراً.",
+      ar: "تطبيق لتلاوة القرآن الكريم، خالٍ من الأعطال بنسبة 99% لأكثر من 18 شهراً.",
     },
     overview: {
       en: "TAHABEER brings the Quran into one calm, Arabic-first app: read the full Mushaf, listen to famous reciters, open the tafsir of any verse and find nearby mosques. It is built with strict OOP and Clean Architecture, which has kept it stable for well over a year, and it has its own landing website.",
@@ -179,11 +179,11 @@ export const projects: Project[] = [
         "Built with Clean Architecture, keeping a 99% crash-free session rate for 18+ months.",
       ],
       ar: [
-        "المصحف كاملاً في ٦٠٤ صفحات مع وضعين ليلي ونهاري وإشارات مرجعية وشريط للتنقل بين الصفحات.",
-        "تلاوات لأكثر من ٨ من أشهر القراء، مع التحميل للاستماع دون إنترنت.",
+        "المصحف كاملاً في 604 صفحات مع وضعين ليلي ونهاري وإشارات مرجعية وشريط للتنقل بين الصفحات.",
+        "تلاوات لأكثر من 8 من أشهر القراء، مع التحميل للاستماع دون إنترنت.",
         "التفسير بجانب كل آية، ومنه الميسّر والجلالين.",
-        "دليل للمساجد: ١٤٨ مسجداً في الرياض على الخريطة مع أئمتها وفلاتر للبحث والاتجاهات.",
-        "مبني وفق البنية النظيفة، وحافظ على نسبة جلسات خالية من الأعطال تبلغ ٩٩٪ لأكثر من ١٨ شهراً.",
+        "دليل للمساجد: 148 مسجداً في الرياض على الخريطة مع أئمتها وفلاتر للبحث والاتجاهات.",
+        "مبني وفق البنية النظيفة، وحافظ على نسبة جلسات خالية من الأعطال تبلغ 99% لأكثر من 18 شهراً.",
       ],
     },
     stack: ["Flutter", "Dart", "Supabase", "Google Maps", "just_audio", "Clean Architecture"],
@@ -207,7 +207,7 @@ export const projects: Project[] = [
       },
       {
         src: "/work/tahabeer/phone/map.jpg",
-        alt: { en: "Map of 148 mosques in Riyadh", ar: "خريطة ١٤٨ مسجداً في الرياض" },
+        alt: { en: "Map of 148 mosques in Riyadh", ar: "خريطة 148 مسجداً في الرياض" },
       },
     ],
     images: [
@@ -222,7 +222,7 @@ export const projects: Project[] = [
         src: "/work/tahabeer/mosques.png",
         alt: {
           en: "Mosque finder with a map of 148 mosques in Riyadh",
-          ar: "دليل المساجد مع خريطة لـ ١٤٨ مسجداً في الرياض",
+          ar: "دليل المساجد مع خريطة لـ 148 مسجداً في الرياض",
         },
       },
       { src: "/work/tahabeer/home.png", alt: { en: "TAHABEER website home page", ar: "الصفحة الرئيسية لموقع تحابير" } },
@@ -236,10 +236,10 @@ export const projects: Project[] = [
     shade: "#F3C61F",
     badge: { en: "1st place · DAICOthon", ar: "المركز الأول · DAICOthon" },
     kind: { en: "Web app", ar: "تطبيق ويب" },
-    period: { en: "Jul 2026 – present", ar: "يوليو ٢٠٢٦ – الآن" },
+    period: { en: "Jul 2026 – present", ar: "يوليو 2026 – الآن" },
     summary: {
       en: "Share files with a whole classroom using just a PIN or a QR code. No accounts, under 30 seconds.",
-      ar: "شارك الملفات مع الفصل كاملاً برمز من ٦ أرقام أو رمز QR. بلا حسابات، وفي أقل من ٣٠ ثانية.",
+      ar: "شارك الملفات مع الفصل كاملاً برمز من 6 أرقام أو رمز QR. بلا حسابات، وفي أقل من 30 ثانية.",
     },
     overview: {
       en: "Wamdah is a classroom file-sharing utility built for speed: teachers and students exchange files without creating accounts. It won 1st place at the DAICOthon Hackathon at King Saud University.",
@@ -252,7 +252,7 @@ export const projects: Project[] = [
         "Full Arabic/English internationalization with RTL support, theming, and auto-expiring file security.",
       ],
       ar: [
-        "مصادقة بلا تسجيل دخول عبر رموز من ٦ أرقام ورموز QR في ٣ أوضاع مشاركة، مع نقل للملفات في أقل من ٣٠ ثانية.",
+        "مصادقة بلا تسجيل دخول عبر رموز من 6 أرقام ورموز QR في 3 أوضاع مشاركة، مع نقل للملفات في أقل من 30 ثانية.",
         "مسار رفع مباشر إلى التخزين باستخدام Supabase Realtime لتجاوز حدود حجم الطلبات في Vercel.",
         "دعم كامل للعربية والإنجليزية مع اتجاه RTL، وتعدد السمات، وحماية للملفات تنتهي صلاحيتها تلقائياً.",
       ],
@@ -266,7 +266,7 @@ export const projects: Project[] = [
         src: "/work/wamdah/send.png",
         alt: {
           en: "Send screen: enter the receiver’s 6-digit code",
-          ar: "شاشة الإرسال: أدخل رمز المستقبل المكوّن من ٦ أرقام",
+          ar: "شاشة الإرسال: أدخل رمز المستقبل المكوّن من 6 أرقام",
         },
       },
       {
@@ -281,8 +281,8 @@ export const projects: Project[] = [
     arabicName: "قلم",
     color: "#FF8A5B",
     shade: "#F57A49",
-    kind: { en: "Mobile app + AI · team of 6", ar: "تطبيق جوال + ذكاء اصطناعي · فريق من ٦" },
-    period: { en: "Aug – Dec 2025", ar: "أغسطس – ديسمبر ٢٠٢٥" },
+    kind: { en: "Mobile app + AI · team of 6", ar: "تطبيق جوال + ذكاء اصطناعي · فريق من 6" },
+    period: { en: "Aug – Dec 2025", ar: "أغسطس – ديسمبر 2025" },
     summary: {
       en: "A home for Arabic calligraphy: share and discover artwork, and let Hebr AI name the style of any piece from a photo.",
       ar: "منصة للخط العربي: شارك الأعمال واكتشفها، ودع «حِبر AI» يتعرّف على نوع الخط من أي صورة.",
@@ -303,10 +303,10 @@ export const projects: Project[] = [
         "Built in Flutter and Firebase over four sprints from a 22-story backlog, plus a bilingual Arabic/English website with an interactive style game.",
       ],
       ar: [
-        "«حِبر AI»: نموذج رؤية حاسوبية مخصص يتعرّف على أكثر من ١٠ أنواع من الخط العربي من الصورة ويشرح كل نوع.",
+        "«حِبر AI»: نموذج رؤية حاسوبية مخصص يتعرّف على أكثر من 10 أنواع من الخط العربي من الصورة ويشرح كل نوع.",
         "مجتمع للخط العربي: رفع الأعمال مصنّفة حسب نوع الخط، ومتابعة الفنانين، والإعجاب والتعليق والحفظ.",
         "طلبات الأعمال المخصصة ليستقبل الخطاطون الطلبات مباشرة.",
-        "بُني بـ Flutter و Firebase خلال أربع سبرنتات من ٢٢ قصة مستخدم، مع موقع ثنائي اللغة يضم لعبة تفاعلية لأنواع الخط.",
+        "بُني بـ Flutter و Firebase خلال أربع سبرنتات من 22 قصة مستخدم، مع موقع ثنائي اللغة يضم لعبة تفاعلية لأنواع الخط.",
       ],
     },
     stack: ["Flutter", "Firebase", "Computer vision", "Roboflow", "FastAPI", "Agile"],
@@ -330,10 +330,10 @@ export const projects: Project[] = [
     color: "#B8C4FF",
     shade: "#A5B3FA",
     kind: { en: "Web app", ar: "تطبيق ويب" },
-    period: { en: "Aug – Nov 2025", ar: "أغسطس – نوفمبر ٢٠٢٥" },
+    period: { en: "Aug – Nov 2025", ar: "أغسطس – نوفمبر 2025" },
     summary: {
       en: "University timetables that fix their own conflicts, with live co-editing for 30+ users.",
-      ar: "جداول جامعية تحل تعارضاتها بنفسها، مع تحرير جماعي مباشر لأكثر من ٣٠ مستخدماً.",
+      ar: "جداول جامعية تحل تعارضاتها بنفسها، مع تحرير جماعي مباشر لأكثر من 30 مستخدماً.",
     },
     overview: {
       en: "SmartSchedule is an intelligent academic scheduling platform. It resolves timetable conflicts automatically and lets several people edit the same schedule at once.",
@@ -349,8 +349,8 @@ export const projects: Project[] = [
         "Real-time collaborative editing with Yjs (CRDT), with zero data loss across 30+ concurrent sessions.",
       ],
       ar: [
-        "خوارزمية جدولة تحل التعارضات تلقائياً وتدعم ٥ أدوار مختلفة للمستخدمين.",
-        "تحرير جماعي لحظي باستخدام Yjs (CRDT) دون أي فقدان للبيانات عبر أكثر من ٣٠ جلسة متزامنة.",
+        "خوارزمية جدولة تحل التعارضات تلقائياً وتدعم 5 أدوار مختلفة للمستخدمين.",
+        "تحرير جماعي لحظي باستخدام Yjs (CRDT) دون أي فقدان للبيانات عبر أكثر من 30 جلسة متزامنة.",
       ],
     },
     stack: ["Next.js", "TypeScript", "Supabase", "Yjs", "Tailwind CSS"],
@@ -383,16 +383,16 @@ export const projects: Project[] = [
     name: { en: "CloudTrim", ar: "CloudTrim" },
     color: "#FFB8C9",
     shade: "#F5A3B7",
-    badge: { en: "VentureX 2026", ar: "VentureX ٢٠٢٦" },
+    badge: { en: "VentureX 2026", ar: "VentureX 2026" },
     kind: { en: "Web app · AI FinOps", ar: "تطبيق ويب · ذكاء اصطناعي" },
-    period: { en: "Oct 2026", ar: "أكتوبر ٢٠٢٦" },
+    period: { en: "Oct 2026", ar: "أكتوبر 2026" },
     summary: {
       en: "An AI agent that finds wasted cloud spend for Saudi SMEs, and changes nothing until a human approves.",
       ar: "وكيل ذكاء اصطناعي يكتشف الهدر في تكاليف السحابة للمنشآت الصغيرة والمتوسطة في السعودية، ولا يغيّر شيئاً قبل موافقة إنسان.",
     },
     overview: {
       en: "CloudTrim is an AI FinOps product our team built for VentureX 2026. It scans a company’s cloud with read-only access, explains each saving in plain language, and only acts after an engineer approves with one click, on the web or WhatsApp. It’s designed for Saudi SMEs with 50 to 250 staff. The mentors praised the idea.",
-      ar: "CloudTrim منتج لإدارة تكاليف السحابة بالذكاء الاصطناعي بنيناه كفريق لمسابقة VentureX 2026. يفحص سحابة الشركة بصلاحية قراءة فقط، ويشرح كل فرصة توفير بلغة بسيطة، ولا ينفّذ أي تغيير إلا بعد موافقة المهندس بنقرة واحدة عبر الويب أو واتساب. صُمّم للمنشآت السعودية التي يعمل بها بين ٥٠ و٢٥٠ موظفاً، وأشاد المرشدون بفكرته.",
+      ar: "CloudTrim منتج لإدارة تكاليف السحابة بالذكاء الاصطناعي بنيناه كفريق لمسابقة VentureX 2026. يفحص سحابة الشركة بصلاحية قراءة فقط، ويشرح كل فرصة توفير بلغة بسيطة، ولا ينفّذ أي تغيير إلا بعد موافقة المهندس بنقرة واحدة عبر الويب أو واتساب. صُمّم للمنشآت السعودية التي يعمل بها بين 50 و250 موظفاً، وأشاد المرشدون بفكرته.",
     },
     role: {
       en: "Shaped and refined the product idea, then built the MVP and designed the UI.",
@@ -407,7 +407,7 @@ export const projects: Project[] = [
       ],
       ar: [
         "صفحة تعريفية وعرض تفاعلي للمنتج في تطبيق Next.js واحد، بالعربية والإنجليزية مع دعم كامل لاتجاه RTL.",
-        "مسار موافقة يضع الأمان أولاً: فحص بصلاحية قراءة فقط، وصلاحية لإجراء واحد تنتهي خلال ١٥ دقيقة، وإيقاف بدل الحذف مع تراجع بنقرة، وسجل تدقيق.",
+        "مسار موافقة يضع الأمان أولاً: فحص بصلاحية قراءة فقط، وصلاحية لإجراء واحد تنتهي خلال 15 دقيقة، وإيقاف بدل الحذف مع تراجع بنقرة، وسجل تدقيق.",
         "شرح كل توصية بالذكاء الاصطناعي عبر Claude API، مع نص احتياطي حتى لا يتعطل العرض أبداً.",
         "عرض حي يعمل على بيانات تجريبية لشركة افتراضية، فلا يعتمد على حساب سحابي حقيقي.",
       ],
@@ -429,7 +429,7 @@ export const projects: Project[] = [
     color: "#D7C4FF",
     shade: "#C7B0FA",
     kind: { en: "Chrome extension", ar: "إضافة Chrome" },
-    period: { en: "Jul 2026", ar: "يوليو ٢٠٢٦" },
+    period: { en: "Jul 2026", ar: "يوليو 2026" },
     summary: {
       en: "Typed a whole sentence in the wrong keyboard layout? Select it, press Ctrl+Shift+E, and it’s fixed.",
       ar: "كتبت جملة كاملة واللغة غلط؟ حدّدها واضغط Ctrl+Shift+E وتنصلح فوراً.",
@@ -473,7 +473,7 @@ export const projects: Project[] = [
     color: "#F2D3A9",
     shade: "#E2B97F",
     kind: { en: "Website · training project", ar: "موقع · مشروع تدريبي" },
-    period: { en: "Jan 2026", ar: "يناير ٢٠٢٦" },
+    period: { en: "Jan 2026", ar: "يناير 2026" },
     summary: {
       en: "An Arabic-first storefront for handmade wool textiles, with a warm heritage look.",
       ar: "متجر إلكتروني عربي للمنسوجات الصوفية اليدوية، بطابع تراثي دافئ.",
@@ -517,7 +517,7 @@ export const projects: Project[] = [
     color: "#C9E4A7",
     shade: "#B2D489",
     kind: { en: "Web app · training project", ar: "تطبيق ويب · مشروع تدريبي" },
-    period: { en: "Dec 2025", ar: "ديسمبر ٢٠٢٥" },
+    period: { en: "Dec 2025", ar: "ديسمبر 2025" },
     summary: {
       en: "A storefront for pre-loved books, with condition grades, discounts and a cart that remembers you.",
       ar: "متجر للكتب المستعملة، يعرض حالة كل كتاب ونسبة التوفير، مع سلة تحفظ مشترياتك.",
@@ -557,8 +557,8 @@ export const projects: Project[] = [
     color: "#A9DDF5",
     shade: "#86CBEB",
     badge: { en: "Graduation project · KSU", ar: "مشروع تخرّج · جامعة الملك سعود" },
-    kind: { en: "Mobile app · team of 5", ar: "تطبيق جوال · فريق من ٥" },
-    period: { en: "Mar – Jun 2026", ar: "مارس – يونيو ٢٠٢٦" },
+    kind: { en: "Mobile app · team of 5", ar: "تطبيق جوال · فريق من 5" },
+    period: { en: "Mar – Jun 2026", ar: "مارس – يونيو 2026" },
     summary: {
       en: "An AI public-speaking coach: record a speech and get scored on pace, pauses, clarity, energy, pitch and filler words.",
       ar: "مدرّب ذكي للإلقاء: سجّل خطابك واحصل على تقييم للسرعة والتوقفات والوضوح والطاقة ونبرة الصوت وكلمات الحشو.",
@@ -607,8 +607,8 @@ export const projects: Project[] = [
     name: { en: "SAY", ar: "SAY" },
     color: "#FFE08A",
     shade: "#F5CC5C",
-    kind: { en: "Web app · team of 4", ar: "تطبيق ويب · فريق من ٤" },
-    period: { en: "Dec 2025 – Jan 2026", ar: "ديسمبر ٢٠٢٥ – يناير ٢٠٢٦" },
+    kind: { en: "Web app · team of 4", ar: "تطبيق ويب · فريق من 4" },
+    period: { en: "Dec 2025 – Jan 2026", ar: "ديسمبر 2025 – يناير 2026" },
     summary: {
       en: "Start All Yourself: a bilingual guide to the modern dev stack, from the first idea to launch.",
       ar: "ابدأ كل شيء بنفسك: دليل ثنائي اللغة لأدوات التطوير الحديثة، من الفكرة الأولى حتى الإطلاق.",
@@ -629,9 +629,9 @@ export const projects: Project[] = [
         "A prompt tester that scores your prompt with Gemini, full Arabic and English support, and light and dark themes.",
       ],
       ar: [
-        "دليل أدوات قابل للبحث في ١٦ تصنيفاً، مع صفحة تفاصيل لكل أداة.",
+        "دليل أدوات قابل للبحث في 16 تصنيفاً، مع صفحة تفاصيل لكل أداة.",
         "صفحة لمقارنة أداتين جنباً إلى جنب، وحزم تقنية مقترحة، وأداة لبناء حزمتك الخاصة.",
-        "مكتبة أوامر مولّدة من قوالب (أكثر من ١٩ ألف أمر برمجي وأوامر لكتابة متطلبات المشاريع)، مع فلترة حسب المجال والتقنية والأسلوب.",
+        "مكتبة أوامر مولّدة من قوالب (أكثر من 19 ألف أمر برمجي وأوامر لكتابة متطلبات المشاريع)، مع فلترة حسب المجال والتقنية والأسلوب.",
         "أداة لتقييم الأوامر باستخدام Gemini، ودعم كامل للعربية والإنجليزية، ووضعان فاتح وداكن.",
       ],
     },
@@ -653,7 +653,7 @@ export const projects: Project[] = [
     color: "#FFB3A7",
     shade: "#F59A8C",
     kind: { en: "Web app · course project", ar: "تطبيق ويب · مشروع مقرر" },
-    period: { en: "Dec 2025", ar: "ديسمبر ٢٠٢٥" },
+    period: { en: "Dec 2025", ar: "ديسمبر 2025" },
     summary: {
       en: "Class attendance without the paper sheet: GPS check-in for classrooms and QR codes for online lectures.",
       ar: "تحضير الطلاب دون كشف ورقي: تسجيل الحضور بالموقع في القاعة، وبرمز QR في المحاضرات عن بُعد.",
@@ -672,7 +672,7 @@ export const projects: Project[] = [
       ],
       ar: [
         "دوران: طالب ومحاضر، لكل منهما لوحة خاصة.",
-        "ينشئ المحاضر جلسة حضورية (بالموقع) أو عن بُعد (برمز QR)، ويحدد مهلة التأخير من ٥ إلى ٢٠ دقيقة، ويتابع مؤقت الجلسة وعدد الحاضرين مباشرة.",
+        "ينشئ المحاضر جلسة حضورية (بالموقع) أو عن بُعد (برمز QR)، ويحدد مهلة التأخير من 5 إلى 20 دقيقة، ويتابع مؤقت الجلسة وعدد الحاضرين مباشرة.",
         "تعرض الجلسات عن بُعد رمز QR يمكن نسخه أو تجديده، ويمسحه الطالب بالكاميرا.",
         "يرى الطالب الجلسات القريبة مع المسافة وعدد الحاضرين، ويسجّل حضوره بضغطة واحدة، ويُسجَّل الحضور بثلاث حالات: حاضر، متأخر، غائب.",
       ],
@@ -703,17 +703,17 @@ export const experience = [
   {
     org: { en: "Paseetah", ar: "بسيطة" },
     role: { en: "Flutter Developer", ar: "مطوّر Flutter" },
-    period: { en: "2026", ar: "٢٠٢٦" },
+    period: { en: "2026", ar: "2026" },
   },
   {
     org: { en: "Nugttah", ar: "نقطة" },
     role: { en: "Frontend Mobile Developer", ar: "مطوّر واجهات تطبيقات الجوال" },
-    period: { en: "2025", ar: "٢٠٢٥" },
+    period: { en: "2025", ar: "2025" },
   },
   {
     org: { en: "King Saud University", ar: "جامعة الملك سعود" },
     role: { en: "B.Sc. Software Engineering", ar: "بكالوريوس هندسة البرمجيات" },
-    period: { en: "2022 – 2026", ar: "٢٠٢٢ – ٢٠٢٦" },
+    period: { en: "2022 – 2026", ar: "2022 – 2026" },
   },
 ];
 
@@ -734,7 +734,7 @@ export const stats = [
     place: { en: "1M+", ar: "1M+" },
     detail: {
       en: "FutureU: a 40-question career test that points students to their best-fit tech field.",
-      ar: "FutureU: اختبار مسار من ٤٠ سؤالاً يوجّه الطالب لمجال التقنية الأنسب له.",
+      ar: "FutureU: اختبار مسار من 40 سؤالاً يوجّه الطالب لمجال التقنية الأنسب له.",
     },
     color: "#DCCBFF",
   },
@@ -745,27 +745,27 @@ export const wins = [
   {
     kind: { en: "Hackathon win", ar: "فوز في هاكاثون" },
     place: { en: "1st place", ar: "المركز الأول" },
-    event: { en: "DAICOthon 2026", ar: "هاكاثون DAICOthon ٢٠٢٦" },
+    event: { en: "DAICOthon 2026", ar: "هاكاثون DAICOthon 2026" },
     detail: { en: "Wamdah · Classroom file sharing", ar: "ومضة · مشاركة الملفات في الفصل" },
     color: "#B8C4FF",
   },
   {
     kind: { en: "Hackathon win", ar: "فوز في هاكاثون" },
     place: { en: "4th place", ar: "المركز الرابع" },
-    event: { en: "Projecton Hackathon 2025", ar: "هاكاثون بروجيكتون ٢٠٢٥" },
+    event: { en: "Projecton Hackathon 2025", ar: "هاكاثون بروجيكتون 2025" },
     detail: {
       en: "3 days as project managers on 3 real challenges",
-      ar: "٣ أيام بدور مدير المشروع في ٣ تحديات حقيقية",
+      ar: "3 أيام بدور مدير المشروع في 3 تحديات حقيقية",
     },
     color: "#D4F07A",
   },
   {
     kind: { en: "Robotics challenge", ar: "تحدي روبوتات" },
     place: { en: "2nd place", ar: "المركز الثاني" },
-    event: { en: "Bingo Bot V2 2025", ar: "تحدي Bingo Bot V2 ٢٠٢٥" },
+    event: { en: "Bingo Bot V2 2025", ar: "تحدي Bingo Bot V2 2025" },
     detail: {
       en: "Drones and Robotics Club · team of 3",
-      ar: "نادي الدرونز والروبوت · فريق من ٣",
+      ar: "نادي الدرونز والروبوت · فريق من 3",
     },
     color: "#F2D6A2",
   },
@@ -775,7 +775,7 @@ export const clubs = [
   {
     name: { en: "Future Technology Club", ar: "Future Technology Club" },
     role: { en: "Vice President of Membership Affairs", ar: "نائب الرئيس لشؤون العضوية" },
-    period: { en: "2025 – Now", ar: "٢٠٢٥ – الآن" },
+    period: { en: "2025 – Now", ar: "2025 – الآن" },
     current: true,
     logo: "/clubs/ftc.png",
     color: "#DDD0F6",
@@ -784,7 +784,7 @@ export const clubs = [
   {
     name: { en: "3DC · 3D Printing Club", ar: "3DC · نادي الطباعة ثلاثية الأبعاد" },
     role: { en: "Technical Committee Member", ar: "عضو اللجنة التقنية" },
-    period: { en: "2024 – Now", ar: "٢٠٢٤ – الآن" },
+    period: { en: "2024 – Now", ar: "2024 – الآن" },
     current: true,
     logo: "/clubs/3dc.png",
     color: "#FDDCC6",
@@ -793,7 +793,7 @@ export const clubs = [
   {
     name: { en: "BIG n", ar: "BIG n" },
     role: { en: "Member Affairs Team, HR Committee", ar: "فريق شؤون الأعضاء، لجنة الموارد البشرية" },
-    period: { en: "2024 – 2025", ar: "٢٠٢٤ – ٢٠٢٥" },
+    period: { en: "2024 – 2025", ar: "2024 – 2025" },
     current: false,
     logo: "/clubs/bign.png",
     color: "#CDEFDF",
@@ -802,7 +802,7 @@ export const clubs = [
   {
     name: { en: "KSU CPC", ar: "KSU CPC" },
     role: { en: "Vice Leader, Executive Committee", ar: "نائب قائد اللجنة التنفيذية" },
-    period: { en: "2025 – 2026", ar: "٢٠٢٥ – ٢٠٢٦" },
+    period: { en: "2025 – 2026", ar: "2025 – 2026" },
     current: false,
     logo: "/clubs/cpc.png",
     color: "#2E1A66",
@@ -812,18 +812,18 @@ export const clubs = [
   {
     name: { en: "Artificial Intelligence Club", ar: "نادي الذكاء الاصطناعي" },
     role: { en: "Research Committee Member", ar: "عضو لجنة الأبحاث" },
-    period: { en: "2025 – 2026", ar: "٢٠٢٥ – ٢٠٢٦" },
+    period: { en: "2025 – 2026", ar: "2025 – 2026" },
     current: false,
     logo: "/clubs/ai.png",
     color: "#1A2342",
     dark: true,
     size: "half",
-    stat: { value: { en: "30", ar: "٣٠" }, label: { en: "volunteer hours", ar: "ساعة تطوعية" } },
+    stat: { value: { en: "30", ar: "30" }, label: { en: "volunteer hours", ar: "ساعة تطوعية" } },
   },
   {
     name: { en: "Digital Innovation Unit", ar: "Digital Innovation Unit" },
     role: { en: "Technical Committee Member", ar: "عضو اللجنة التقنية" },
-    period: { en: "2025 – 2026", ar: "٢٠٢٥ – ٢٠٢٦" },
+    period: { en: "2025 – 2026", ar: "2025 – 2026" },
     current: false,
     logo: "/clubs/diu.png",
     color: "#D6EBF8",
