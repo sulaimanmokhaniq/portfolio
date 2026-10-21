@@ -92,16 +92,26 @@ html {
 }
 
 body {
-  /* A faint square grid behind the tiles, drawn in a solid colour a step off the background. */
   background-color: var(--ground);
+  color: var(--text);
+  /* Slide-in animations start off-screen; never let them widen the page on phones. */
+  overflow-x: clip;
+}
+
+/* A faint square grid pinned behind the page: the content scrolls over it, the grid stays put. A fixed layer
+   (not background-attachment: fixed) so phones scroll smoothly. */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
   background-image:
     linear-gradient(to right, var(--grid) 1px, transparent 1px),
     linear-gradient(to bottom, var(--grid) 1px, transparent 1px);
   background-size: 48px 48px;
   background-position: center top;
-  color: var(--text);
-  /* Slide-in animations start off-screen; never let them widen the page on phones. */
-  overflow-x: clip;
+  transform: translateZ(0);
 }
 
 ::selection {
