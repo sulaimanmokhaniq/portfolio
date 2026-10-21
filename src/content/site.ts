@@ -28,7 +28,7 @@ export const ui = {
     heroName: "Sulaiman Mokhaniq.",
     heroRoles: ["Product Engineer", "Software Engineer", "Mobile App Developer"],
     heroBody:
-      "I turn Figma designs into production features with Flutter and Next.js, for apps with 100K+ users and hackathon-winning tools alike.",
+      "Computer Engineering graduate from King Saud University. I turn ideas into real products that people use.",
     seeProjects: "See projects",
     downloadCv: "Download CV",
     printingCv: "Printing my CV…",
@@ -81,8 +81,7 @@ export const ui = {
     tagline: "مقيم في الرياض",
     heroName: "سليمان مخانق.",
     heroRoles: ["مهندس منتجات", "مهندس برمجيات", "مطوّر تطبيقات جوال"],
-    heroBody:
-      "أحوّل تصاميم Figma إلى مزايا جاهزة للإنتاج باستخدام Flutter و Next.js، من تطبيقات يستخدمها أكثر من ١٠٠ ألف مستخدم إلى أدوات فازت في الهاكاثونات.",
+    heroBody: "خريج هندسة حاسب من جامعة الملك سعود، أحوّل الأفكار إلى منتجات حقيقية يستخدمها الناس.",
     seeProjects: "شاهد المشاريع",
     downloadCv: "حمّل السيرة الذاتية",
     printingCv: "جارٍ طباعة سيرتي…",
