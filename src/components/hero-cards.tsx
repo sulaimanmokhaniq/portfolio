@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 
 // Leaves out sun and peri (they sit next to this tile) and coral (too close to flame).
 const COLORS = ["bg-flame", "bg-mint", "bg-sky"];
-const INTERVAL = 2000;
+const INTERVAL = 6000;
 
 // How long one card takes to slide across. Slow and smooth on purpose.
 export const SLIDE = { duration: 1.1, ease: [0.65, 0, 0.35, 1] as const };

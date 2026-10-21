@@ -12,7 +12,7 @@ export function WinDeck({
   wins,
   label,
   nextLabel,
-  interval = 3500,
+  interval = 6000,
   rtl = false,
 }: {
   wins: Win[];

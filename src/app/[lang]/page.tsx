@@ -87,7 +87,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             }))}
             label={t.usersStat}
             nextLabel={t.nextCard}
-            interval={4200}
+            interval={7000}
             rtl={lang === "ar"}
           />
         </Reveal>
