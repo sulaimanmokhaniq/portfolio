@@ -5,6 +5,7 @@ import { notFound } from "next/navigation";
 import { Arrow } from "@/components/arrow";
 import { ProjectVisual } from "@/components/project-visual";
 import { Reveal } from "@/components/reveal";
+import { ResultsStrip } from "@/components/results-strip";
 import { hasLocale, locales, profile, projects, ui } from "@/content/site";
 
 export function generateStaticParams() {
@@ -52,6 +53,7 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/work/[s
               {project.name[lang]}
             </h1>
             <p className="max-w-lg text-xl leading-relaxed">{project.summary[lang]}</p>
+            <ResultsStrip project={project} lang={lang} className="max-w-lg" />
           </div>
           <ProjectVisual project={project} lang={lang} priority className="min-h-[320px]" />
         </section>

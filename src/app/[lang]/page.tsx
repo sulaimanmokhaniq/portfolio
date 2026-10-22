@@ -8,6 +8,7 @@ import { ProjectVisual } from "@/components/project-visual";
 import { StackChip } from "@/components/stack-chip";
 import { WinDeck } from "@/components/win-deck";
 import { Reveal } from "@/components/reveal";
+import { ResultsStrip } from "@/components/results-strip";
 import { RiyadhClock } from "@/components/riyadh-clock";
 import { RoleCycler } from "@/components/role-cycler";
 import Image from "next/image";
@@ -180,25 +181,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                       </Link>
                     </h3>
                     <p className="max-w-md text-lg leading-relaxed">{p.summary[lang]}</p>
-                    {p.results && (
-                      <dl className="grid max-w-lg grid-cols-3 rounded-2xl bg-ink py-4 text-cream">
-                        {p.results.map((r, k) => (
-                          <div
-                            key={k}
-                            className={`flex flex-col gap-1 px-3 sm:px-4 ${k ? "border-s border-white/15" : ""}`}
-                          >
-                            <dt className="order-2 text-xs leading-snug sm:text-sm">{r.label[lang]}</dt>
-                            <dd
-                              dir="auto"
-                              className="font-display text-xl leading-none font-extrabold sm:text-2xl rtl:text-right"
-                              style={{ color: p.color }}
-                            >
-                              {r.value[lang]}
-                            </dd>
-                          </div>
-                        ))}
-                      </dl>
-                    )}
+                    <ResultsStrip project={p} lang={lang} className="max-w-lg" />
                     <span className="swap mt-2 self-start rounded-full bg-ink font-semibold" style={{ color: p.color }}>
                       <span className="swap-front flex items-center gap-2 px-4 py-2">
                         {t.caseStudy}

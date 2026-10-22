@@ -111,7 +111,7 @@ export function PhoneDemo({
           {shots.map((s, i) => (
             <span
               key={s.src}
-              className={`h-1.5 rounded-full bg-ink transition-all duration-300 ${i === index ? "w-5" : "w-1.5 opacity-30"}`}
+              className={`h-1.5 rounded-full border-ink transition-all duration-300 ${i === index ? "w-5 bg-ink" : "w-1.5 border"}`}
             />
           ))}
         </div>

@@ -3,9 +3,9 @@
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect, useState } from "react";
 
-const INTERVAL = 1000;
+const INTERVAL = 2500;
 
-// The orange job title under the name, swapping every second. Every title sits invisibly in the same grid
+// The orange job title under the name, swapping every few seconds. Every title sits invisibly in the same grid
 // cell so the headline keeps the height of the longest one and nothing below it jumps.
 export function RoleCycler({ roles }: { roles: string[] }) {
   const reduce = useReducedMotion();

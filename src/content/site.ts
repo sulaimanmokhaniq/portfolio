@@ -52,6 +52,9 @@ export const ui = {
     communityLabel: "Community",
     communityBody:
       "hackathon participants led across 3+ events, with 130K+ SAR in prizes. I also headed the executive committee of BIG O’s national programming contest (300+ contestants).",
+    notFoundTitle: "This page doesn’t exist.",
+    notFoundBody: "The link may be old or mistyped.",
+    backHome: "Back home",
     contactKicker: "Got an idea?",
     madeIn: "Made in Riyadh",
     contactTitle: ["Let’s make", "something."],
@@ -120,6 +123,9 @@ export const ui = {
     communityLabel: "المجتمع",
     communityBody:
       "مشارك قدتُ تنظيمهم في أكثر من 3 هاكاثونات بجوائز تجاوزت 130 ألف ريال. وترأست اللجنة التنفيذية لمسابقة BIG O’s الوطنية للبرمجة (أكثر من 300 متسابق).",
+    notFoundTitle: "هذه الصفحة غير موجودة.",
+    notFoundBody: "ربما الرابط قديم أو فيه خطأ.",
+    backHome: "العودة للرئيسية",
     contactKicker: "عندك فكرة؟",
     madeIn: "صُنع في الرياض",
     contactTitle: ["لنصنع", "شيئاً معاً."],

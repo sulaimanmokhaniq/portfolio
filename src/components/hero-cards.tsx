@@ -161,7 +161,7 @@ export function HeroCards({
         {lines.map((_, i) => (
           <span
             key={i}
-            className={`h-1.5 rounded-full bg-ink transition-all duration-500 ${i === index ? "w-6" : "w-1.5 opacity-30"}`}
+            className={`h-1.5 rounded-full border-ink transition-all duration-500 ${i === index ? "w-6 bg-ink" : "w-1.5 border"}`}
           />
         ))}
       </div>
