@@ -418,24 +418,28 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       {/* Contact */}
       <section id="contact" className="mx-auto max-w-[1280px] scroll-mt-24 px-4 pt-24 pb-6 sm:px-6">
         <Reveal>
-          <div className="flex flex-col gap-10 rounded-tile bg-flame p-8 text-ink sm:p-14">
-            <div className="flex flex-wrap items-start justify-between gap-x-8 gap-y-2">
-              <span className="pt-3 text-lg font-semibold">{t.contactKicker}</span>
+          <div className="flex flex-col gap-14 rounded-tile bg-hero p-8 text-hero-text sm:p-14">
+            <div className="flex flex-wrap items-start justify-between gap-x-10 gap-y-6">
+              <div className="flex flex-col gap-4">
+                <span className="text-sm font-bold tracking-widest text-hero-muted uppercase rtl:tracking-normal">
+                  {t.contactKicker}
+                </span>
+                <h2 className="font-display text-[clamp(2.75rem,6vw,6rem)] leading-[1.02] font-extrabold tracking-tight rtl:leading-[1.35]">
+                  {t.contactTitle[0]}
+                  <br />
+                  {t.contactTitle[1]}
+                </h2>
+              </div>
               <span
                 lang="ar"
                 aria-hidden="true"
-                className={`${ruqaa.className} text-[clamp(4.5rem,11vw,9rem)] leading-none`}
+                className={`${ruqaa.className} text-[clamp(4.5rem,11vw,9rem)] leading-none text-flame`}
               >
                 سليمان
               </span>
             </div>
-            <div className="flex flex-wrap items-end justify-between gap-8">
-              <h2 className="font-display text-[clamp(2.75rem,6vw,6rem)] leading-[1.02] rtl:leading-[1.35] font-extrabold tracking-tight">
-                {t.contactTitle[0]}
-                <br />
-                {t.contactTitle[1]}
-              </h2>
-              <div className="flex flex-col gap-4 text-lg" dir="ltr">
+            <div className="flex flex-wrap items-center justify-between gap-x-8 gap-y-5 border-t border-white/15 pt-7">
+              <div className="flex flex-wrap gap-x-7 gap-y-3 text-sm min-[380px]:text-base sm:text-lg" dir="ltr">
                 <a
                   href={`mailto:${profile.email}`}
                   className="flex items-center gap-3 font-semibold underline-offset-4 hover:underline"
@@ -443,36 +447,35 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                   <MailIcon className="size-6 shrink-0" />
                   {profile.email}
                 </a>
-                <div className="flex flex-wrap gap-x-7 gap-y-3">
-                  <a
-                    href={profile.linkedin}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center gap-3 underline-offset-4 hover:underline"
-                  >
-                    <LinkedInIcon className="size-[22px] shrink-0" />
-                    LinkedIn
-                  </a>
-                  <a
-                    href={profile.github}
-                    target="_blank"
-                    rel="noreferrer"
-                    className="flex items-center gap-3 underline-offset-4 hover:underline"
-                  >
-                    <GitHubIcon className="size-[22px] shrink-0" />
-                    GitHub
-                  </a>
-                </div>
+                <a
+                  href={profile.linkedin}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-3 underline-offset-4 hover:underline"
+                >
+                  <LinkedInIcon className="size-[22px] shrink-0" />
+                  LinkedIn
+                </a>
+                <a
+                  href={profile.github}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="flex items-center gap-3 underline-offset-4 hover:underline"
+                >
+                  <GitHubIcon className="size-[22px] shrink-0" />
+                  GitHub
+                </a>
               </div>
+              <span className="text-sm text-hero-muted">
+                {t.madeIn} · © 2026 {profile.name[lang]}
+              </span>
             </div>
           </div>
         </Reveal>
       </section>
 
       <footer className="mx-auto flex max-w-[1280px] flex-wrap justify-between gap-2 px-6 pt-6 pb-10 text-sm text-muted">
-        <span>© 2026 {profile.name[lang]}</span>
         <span>{t.footer}</span>
-        <span>{t.madeIn}</span>
       </footer>
     </main>
   );
