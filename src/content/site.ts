@@ -151,7 +151,7 @@ export const ui = {
     clockAsleep: "غالبًا نائم الآن، وأرد عليك صباحًا.",
     nextCard: "اعرض البطاقة التالية",
     role: "دوري",
-    visit: "زر الموقع",
+    visit: "زُر الموقع",
     code: "شاهد الكود",
     screens: "لقطات",
     tryLive: "جرّبه مباشرة",

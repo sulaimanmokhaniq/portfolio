@@ -5,15 +5,15 @@ import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
 import { AnimatePresence, LayoutGroup, motion, useReducedMotion } from "motion/react";
 import { useCallback, useEffect, useState, useSyncExternalStore } from "react";
-import { ui, type Locale } from "@/content/site";
+import { projects, ui, type Locale } from "@/content/site";
 import { NameCalligraphy } from "@/components/name-calligraphy";
 
 const subscribe = () => () => {};
 const sections = ["intro", "work", "clubs", "about", "contact"] as const;
 type Section = (typeof sections)[number];
 
-// Tracks which home-page section is on screen (the hero counts as "intro"); case pages always count as "work".
-function useActiveSection(isHome: boolean) {
+// Tracks which home-page section is on screen (the hero counts as "intro"); case pages count as "work", other pages (like 404) highlight nothing.
+function useActiveSection(isHome: boolean, isCase: boolean) {
   const [active, setActive] = useState<Section | null>(null);
 
   useEffect(() => {
@@ -37,7 +37,7 @@ function useActiveSection(isHome: boolean) {
     };
   }, [isHome]);
 
-  return isHome ? active : "work";
+  return isHome ? active : isCase ? "work" : null;
 }
 
 export function Header({ lang }: { lang: Locale }) {
@@ -55,7 +55,8 @@ export function Header({ lang }: { lang: Locale }) {
   const isHome = /^\/(en|ar)\/?$/.test(pathname);
   const [calligraphy, setCalligraphy] = useState(false);
   const closeCalligraphy = useCallback(() => setCalligraphy(false), []);
-  const active = useActiveSection(isHome);
+  const isCase = projects.some((p) => new RegExp(`^/(en|ar)/work/${p.slug}/?$`).test(pathname));
+  const active = useActiveSection(isHome, isCase);
   const reduce = useReducedMotion();
 
   const [menuOpen, setMenuOpen] = useState(false);

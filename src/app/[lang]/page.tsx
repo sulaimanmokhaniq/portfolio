@@ -200,12 +200,12 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                   {p.sticker && (
                     <span
                       aria-label={p.badge?.[lang]}
-                      className="absolute -top-4 -end-2 z-[6] flex size-28 rotate-12 flex-col items-center justify-center rounded-full border-[3px] border-ink bg-flame text-ink sm:size-32"
+                      className="absolute -top-5 end-1 z-[6] flex size-[88px] rotate-12 flex-col items-center justify-center rounded-full border-[3px] border-ink bg-flame text-ink sm:-top-4 sm:-end-2 sm:size-32"
                     >
-                      <span className="font-display text-3xl leading-none font-extrabold sm:text-4xl">
+                      <span className="font-display text-2xl leading-none font-extrabold sm:text-4xl">
                         {p.sticker.big[lang]}
                       </span>
-                      <span className="text-[11px] font-extrabold tracking-wide uppercase sm:text-xs">
+                      <span className="text-[9px] font-extrabold tracking-wide uppercase sm:text-xs">
                         {p.sticker.small[lang]}
                       </span>
                     </span>
@@ -439,7 +439,10 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
               </span>
             </div>
             <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-5 border-t border-white/15 pt-7 sm:justify-between">
-              <div className="flex flex-wrap justify-center gap-x-7 gap-y-3 text-sm min-[380px]:text-base sm:justify-start sm:text-lg" dir="ltr">
+              <div
+                className="flex flex-wrap justify-center gap-x-7 gap-y-3 text-sm min-[380px]:text-base sm:justify-start sm:text-lg"
+                dir="ltr"
+              >
                 <a
                   href={`mailto:${profile.email}`}
                   className="flex items-center gap-3 font-semibold underline-offset-4 hover:underline"
