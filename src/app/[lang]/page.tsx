@@ -11,11 +11,18 @@ import { Reveal } from "@/components/reveal";
 import { RiyadhClock } from "@/components/riyadh-clock";
 import { RoleCycler } from "@/components/role-cycler";
 import Image from "next/image";
+import { Aref_Ruqaa } from "next/font/google";
 import { clubs, experience, hasLocale, profile, projects, stats, ui, wins } from "@/content/site";
 
 // The card title's link covers the whole card; the project visual sits above it so its buttons still work.
 const stretched =
   "after:absolute after:inset-0 after:z-[5] after:rounded-tile focus-visible:outline-none focus-visible:after:outline-2 focus-visible:after:outline-offset-4 focus-visible:after:outline-ink";
+
+const ruqaa = Aref_Ruqaa({
+  subsets: ["arabic"],
+  weight: "700",
+  preload: false,
+});
 
 // Neighbouring steps never share a colour family.
 const PROCESS_COLORS = ["bg-flame", "bg-mint", "bg-sun", "bg-sky"];
@@ -176,9 +183,16 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                     {p.results && (
                       <dl className="grid max-w-lg grid-cols-3 rounded-2xl bg-ink py-4 text-cream">
                         {p.results.map((r, k) => (
-                          <div key={k} className={`flex flex-col gap-1 px-3 sm:px-4 ${k ? "border-s border-white/15" : ""}`}>
+                          <div
+                            key={k}
+                            className={`flex flex-col gap-1 px-3 sm:px-4 ${k ? "border-s border-white/15" : ""}`}
+                          >
                             <dt className="order-2 text-xs leading-snug sm:text-sm">{r.label[lang]}</dt>
-                            <dd dir="auto" className="font-display text-xl leading-none font-extrabold sm:text-2xl rtl:text-right" style={{ color: p.color }}>
+                            <dd
+                              dir="auto"
+                              className="font-display text-xl leading-none font-extrabold sm:text-2xl rtl:text-right"
+                              style={{ color: p.color }}
+                            >
                               {r.value[lang]}
                             </dd>
                           </div>
@@ -205,8 +219,12 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                       aria-label={p.badge?.[lang]}
                       className="absolute -top-4 -end-2 z-[6] flex size-28 rotate-12 flex-col items-center justify-center rounded-full border-[3px] border-ink bg-flame text-ink sm:size-32"
                     >
-                      <span className="font-display text-3xl leading-none font-extrabold sm:text-4xl">{p.sticker.big[lang]}</span>
-                      <span className="text-[11px] font-extrabold tracking-wide uppercase sm:text-xs">{p.sticker.small[lang]}</span>
+                      <span className="font-display text-3xl leading-none font-extrabold sm:text-4xl">
+                        {p.sticker.big[lang]}
+                      </span>
+                      <span className="text-[11px] font-extrabold tracking-wide uppercase sm:text-xs">
+                        {p.sticker.small[lang]}
+                      </span>
                     </span>
                   )}
                 </div>
@@ -261,7 +279,9 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             return (
               <li key={step.slug}>
                 <Reveal delay={i * 0.06} className="h-full">
-                  <div className={`flex h-full flex-col justify-between gap-8 rounded-tile p-8 text-ink sm:min-h-[300px] ${PROCESS_COLORS[i]}`}>
+                  <div
+                    className={`flex h-full flex-col justify-between gap-8 rounded-tile p-8 text-ink sm:min-h-[300px] ${PROCESS_COLORS[i]}`}
+                  >
                     <span className="font-display text-6xl leading-none font-extrabold">0{i + 1}</span>
                     <div className="flex flex-col gap-3">
                       <h3 className="font-display text-3xl font-extrabold rtl:leading-[1.4]">{step.title}</h3>
@@ -322,9 +342,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                         height={big ? 160 : 96}
                         className={`rounded-[1.4rem] object-cover shadow-[0_14px_30px_-14px_rgba(0,0,0,0.55)] ${
                           dark ? "ring-2 ring-white/35" : ""
-                        } ${
-                          big ? "size-24 sm:size-36 lg:size-40 lg:rounded-[2rem]" : "size-20 sm:size-24"
-                        }`}
+                        } ${big ? "size-24 sm:size-36 lg:size-40 lg:rounded-[2rem]" : "size-20 sm:size-24"}`}
                       />
                       {c.current ? (
                         <span
@@ -417,39 +435,51 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       {/* Contact */}
       <section id="contact" className="mx-auto max-w-[1280px] scroll-mt-24 px-4 pt-24 pb-6 sm:px-6">
         <Reveal>
-          <div className="flex flex-wrap items-end justify-between gap-8 rounded-tile bg-flame p-8 text-ink sm:p-14">
-            <h2 className="font-display text-[clamp(2.75rem,6vw,6rem)] leading-[1.02] rtl:leading-[1.35] font-extrabold tracking-tight">
-              {t.contactTitle[0]}
-              <br />
-              {t.contactTitle[1]}
-            </h2>
-            <div className="flex flex-col gap-4 text-lg" dir="ltr">
-              <a
-                href={`mailto:${profile.email}`}
-                className="flex items-center gap-3 font-semibold underline-offset-4 hover:underline"
+          <div className="flex flex-col gap-10 rounded-tile bg-flame p-8 text-ink sm:p-14">
+            <div className="flex flex-wrap items-start justify-between gap-x-8 gap-y-2">
+              <span className="pt-3 text-lg font-semibold">{t.contactKicker}</span>
+              <span
+                lang="ar"
+                aria-hidden="true"
+                className={`${ruqaa.className} text-[clamp(4.5rem,11vw,9rem)] leading-none`}
               >
-                <MailIcon className="size-6 shrink-0" />
-                {profile.email}
-              </a>
-              <div className="flex flex-wrap gap-x-7 gap-y-3">
+                سليمان
+              </span>
+            </div>
+            <div className="flex flex-wrap items-end justify-between gap-8">
+              <h2 className="font-display text-[clamp(2.75rem,6vw,6rem)] leading-[1.02] rtl:leading-[1.35] font-extrabold tracking-tight">
+                {t.contactTitle[0]}
+                <br />
+                {t.contactTitle[1]}
+              </h2>
+              <div className="flex flex-col gap-4 text-lg" dir="ltr">
                 <a
-                  href={profile.linkedin}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center gap-3 underline-offset-4 hover:underline"
+                  href={`mailto:${profile.email}`}
+                  className="flex items-center gap-3 font-semibold underline-offset-4 hover:underline"
                 >
-                  <LinkedInIcon className="size-[22px] shrink-0" />
-                  LinkedIn
+                  <MailIcon className="size-6 shrink-0" />
+                  {profile.email}
                 </a>
-                <a
-                  href={profile.github}
-                  target="_blank"
-                  rel="noreferrer"
-                  className="flex items-center gap-3 underline-offset-4 hover:underline"
-                >
-                  <GitHubIcon className="size-[22px] shrink-0" />
-                  GitHub
-                </a>
+                <div className="flex flex-wrap gap-x-7 gap-y-3">
+                  <a
+                    href={profile.linkedin}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center gap-3 underline-offset-4 hover:underline"
+                  >
+                    <LinkedInIcon className="size-[22px] shrink-0" />
+                    LinkedIn
+                  </a>
+                  <a
+                    href={profile.github}
+                    target="_blank"
+                    rel="noreferrer"
+                    className="flex items-center gap-3 underline-offset-4 hover:underline"
+                  >
+                    <GitHubIcon className="size-[22px] shrink-0" />
+                    GitHub
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -459,6 +489,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       <footer className="mx-auto flex max-w-[1280px] flex-wrap justify-between gap-2 px-6 pt-6 pb-10 text-sm text-muted">
         <span>© 2026 {profile.name[lang]}</span>
         <span>{t.footer}</span>
+        <span>{t.madeIn}</span>
       </footer>
     </main>
   );

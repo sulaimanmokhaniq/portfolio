@@ -52,6 +52,8 @@ export const ui = {
     communityLabel: "Community",
     communityBody:
       "hackathon participants led across 3+ events, with 130K+ SAR in prizes. I also headed the executive committee of BIG O’s national programming contest (300+ contestants).",
+    contactKicker: "Got an idea?",
+    madeIn: "Made in Riyadh",
     contactTitle: ["Let’s make", "something."],
     footer: "Built with Next.js, by me.",
     back: "All projects",
@@ -118,6 +120,8 @@ export const ui = {
     communityLabel: "المجتمع",
     communityBody:
       "مشارك قدتُ تنظيمهم في أكثر من 3 هاكاثونات بجوائز تجاوزت 130 ألف ريال. وترأست اللجنة التنفيذية لمسابقة BIG O’s الوطنية للبرمجة (أكثر من 300 متسابق).",
+    contactKicker: "عندك فكرة؟",
+    madeIn: "صُنع في الرياض",
     contactTitle: ["لنصنع", "شيئاً معاً."],
     footer: "صُمّم وبُني بواسطتي باستخدام Next.js.",
     back: "كل المشاريع",
