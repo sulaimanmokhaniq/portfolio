@@ -153,7 +153,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                   style={{ background: p.color }}
                 >
                   <div className="flex flex-1 flex-col justify-center gap-4">
-                    {p.badge && (
+                    {p.badge && !p.sticker && (
                       <span className="self-start rounded-full bg-ink px-3 py-1.5 text-sm" style={{ color: p.color }}>
                         {p.badge[lang]}
                       </span>
@@ -170,6 +170,18 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                       </Link>
                     </h3>
                     <p className="max-w-md text-lg leading-relaxed">{p.summary[lang]}</p>
+                    {p.results && (
+                      <dl className="grid max-w-lg grid-cols-3 rounded-2xl bg-ink py-4 text-cream">
+                        {p.results.map((r, k) => (
+                          <div key={k} className={`flex flex-col gap-1 px-3 sm:px-4 ${k ? "border-s border-white/15" : ""}`}>
+                            <dt className="order-2 text-xs leading-snug sm:text-sm">{r.label[lang]}</dt>
+                            <dd dir="auto" className="font-display text-xl leading-none font-extrabold sm:text-2xl rtl:text-right" style={{ color: p.color }}>
+                              {r.value[lang]}
+                            </dd>
+                          </div>
+                        ))}
+                      </dl>
+                    )}
                     <span className="swap mt-2 self-start rounded-full bg-ink font-semibold" style={{ color: p.color }}>
                       <span className="swap-front flex items-center gap-2 px-4 py-2">
                         {t.caseStudy}
@@ -185,6 +197,15 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                     </span>
                   </div>
                   <ProjectVisual project={p} lang={lang} className="min-h-[280px] flex-1" />
+                  {p.sticker && (
+                    <span
+                      aria-label={p.badge?.[lang]}
+                      className="absolute -top-4 -end-2 z-[6] flex size-28 rotate-12 flex-col items-center justify-center rounded-full border-[3px] border-ink bg-flame text-ink sm:size-32"
+                    >
+                      <span className="font-display text-3xl leading-none font-extrabold sm:text-4xl">{p.sticker.big[lang]}</span>
+                      <span className="text-[11px] font-extrabold tracking-wide uppercase sm:text-xs">{p.sticker.small[lang]}</span>
+                    </span>
+                  )}
                 </div>
               </Reveal>
             ) : (

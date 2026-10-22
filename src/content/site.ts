@@ -161,6 +161,10 @@ export type Project = {
   phone?: { src: string; alt: Localized }[];
   /** Set to false when the live site refuses to load inside a frame. */
   embed?: boolean;
+  /** Three quick facts shown in a strip on the homepage card. */
+  results?: { value: Localized; label: Localized }[];
+  /** A round award sticker on the homepage card, shown instead of the badge. */
+  sticker?: { big: Localized; small: Localized };
 };
 
 export const projects: Project[] = [
@@ -197,6 +201,11 @@ export const projects: Project[] = [
       ],
     },
     stack: ["Flutter", "Dart", "Supabase", "Google Maps", "just_audio", "Clean Architecture"],
+    results: [
+      { value: { en: "99%", ar: "99%" }, label: { en: "crash-free sessions", ar: "جلسات بلا أعطال" } },
+      { value: { en: "18+ months", ar: "18+" }, label: { en: "of stable releases", ar: "شهراً من الإصدارات المستقرة" } },
+      { value: { en: "148", ar: "148" }, label: { en: "Riyadh mosques on the map", ar: "مسجداً في الرياض على الخريطة" } },
+    ],
     wide: true,
     link: "https://tahabeer.vercel.app/",
     // The site sends X-Frame-Options: SAMEORIGIN.
@@ -268,6 +277,12 @@ export const projects: Project[] = [
       ],
     },
     stack: ["Next.js", "TypeScript", "Supabase", "Realtime", "Tailwind CSS"],
+    results: [
+      { value: { en: "1st", ar: "الأول" }, label: { en: "place at DAICOthon", ar: "في هاكاثون DAICOthon" } },
+      { value: { en: "< 30s", ar: "30" }, label: { en: "to share a file", ar: "ثانية أو أقل لمشاركة ملف" } },
+      { value: { en: "0", ar: "0" }, label: { en: "accounts needed", ar: "حسابات مطلوبة" } },
+    ],
+    sticker: { big: { en: "1st", ar: "الأول" }, small: { en: "DAICOthon", ar: "DAICOthon" } },
     wide: true,
     link: "https://wamdah-ksu.vercel.app/",
     images: [
@@ -320,6 +335,11 @@ export const projects: Project[] = [
       ],
     },
     stack: ["Flutter", "Firebase", "Computer vision", "Roboflow", "FastAPI", "Agile"],
+    results: [
+      { value: { en: "6", ar: "6" }, label: { en: "people on the team", ar: "أشخاص في الفريق" } },
+      { value: { en: "5 months", ar: "5" }, label: { en: "from plan to app", ar: "أشهر من الخطة إلى التطبيق" } },
+      { value: { en: "AI", ar: "AI" }, label: { en: "names the calligraphy style", ar: "يتعرّف على نوع الخط" } },
+    ],
     wide: true,
     link: "https://devsm7.github.io/qalam/",
     images: [
@@ -364,6 +384,11 @@ export const projects: Project[] = [
       ],
     },
     stack: ["Next.js", "TypeScript", "Supabase", "Yjs", "Tailwind CSS"],
+    results: [
+      { value: { en: "30+", ar: "30+" }, label: { en: "people editing at once", ar: "مستخدماً يحررون معاً" } },
+      { value: { en: "Auto", ar: "تلقائي" }, label: { en: "conflict fixing", ar: "حل التعارضات" } },
+      { value: { en: "Live", ar: "مباشر" }, label: { en: "at smartschedule.xyz", ar: "على smartschedule.xyz" } },
+    ],
     wide: true,
     link: "https://smartschedule.xyz/",
     images: [
@@ -423,6 +448,11 @@ export const projects: Project[] = [
       ],
     },
     stack: ["Next.js", "TypeScript", "Tailwind CSS", "Claude API", "Three.js", "Vercel"],
+    results: [
+      { value: { en: "VentureX", ar: "VentureX" }, label: { en: "2026 competition", ar: "مسابقة 2026" } },
+      { value: { en: "50–250", ar: "50–250" }, label: { en: "staff, the SMEs it serves", ar: "موظفاً في المنشآت المستهدفة" } },
+      { value: { en: "1 click", ar: "1" }, label: { en: "to approve any change", ar: "نقرة لاعتماد أي تغيير" } },
+    ],
     wide: true,
     link: "https://cloudtrim-sa.vercel.app",
     images: [
