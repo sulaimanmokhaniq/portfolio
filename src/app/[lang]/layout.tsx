@@ -40,7 +40,14 @@ export async function generateMetadata({ params }: LayoutProps<"/[lang]">): Prom
     title: { default: title, template: `%s · ${profile.name[lang]}` },
     description: ui[lang].heroBody,
     alternates: { languages: { en: "/en", ar: "/ar" } },
-    openGraph: { title, description: ui[lang].heroBody, type: "website", locale: lang },
+    openGraph: {
+      title,
+      description: ui[lang].heroBody,
+      type: "website",
+      locale: lang,
+      images: [{ url: `/og-${lang}.png`, width: 1200, height: 630, alt: title }],
+    },
+    twitter: { card: "summary_large_image", title, description: ui[lang].heroBody, images: [`/og-${lang}.png`] },
   };
 }
 
