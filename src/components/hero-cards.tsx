@@ -1,8 +1,7 @@
 "use client";
 
-import { animate, motion, useMotionValue, useReducedMotion, useTransform, type Variants } from "motion/react";
+import { animate, motion, useMotionValue, useReducedMotion, useTransform, type MotionValue, type Variants } from "motion/react";
 import { useEffect, useRef, useState } from "react";
-import { flushSync } from "react-dom";
 
 // Leaves out sun and peri (they sit next to this tile) and coral (too close to flame).
 const COLORS = ["bg-flame", "bg-mint", "bg-sky"];
@@ -28,6 +27,39 @@ export const fade: Variants = { enter: { opacity: 0 }, center: { opacity: 1 }, e
 
 // Hero cards sit on the sides of a cube. While it turns, the cube steps back a little so it stays inside
 // the tile, and the side turning away gets darker like a real cube catching the light.
+// `turns` only ever counts up, and each face's angle is worked out from it, so nothing has to be reset
+// after a turn (a reset would show the wrong card for a frame).
+const TEXT =
+  "relative font-display text-[clamp(2.1rem,3.2vw,3rem)] leading-[1.1] font-extrabold tracking-tight rtl:leading-[1.4]";
+
+function CubeFace({
+  turns,
+  step,
+  dir,
+  origin,
+  line,
+  color,
+}: {
+  turns: MotionValue<number>;
+  step: number;
+  dir: number;
+  origin: string;
+  line: string;
+  color: string;
+}) {
+  const transform = useTransform(turns, (t) => `rotateY(${dir * 90 * Math.max(-1, Math.min(1, t - step))}deg)`);
+  const dim = useTransform(turns, (t) => Math.min(1, Math.abs(t - step)) * 0.35);
+  return (
+    <motion.span
+      className={`absolute inset-0 flex flex-col justify-center overflow-hidden rounded-tile p-8 py-16 text-ink [backface-visibility:hidden] sm:px-10 ${color}`}
+      style={{ transform, transformOrigin: origin }}
+    >
+      <motion.span className="absolute inset-0 bg-black" style={{ opacity: dim }} />
+      <span className={TEXT}>{line}</span>
+    </motion.span>
+  );
+}
+
 export function HeroCards({
   lines,
   label,
@@ -40,22 +72,18 @@ export function HeroCards({
   rtl?: boolean;
 }) {
   const reduce = useReducedMotion();
-  const [index, setIndex] = useState(0);
+  const [step, setStep] = useState(0);
   const [paused, setPaused] = useState(false);
   const [width, setWidth] = useState(0);
   const tile = useRef<HTMLDivElement>(null);
   const busy = useRef(false);
-  const turn = useMotionValue(0);
+  const turns = useMotionValue(0);
   // Turns toward the reading direction: the next card comes in from the end side.
   const dir = rtl ? 1 : -1;
+  const index = step % lines.length;
 
-  const frontRotate = useTransform(turn, (t) => `rotateY(${dir * 90 * t}deg)`);
-  const sideRotate = useTransform(turn, (t) => `rotateY(${dir * 90 * (t - 1)}deg)`);
-  const frontDim = useTransform(turn, (t) => t * 0.35);
-  const sideDim = useTransform(turn, (t) => (1 - t) * 0.35);
-  const sideVisibility = useTransform(turn, (t) => (t === 0 ? "hidden" : "visible"));
-  const sceneScale = useTransform(turn, (t) => 1 - 0.2 * Math.sin(t * Math.PI));
-  const shadowOpacity = useTransform(turn, (t) => Math.sin(t * Math.PI));
+  const sceneScale = useTransform(turns, (t) => 1 - 0.2 * Math.sin((t % 1) * Math.PI));
+  const shadowOpacity = useTransform(turns, (t) => Math.sin((t % 1) * Math.PI));
 
   useEffect(() => {
     const el = tile.current;
@@ -68,14 +96,13 @@ export function HeroCards({
   const next = () => {
     if (busy.current) return;
     if (reduce) {
-      setIndex((i) => (i + 1) % lines.length);
+      turns.set(step + 1);
+      setStep(step + 1);
       return;
     }
     busy.current = true;
-    animate(turn, 1, SLIDE).then(() => {
-      // Swap the front card and reset the turn in the same frame so the old card never flashes back.
-      flushSync(() => setIndex((i) => (i + 1) % lines.length));
-      turn.set(0);
+    animate(turns, step + 1, SLIDE).then(() => {
+      setStep(step + 1);
       busy.current = false;
     });
   };
@@ -85,14 +112,9 @@ export function HeroCards({
     const id = setInterval(next, INTERVAL);
     return () => clearInterval(id);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [paused, reduce, index]);
+  }, [paused, reduce, step]);
 
   const origin = `50% 50% ${-width / 2}px`;
-  const face = (i: number) =>
-    `absolute inset-0 flex flex-col justify-center overflow-hidden rounded-tile p-8 py-16 text-ink [backface-visibility:hidden] sm:px-10 ${COLORS[i % COLORS.length]}`;
-  const text =
-    "relative font-display text-[clamp(2.1rem,3.2vw,3rem)] leading-[1.1] font-extrabold tracking-tight rtl:leading-[1.4]";
-  const nextIndex = (index + 1) % lines.length;
 
   return (
     <div
@@ -119,24 +141,17 @@ export function HeroCards({
         className="absolute inset-0 cursor-pointer rounded-tile text-start"
       >
         <motion.span aria-hidden="true" className="absolute inset-0 [transform-style:preserve-3d]" style={{ scale: sceneScale }}>
-          <motion.span
-            className={face(nextIndex)}
-            style={{ transform: sideRotate, transformOrigin: origin, visibility: sideVisibility }}
-          >
-            <motion.span className="absolute inset-0 bg-black" style={{ opacity: sideDim }} />
-            <span className={text}>{lines[nextIndex]}</span>
-          </motion.span>
-          <motion.span className={face(index)} style={{ transform: frontRotate, transformOrigin: origin }}>
-            <motion.span className="absolute inset-0 bg-black" style={{ opacity: frontDim }} />
-            <motion.span
-              key={reduce ? index : undefined}
-              initial={reduce ? { opacity: 0 } : false}
-              animate={{ opacity: 1 }}
-              className={text}
-            >
-              {lines[index]}
-            </motion.span>
-          </motion.span>
+          {[step + 1, step].map((s) => (
+            <CubeFace
+              key={s}
+              turns={turns}
+              step={s}
+              dir={dir}
+              origin={origin}
+              line={lines[s % lines.length]}
+              color={COLORS[s % COLORS.length]}
+            />
+          ))}
         </motion.span>
       </button>
 
