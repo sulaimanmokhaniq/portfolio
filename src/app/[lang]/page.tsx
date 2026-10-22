@@ -438,8 +438,8 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                 سليمان
               </span>
             </div>
-            <div className="flex flex-wrap items-center justify-between gap-x-8 gap-y-5 border-t border-white/15 pt-7">
-              <div className="flex flex-wrap gap-x-7 gap-y-3 text-sm min-[380px]:text-base sm:text-lg" dir="ltr">
+            <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-5 border-t border-white/15 pt-7 sm:justify-between">
+              <div className="flex flex-wrap justify-center gap-x-7 gap-y-3 text-sm min-[380px]:text-base sm:justify-start sm:text-lg" dir="ltr">
                 <a
                   href={`mailto:${profile.email}`}
                   className="flex items-center gap-3 font-semibold underline-offset-4 hover:underline"
@@ -466,7 +466,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                   GitHub
                 </a>
               </div>
-              <span className="text-sm text-hero-muted">
+              <span className="text-center text-sm text-hero-muted">
                 {t.madeIn} · © 2026 {profile.name[lang]}
               </span>
             </div>
