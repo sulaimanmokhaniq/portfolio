@@ -8,6 +8,7 @@ import { ProjectVisual } from "@/components/project-visual";
 import { StackChip } from "@/components/stack-chip";
 import { WinDeck } from "@/components/win-deck";
 import { Reveal } from "@/components/reveal";
+import { RiyadhClock } from "@/components/riyadh-clock";
 import { RoleCycler } from "@/components/role-cycler";
 import Image from "next/image";
 import { clubs, experience, hasLocale, profile, projects, stats, ui, wins } from "@/content/site";
@@ -117,6 +118,22 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             nextLabel={t.nextCard}
             rtl={lang === "ar"}
           />
+        </Reveal>
+
+        <Reveal delay={0.24} className="md:col-span-1 lg:col-span-2">
+          <div className="flex h-full min-h-[210px] flex-col justify-between gap-6 rounded-tile bg-mint p-8 text-ink">
+            <span className="inline-flex items-center gap-2 font-semibold">
+              <span className="size-2.5 rounded-full bg-ink" />
+              {t.nowLabel}
+            </span>
+            <p className="font-display text-[clamp(1.8rem,3vw,2.6rem)] leading-[1.15] font-extrabold tracking-tight rtl:leading-[1.45]">
+              {t.nowText}
+            </p>
+          </div>
+        </Reveal>
+
+        <Reveal delay={0.28}>
+          <RiyadhClock label={t.clockLabel} awake={t.clockAwake} asleep={t.clockAsleep} />
         </Reveal>
       </section>
 
