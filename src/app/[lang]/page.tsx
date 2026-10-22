@@ -88,6 +88,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             label={t.usersStat}
             nextLabel={t.nextCard}
             interval={7000}
+            effect="flip"
             rtl={lang === "ar"}
           />
         </Reveal>
