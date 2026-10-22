@@ -17,6 +17,9 @@ import { clubs, experience, hasLocale, profile, projects, stats, ui, wins } from
 const stretched =
   "after:absolute after:inset-0 after:z-[5] after:rounded-tile focus-visible:outline-none focus-visible:after:outline-2 focus-visible:after:outline-offset-4 focus-visible:after:outline-ink";
 
+// Neighbouring steps never share a colour family.
+const PROCESS_COLORS = ["bg-flame", "bg-mint", "bg-sun", "bg-sky"];
+
 export default async function Home({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
   if (!hasLocale(lang)) notFound();
@@ -240,6 +243,44 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             ),
           )}
         </div>
+      </section>
+
+      {/* How I work */}
+      <section className="mx-auto max-w-[1280px] px-4 pt-24 sm:px-6">
+        <Reveal>
+          <div className="mb-6 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 px-2">
+            <h2 className="font-display text-5xl font-extrabold tracking-tight sm:text-6xl rtl:leading-[1.3]">
+              {t.processTitle}
+            </h2>
+            <p className="text-lg text-muted">{t.processSub}</p>
+          </div>
+        </Reveal>
+        <ol className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {t.process.map((step, i) => {
+            const project = projects.find((p) => p.slug === step.slug);
+            return (
+              <li key={step.slug}>
+                <Reveal delay={i * 0.06} className="h-full">
+                  <div className={`flex h-full flex-col justify-between gap-8 rounded-tile p-8 text-ink sm:min-h-[300px] ${PROCESS_COLORS[i]}`}>
+                    <span className="font-display text-6xl leading-none font-extrabold">0{i + 1}</span>
+                    <div className="flex flex-col gap-3">
+                      <h3 className="font-display text-3xl font-extrabold rtl:leading-[1.4]">{step.title}</h3>
+                      <p className="leading-relaxed">{step.text}</p>
+                      {project && (
+                        <Link
+                          href={`/${lang}/work/${project.slug}`}
+                          className="mt-1 self-start rounded-full bg-ink px-3.5 py-1.5 text-sm font-semibold text-cream transition-transform hover:-translate-y-0.5"
+                        >
+                          {project.name[lang]}
+                        </Link>
+                      )}
+                    </div>
+                  </div>
+                </Reveal>
+              </li>
+            );
+          })}
+        </ol>
       </section>
 
       {/* Clubs */}
