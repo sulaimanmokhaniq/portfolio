@@ -147,56 +147,6 @@ body::before {
   }
 }
 
-/* Hover "swap": the front face slides out sideways while the back face slides in over it, the same move as
-   the stack chips. Hovering anything marked .swap-trigger (or the .swap itself) plays it; in RTL it runs the
-   other way. */
-.swap {
-  position: relative;
-  overflow: hidden;
-  isolation: isolate;
-}
-.swap > * {
-  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
-}
-.swap > .swap-back {
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  transform: translateX(-110%);
-}
-.swap:hover > .swap-front,
-.swap-trigger:hover .swap > .swap-front,
-.swap-trigger:focus-visible .swap > .swap-front,
-.swap-trigger:focus-within .swap > .swap-front {
-  transform: translateX(110%);
-}
-.swap:hover > .swap-back,
-.swap-trigger:hover .swap > .swap-back,
-.swap-trigger:focus-visible .swap > .swap-back,
-.swap-trigger:focus-within .swap > .swap-back {
-  transform: translateX(0);
-}
-.swap:dir(rtl) > .swap-back {
-  transform: translateX(110%);
-}
-.swap:dir(rtl):hover > .swap-front,
-.swap-trigger:hover .swap:dir(rtl) > .swap-front,
-.swap-trigger:focus-visible .swap:dir(rtl) > .swap-front,
-.swap-trigger:focus-within .swap:dir(rtl) > .swap-front {
-  transform: translateX(-110%);
-}
-.swap:dir(rtl):hover > .swap-back,
-.swap-trigger:hover .swap:dir(rtl) > .swap-back,
-.swap-trigger:focus-visible .swap:dir(rtl) > .swap-back,
-.swap-trigger:focus-within .swap:dir(rtl) > .swap-back {
-  transform: translateX(0);
-}
-@media (prefers-reduced-motion: reduce) {
-  .swap > * {
-    transition: none;
-  }
-}
-
 /* Logo tap: the Arabic name is drawn stroke by stroke in flame, filled in ink, then the layer fades away. */
 .calli {
   animation: calli-out 0.5s 3.1s ease forwards;

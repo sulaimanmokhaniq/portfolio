@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Arrow } from "@/components/arrow";
-import { GitHubIcon, LinkedInIcon, MailIcon, PrinterIcon } from "@/components/contact-icons";
+import { GitHubIcon, LinkedInIcon, MailIcon } from "@/components/contact-icons";
 import { CvButton } from "@/components/cv-button";
 import { HeroCards } from "@/components/hero-cards";
 import { ProjectVisual } from "@/components/project-visual";
@@ -57,28 +57,16 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             <div className="flex flex-wrap gap-3">
               <Link
                 href={`/${lang}#work`}
-                className="swap inline-flex min-h-12 items-stretch rounded-full bg-flame font-semibold text-ink transition-transform hover:-translate-y-0.5"
+                className="inline-flex min-h-12 items-center gap-2 rounded-full bg-flame px-6 font-semibold text-ink transition-transform hover:-translate-y-0.5"
               >
-                <span className="swap-front flex items-center gap-2 px-6">
-                  {t.seeProjects}
-                  <Arrow />
-                </span>
-                <span aria-hidden="true" className="swap-back flex items-center justify-center bg-mint text-ink">
-                  <Arrow className="size-6 rotate-90 rtl:-rotate-90" />
-                </span>
+                {t.seeProjects}
+                <Arrow />
               </Link>
               <CvButton
                 href={profile.cv}
-                label={
-                  <>
-                    <span className="swap-front flex h-full items-center px-6">{t.downloadCv}</span>
-                    <span aria-hidden="true" className="swap-back flex items-center justify-center bg-sun text-ink">
-                      <PrinterIcon className="size-6" />
-                    </span>
-                  </>
-                }
+                label={t.downloadCv}
                 printingLabel={t.printingCv}
-                className="swap inline-flex min-h-12 items-stretch rounded-full bg-ground font-medium text-text transition-transform hover:-translate-y-0.5 dark:bg-cream dark:text-ink"
+                className="inline-flex min-h-12 items-center rounded-full bg-ground px-6 font-medium text-text transition-transform hover:-translate-y-0.5 dark:bg-cream dark:text-ink"
               />
             </div>
           </div>
@@ -160,7 +148,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             p.wide ? (
               <Reveal key={p.slug} className="md:col-span-2 lg:col-span-3">
                 <div
-                  className="group swap-trigger relative flex flex-col gap-7 rounded-tile p-8 text-ink transition-transform hover:-translate-y-1 sm:p-10 lg:flex-row"
+                  className="group relative flex flex-col gap-7 rounded-tile p-8 text-ink transition-transform hover:-translate-y-1 sm:p-10 lg:flex-row"
                   style={{ background: p.color }}
                 >
                   <div className="flex flex-1 flex-col justify-center gap-4">
@@ -182,18 +170,12 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                     </h3>
                     <p className="max-w-md text-lg leading-relaxed">{p.summary[lang]}</p>
                     <ResultsStrip project={p} lang={lang} className="max-w-lg" />
-                    <span className="swap mt-2 self-start rounded-full bg-ink font-semibold" style={{ color: p.color }}>
-                      <span className="swap-front flex items-center gap-2 px-4 py-2">
-                        {t.caseStudy}
-                        <Arrow />
-                      </span>
-                      <span
-                        aria-hidden="true"
-                        className="swap-back flex items-center justify-center gap-2 bg-cream text-ink"
-                      >
-                        {t.openCase}
-                        <Arrow />
-                      </span>
+                    <span
+                      className="mt-2 flex items-center gap-2 self-start rounded-full bg-ink px-4 py-2 font-semibold"
+                      style={{ color: p.color }}
+                    >
+                      {t.caseStudy}
+                      <Arrow />
                     </span>
                   </div>
                   <ProjectVisual project={p} lang={lang} className="min-h-[280px] flex-1" />
@@ -215,7 +197,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             ) : (
               <Reveal key={p.slug} delay={(i % 3) * 0.06}>
                 <div
-                  className="group swap-trigger relative flex h-full flex-col gap-4 rounded-tile p-8 text-ink transition-transform hover:-translate-y-1"
+                  className="group relative flex h-full flex-col gap-4 rounded-tile p-8 text-ink transition-transform hover:-translate-y-1"
                   style={{ background: p.color }}
                 >
                   <ProjectVisual project={p} lang={lang} className="h-44" />
@@ -226,18 +208,12 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                     </Link>
                   </h3>
                   <p className="flex-1 leading-relaxed">{p.summary[lang]}</p>
-                  <span className="swap self-start rounded-full bg-ink font-semibold" style={{ color: p.color }}>
-                    <span className="swap-front flex items-center gap-2 px-4 py-2">
-                      {t.caseStudy}
-                      <Arrow />
-                    </span>
-                    <span
-                      aria-hidden="true"
-                      className="swap-back flex items-center justify-center gap-2 bg-cream text-ink"
-                    >
-                      {t.openCase}
-                      <Arrow />
-                    </span>
+                  <span
+                    className="flex items-center gap-2 self-start rounded-full bg-ink px-4 py-2 font-semibold"
+                    style={{ color: p.color }}
+                  >
+                    {t.caseStudy}
+                    <Arrow />
                   </span>
                 </div>
               </Reveal>
