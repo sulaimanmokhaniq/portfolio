@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Arrow } from "@/components/arrow";
-import { GitHubIcon, LinkedInIcon, MailIcon } from "@/components/contact-icons";
+import { GitHubIcon, LinkedInIcon, MailIcon, PhoneIcon } from "@/components/contact-icons";
 import { CvButton } from "@/components/cv-button";
 import { HeroCards } from "@/components/hero-cards";
 import { ProjectVisual } from "@/components/project-visual";
@@ -248,9 +248,15 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                       {project && (
                         <Link
                           href={`/${lang}/work/${project.slug}`}
-                          className="mt-1 self-start rounded-full bg-ink px-3.5 py-1.5 text-sm font-semibold text-cream transition-transform hover:-translate-y-0.5"
+                          className="mt-2 flex items-end justify-between gap-3 rounded-2xl bg-ink p-4 text-cream transition-transform hover:-translate-y-0.5"
                         >
-                          {project.name[lang]}
+                          <span className="flex flex-col gap-1">
+                            <span className="text-sm font-bold" style={{ color: project.color }}>
+                              {t.myPart} {project.name[lang]}
+                            </span>
+                            <span className="text-sm leading-snug">{step.mine}</span>
+                          </span>
+                          <Arrow className="shrink-0" />
                         </Link>
                       )}
                     </div>
@@ -425,6 +431,13 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                 >
                   <MailIcon className="size-6 shrink-0" />
                   {profile.email}
+                </a>
+                <a
+                  href={`tel:${profile.phone}`}
+                  className="flex items-center gap-3 font-semibold underline-offset-4 hover:underline"
+                >
+                  <PhoneIcon className="size-[22px] shrink-0" />
+                  {profile.phoneLabel}
                 </a>
                 <a
                   href={profile.linkedin}
