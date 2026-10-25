@@ -41,6 +41,8 @@ export const ui = {
     projectsTitle: "Projects",
     caseStudy: "Read the case study",
     clubsTitle: "Clubs & volunteering",
+    volunteerTitle: "Events I helped run",
+    volunteerSub: "Hackathons and initiatives, from the organising side.",
     processTitle: "How I work",
     processSub: "Four steps, each from a real project.",
     myPart: "My part in",
@@ -133,6 +135,8 @@ export const ui = {
     projectsTitle: "المشاريع",
     caseStudy: "اقرأ دراسة الحالة",
     clubsTitle: "الأندية والتطوع",
+    volunteerTitle: "فعاليات شاركت في تنظيمها",
+    volunteerSub: "هاكاثونات ومبادرات، من جهة التنظيم.",
     processTitle: "كيف أعمل",
     processSub: "أربع خطوات، لكل منها مثال من مشروع حقيقي.",
     myPart: "دوري في",
@@ -942,5 +946,55 @@ export const clubs = [
     logo: "/clubs/diu.png",
     color: "#D6EBF8",
     size: "half",
+  },
+] as const;
+
+// Events I volunteered to organise, shown under the clubs. Colours are soft or deep tints from each logo.
+export const volunteering = [
+  {
+    name: { en: "KSU Hackathon", ar: "هاكثون جامعة الملك سعود" },
+    role: { en: "Projects Committee Member", ar: "عضو لجنة المشاريع" },
+    year: "2026",
+    logo: "/volunteering/hackksu.png",
+    color: "#D2EEFA",
+    award: { en: "Outstanding Committee Member award", ar: "جائزة العضو المميز في اللجنة" },
+  },
+  {
+    name: { en: "FutureU 5.0", ar: "FutureU 5.0" },
+    role: { en: "Led the committee behind the career test", ar: "قائد اللجنة المسؤولة عن الاختبار" },
+    year: "2026",
+    logo: "/volunteering/futureu.png",
+    color: "#4B1F70",
+    dark: true,
+    stats: [
+      { value: "425", label: { en: "registered", ar: "مسجّلاً" } },
+      { value: "1M+", label: { en: "views", ar: "مشاهدة" } },
+    ],
+  },
+  {
+    name: { en: "GameBox", ar: "GameBox" },
+    role: { en: "Operations & Executive Committee Member", ar: "عضو اللجنة التشغيلية والتنفيذية" },
+    year: "2025",
+    logo: "/volunteering/gamebox.png",
+    color: "#D4F2D2",
+    stats: [
+      { value: "160", label: { en: "participants", ar: "مشاركاً" } },
+      { value: "26+", label: { en: "games made", ar: "لعبة" } },
+    ],
+  },
+  {
+    name: { en: "Future Fintech Hackathon", ar: "هاكاثون فنتك المستقبل" },
+    role: {
+      en: "Executive Committee Member, helped supervise and run it",
+      ar: "عضو اللجنة التنفيذية، شاركت في الإشراف والتنفيذ",
+    },
+    year: "2025",
+    logo: "/volunteering/fintech.png",
+    color: "#151A5C",
+    dark: true,
+    stats: [
+      { value: "1,750+", label: { en: "registered", ar: "مسجّلاً" } },
+      { value: "30", label: { en: "teams", ar: "فريقاً" } },
+    ],
   },
 ] as const;

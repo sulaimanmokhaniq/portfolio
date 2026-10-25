@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Arrow } from "@/components/arrow";
-import { GitHubIcon, LinkedInIcon, MailIcon, PhoneIcon } from "@/components/contact-icons";
+import { GitHubIcon, LinkedInIcon, MailIcon, PhoneIcon, TrophyIcon } from "@/components/contact-icons";
 import { CvButton } from "@/components/cv-button";
 import { HeroCards } from "@/components/hero-cards";
 import { ProjectVisual } from "@/components/project-visual";
@@ -13,7 +13,7 @@ import { RiyadhClock } from "@/components/riyadh-clock";
 import { RoleCycler } from "@/components/role-cycler";
 import Image from "next/image";
 import { Aref_Ruqaa } from "next/font/google";
-import { clubs, experience, hasLocale, profile, projects, stats, ui, wins } from "@/content/site";
+import { clubs, experience, hasLocale, profile, projects, stats, ui, volunteering, wins } from "@/content/site";
 
 // The card title's link covers the whole card; the project visual sits above it so its buttons still work.
 const stretched =
@@ -354,6 +354,80 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                         </p>
                       )}
                     </div>
+                  </div>
+                </Reveal>
+              </li>
+            );
+          })}
+        </ul>
+
+        <Reveal>
+          <div className="mt-14 mb-6 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 px-2">
+            <h3 className="font-display text-3xl font-extrabold tracking-tight sm:text-4xl rtl:leading-[1.4]">
+              {t.volunteerTitle}
+            </h3>
+            <p className="text-lg text-muted">{t.volunteerSub}</p>
+          </div>
+        </Reveal>
+        <ul className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-4">
+          {volunteering.map((v, i) => {
+            const dark = "dark" in v;
+            return (
+              <li key={v.logo}>
+                <Reveal delay={i * 0.06} className="h-full">
+                  <div
+                    className={`flex h-full flex-col gap-6 rounded-tile p-7 transition-transform hover:-translate-y-1 ${
+                      dark ? "text-cream dark:border dark:border-line" : "text-ink"
+                    }`}
+                    style={{ background: v.color }}
+                  >
+                    <div className="flex items-start justify-between gap-4">
+                      <Image
+                        src={v.logo}
+                        alt=""
+                        width={80}
+                        height={80}
+                        className={`size-20 rounded-[1.4rem] object-cover shadow-[0_14px_30px_-14px_rgba(0,0,0,0.55)] ${
+                          dark ? "ring-2 ring-white/35" : ""
+                        }`}
+                      />
+                      <span
+                        className={`rounded-full px-3 py-1.5 text-sm font-semibold ${
+                          dark ? "bg-white text-ink" : "bg-ink text-white"
+                        }`}
+                      >
+                        {v.year}
+                      </span>
+                    </div>
+                    <div className="mt-auto flex flex-col gap-2">
+                      <h4 className="font-display text-2xl leading-tight font-extrabold tracking-tight rtl:leading-[1.4]">
+                        {v.name[lang]}
+                      </h4>
+                      <p className="text-lg leading-snug">{v.role[lang]}</p>
+                    </div>
+                    {"award" in v && (
+                      <p className="flex items-center gap-3 rounded-2xl bg-ink px-4 py-3 font-semibold text-white">
+                        <TrophyIcon className="size-6 shrink-0 text-sun" />
+                        {v.award[lang]}
+                      </p>
+                    )}
+                    {"stats" in v && (
+                      <dl
+                        className={`grid grid-cols-2 rounded-2xl py-3 ${dark ? "bg-white text-ink" : "bg-ink text-white"}`}
+                      >
+                        {v.stats.map((s, k) => (
+                          <div
+                            key={k}
+                            className={`flex flex-col gap-1 px-4 ${k ? (dark ? "border-s border-ink/15" : "border-s border-white/15") : ""}`}
+                          >
+                            <dt className="order-2 text-sm">{s.label[lang]}</dt>
+                            <dd dir="auto" className="font-display text-2xl leading-none font-extrabold rtl:text-right">
+                              {s.value}
+                            </dd>
+                          </div>
+                        ))}
+                      </dl>
+                    )}
                   </div>
                 </Reveal>
               </li>
