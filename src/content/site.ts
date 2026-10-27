@@ -206,6 +206,11 @@ export const ui = {
   },
 } satisfies Record<Locale, unknown>;
 
+/** A project's colour as CSS. Dark mode can swap it through a --<slug>-color / --<slug>-shade variable in globals.css. */
+export function tint(p: { slug: string; color: string; shade: string }, key: "color" | "shade" = "color") {
+  return `var(--${p.slug}-${key}, ${p[key]})`;
+}
+
 export type Project = {
   slug: string;
   name: Localized;

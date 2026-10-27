@@ -18,7 +18,10 @@ export function RoleCycler({ roles }: { roles: string[] }) {
   }, [reduce, roles.length]);
 
   return (
-    <span className="grid overflow-hidden text-[0.66em] text-flame sm:text-[0.78em]" aria-hidden="true">
+    <span
+      className="grid overflow-hidden text-[0.66em] text-flame sm:text-[0.78em] dark:text-[#0f3a5f]"
+      aria-hidden="true"
+    >
       {roles.map((r) => (
         <span key={r} className="invisible col-start-1 row-start-1">
           {r}.

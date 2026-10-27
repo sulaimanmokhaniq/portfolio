@@ -1,7 +1,7 @@
 import { LiveSite } from "@/components/live-site";
 import { PhoneDemo } from "@/components/phone-demo";
 import { ProjectArt } from "@/components/project-art";
-import { ui, type Locale, type Project } from "@/content/site";
+import { tint, ui, type Locale, type Project } from "@/content/site";
 
 /** Whether the project's live site can be opened inside the page. */
 export function canEmbed(project: Project) {
@@ -30,7 +30,7 @@ export function ProjectVisual({
     return (
       <div
         className={`relative z-10 flex items-center justify-center overflow-hidden rounded-[1.25rem] px-4 py-7 ${className}`}
-        style={{ background: project.shade }}
+        style={{ background: tint(project, "shade") }}
       >
         <PhoneDemo
           shots={project.phone.map((s) => ({ src: s.src, alt: s.alt[lang] }))}

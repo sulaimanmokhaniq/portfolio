@@ -1,5 +1,5 @@
 import Image from "next/image";
-import type { Locale, Project } from "@/content/site";
+import { tint, type Locale, type Project } from "@/content/site";
 
 /** A project's cover: its first screenshot in a window frame, or stand-in artwork until one is added. */
 export function ProjectArt({
@@ -19,7 +19,10 @@ export function ProjectArt({
   const cover = project.images?.[0];
   const glyph = project.arabicName ?? project.name.en.slice(0, 2);
   return (
-    <div className={`relative overflow-hidden rounded-[1.25rem] ${className}`} style={{ background: project.shade }}>
+    <div
+      className={`relative overflow-hidden rounded-[1.25rem] ${className}`}
+      style={{ background: tint(project, "shade") }}
+    >
       <div className="absolute inset-x-5 top-5 bottom-0 flex flex-col overflow-hidden rounded-t-2xl bg-white/45 shadow-[0_-1px_0_rgba(0,0,0,0.04)]">
         {url && cover && (
           <div dir="ltr" aria-hidden="true" className="flex h-8 shrink-0 items-center gap-2 bg-white px-3">

@@ -6,7 +6,23 @@ import { Arrow } from "@/components/arrow";
 import { ProjectVisual } from "@/components/project-visual";
 import { Reveal } from "@/components/reveal";
 import { ResultsStrip } from "@/components/results-strip";
-import { hasLocale, locales, profile, projects, ui } from "@/content/site";
+import { hasLocale, locales, profile, projects, tint, ui } from "@/content/site";
+
+// Dark mode has no dark tiles: the overview and the side panel take two soft colours that don't
+// clash with the project's own colour above them (and never orange next to blue).
+const DARK_TILES: Record<string, [string, string]> = {
+  tahabeer: ["tone-lilac", "tone-sun"],
+  wamdah: ["tone-lilac", "tone-mint"],
+  qalam: ["tone-lilac", "tone-sun"],
+  smartschedule: ["tone-mint", "tone-sun"],
+  cloudtrim: ["tone-mint", "tone-sun"],
+  "keyboard-fixer": ["tone-mint", "tone-sun"],
+  handcraft: ["tone-lilac", "tone-mint"],
+  "used-books-store": ["tone-lilac", "tone-sun"],
+  oratory: ["tone-mint", "tone-sun"],
+  say: ["tone-lilac", "tone-mint"],
+  "smart-attendance": ["tone-mint", "tone-lilac"],
+};
 
 export function generateStaticParams() {
   return locales.flatMap((lang) => projects.map((p) => ({ lang, slug: p.slug })));
@@ -25,6 +41,7 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/work/[s
   if (!hasLocale(lang) || index === -1) notFound();
   const project = projects[index];
   const next = projects[(index + 1) % projects.length];
+  const tiles = DARK_TILES[project.slug] ?? ["tone-lilac", "tone-sun"];
   const t = ui[lang];
 
   return (
@@ -40,11 +57,11 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/work/[s
       <Reveal>
         <section
           className="grid grid-cols-1 gap-8 rounded-tile p-8 text-ink sm:p-12 lg:grid-cols-2"
-          style={{ background: project.color }}
+          style={{ background: tint(project) }}
         >
           <div className="flex flex-col justify-end gap-5">
             {project.badge && (
-              <span className="self-start rounded-full bg-ink px-3 py-1.5 text-sm" style={{ color: project.color }}>
+              <span className="self-start rounded-full bg-ink px-3 py-1.5 text-sm" style={{ color: tint(project) }}>
                 {project.badge[lang]}
               </span>
             )}
@@ -61,14 +78,17 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/work/[s
 
       <div className="mt-4 grid grid-cols-1 gap-4 lg:grid-cols-3">
         <Reveal className="lg:col-span-2">
-          <article className="h-full rounded-tile border border-line bg-surface p-8 sm:p-10">
+          <article className={`h-full rounded-tile border border-line bg-surface p-8 sm:p-10 tone ${tiles[0]}`}>
             <h2 className="mb-4 font-display text-3xl font-extrabold">{t.overview}</h2>
             <p className="mb-10 text-lg leading-relaxed text-muted">{project.overview[lang]}</p>
             <h2 className="mb-4 font-display text-3xl font-extrabold">{t.highlights}</h2>
             <ul className="space-y-4">
               {project.highlights[lang].map((h) => (
                 <li key={h} className="flex gap-4 text-lg leading-relaxed">
-                  <span className="mt-2.5 size-2.5 shrink-0 rounded-full" style={{ background: project.shade }} />
+                  <span
+                    className="mt-2.5 size-2.5 shrink-0 rounded-full"
+                    style={{ background: tint(project, "shade") }}
+                  />
                   {h}
                 </li>
               ))}
@@ -76,7 +96,9 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/work/[s
           </article>
         </Reveal>
         <Reveal delay={0.08}>
-          <aside className="flex h-full flex-col gap-8 rounded-tile bg-hero p-8 text-hero-text sm:p-10">
+          <aside
+            className={`flex h-full flex-col gap-8 rounded-tile bg-hero p-8 text-hero-text sm:p-10 tone ${tiles[1]}`}
+          >
             {project.role && (
               <div>
                 <h2 className="mb-2 text-hero-muted">{t.role}</h2>
@@ -113,10 +135,13 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/work/[s
       </div>
 
       {project.images && project.images.length > 1 && (
-        <section aria-label={t.screens} className={`mt-4 grid grid-cols-1 gap-4 ${project.images.length > 2 ? "md:grid-cols-2" : ""}`}>
+        <section
+          aria-label={t.screens}
+          className={`mt-4 grid grid-cols-1 gap-4 ${project.images.length > 2 ? "md:grid-cols-2" : ""}`}
+        >
           {project.images.slice(1).map((img) => (
             <Reveal key={img.src}>
-              <div className="overflow-hidden rounded-tile p-4 sm:p-5" style={{ background: project.color }}>
+              <div className="overflow-hidden rounded-tile p-4 sm:p-5" style={{ background: tint(project) }}>
                 <Image
                   src={img.src}
                   alt={img.alt[lang]}
@@ -135,7 +160,7 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/work/[s
         <Link
           href={`/${lang}/work/${next.slug}`}
           className="group mt-4 flex flex-wrap items-center justify-between gap-4 rounded-tile p-8 text-ink transition-transform hover:-translate-y-1 sm:p-10"
-          style={{ background: next.color }}
+          style={{ background: tint(next) }}
         >
           <span>
             <span className="block font-medium">{t.nextProject}</span>

@@ -48,20 +48,39 @@
   --hero-muted: #cfd5e6;
 }
 
-/* Dark mode: the home-page info tiles get their own solid deep colour (the hero tile is navy via
-   --hero) instead of plain charcoal, so they don't melt into the near-black page. */
-.dark .dark-navy {
-  --muted: #c3cbe0;
-  --line: #2b3759;
+/* Dark mode: no dark tiles. The main tiles turn into soft, slightly toned-down colours from one cool set
+   (blue, yellow, mint, lilac), with ink text. Orange never sits on a blue tile. */
+.dark .tone {
+  --text: #141414;
+  --hero-text: #141414;
+  --muted: #26241f;
+  --hero-muted: #26241f;
+  --line: #141414;
+  --chip: #141414;
+  --hero-chip: #141414;
+  color: #141414;
   border-color: transparent;
-  background-color: #172038;
 }
-.dark .dark-teal {
-  --muted: #bfe3d6;
-  --hero-muted: #cdeae0;
-  --chip: #1c4a41;
-  border-color: transparent;
-  background-color: #10302a;
+/* Qalam's orange card sits right above SmartSchedule's blue one, so in dark mode it turns mint. */
+.dark {
+  --qalam-color: #86cfae;
+  --qalam-shade: #74be9c;
+}
+.dark .tone .bg-chip,
+.dark .tone .bg-hero-chip {
+  color: #f3f1ec;
+}
+.dark .tone-sky {
+  background-color: #63b3e6;
+}
+.dark .tone-sun {
+  background-color: #e8c14a;
+}
+.dark .tone-mint {
+  background-color: #86cfae;
+}
+.dark .tone-lilac {
+  background-color: #c9bceb;
 }
 
 @theme inline {

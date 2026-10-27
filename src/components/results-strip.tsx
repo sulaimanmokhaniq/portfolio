@@ -1,4 +1,4 @@
-import type { Locale, Project } from "@/content/site";
+import { tint, type Locale, type Project } from "@/content/site";
 
 // Three quick facts about a project on a dark bar, values in the project's own colour.
 // Phones list them as rows so long words never break; wider screens show three columns.
@@ -25,7 +25,7 @@ export function ResultsStrip({
           <dd
             dir="auto"
             className="min-w-20 shrink-0 font-display text-xl leading-none font-extrabold whitespace-nowrap sm:min-w-0 sm:text-2xl sm:whitespace-normal rtl:text-right"
-            style={{ color: project.color }}
+            style={{ color: tint(project) }}
           >
             {r.value[lang]}
           </dd>

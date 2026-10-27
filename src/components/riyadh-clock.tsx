@@ -14,10 +14,12 @@ export function RiyadhClock({ label, awake, asleep }: { label: string; awake: st
 
   // Western digits in both languages, like the rest of the site.
   const time = now?.toLocaleTimeString("en-GB", { timeZone: "Asia/Riyadh", hour: "2-digit", minute: "2-digit" });
-  const hour = now ? Number(now.toLocaleString("en-GB", { timeZone: "Asia/Riyadh", hour: "2-digit", hour12: false })) : 12;
+  const hour = now
+    ? Number(now.toLocaleString("en-GB", { timeZone: "Asia/Riyadh", hour: "2-digit", hour12: false }))
+    : 12;
 
   return (
-    <div className="flex h-full min-h-[210px] flex-col justify-between gap-6 rounded-tile bg-hero p-8 text-hero-text">
+    <div className="flex h-full min-h-[210px] flex-col justify-between gap-6 rounded-tile bg-hero p-8 text-hero-text tone tone-mint">
       <span className="text-hero-muted">{label}</span>
       <time dir="ltr" className="font-display text-7xl leading-none font-extrabold tracking-tight rtl:text-end">
         {time ?? "--:--"}
