@@ -13,6 +13,7 @@ import { RiyadhClock } from "@/components/riyadh-clock";
 import { RoleCycler } from "@/components/role-cycler";
 import Image from "next/image";
 import { Aref_Ruqaa } from "next/font/google";
+import { dual } from "@/lib/tone";
 import { clubs, experience, hasLocale, profile, projects, stats, tint, ui, volunteering, wins } from "@/content/site";
 
 // The card title's link covers the whole card; the project visual sits above it so its buttons still work.
@@ -26,7 +27,7 @@ const ruqaa = Aref_Ruqaa({
 });
 
 // Neighbouring steps never share a colour family.
-const PROCESS_COLORS = ["bg-flame dark:bg-[#c9bceb]", "bg-mint", "bg-sun", "bg-sky"];
+const PROCESS_COLORS = ["bg-flame", "bg-mint", "bg-sun", "bg-sky"];
 
 export default async function Home({ params }: PageProps<"/[lang]">) {
   const { lang } = await params;
@@ -41,7 +42,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         className="mx-auto grid max-w-[1280px] scroll-mt-24 grid-cols-1 gap-4 px-4 pt-4 sm:px-6 md:grid-cols-2 lg:grid-cols-3"
       >
         <Reveal className="md:col-span-2">
-          <div className="flex h-full min-h-[440px] flex-col justify-between gap-8 rounded-tile bg-hero p-8 text-hero-text sm:p-11 tone tone-sky">
+          <div className="flex h-full min-h-[440px] flex-col justify-between gap-8 rounded-tile bg-hero p-8 text-hero-text sm:p-11">
             <span className="inline-flex items-center gap-2 self-start rounded-full bg-hero-chip px-3.5 py-2 text-sm">
               <span className="size-2 rounded-full bg-live" />
               {t.tagline}
@@ -57,7 +58,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             <div className="flex flex-wrap gap-3">
               <Link
                 href={`/${lang}#work`}
-                className="inline-flex min-h-12 items-center gap-2 rounded-full bg-flame px-6 font-semibold text-ink transition-transform hover:-translate-y-0.5 dark:bg-ink dark:text-[#63b3e6]"
+                className="inline-flex min-h-12 items-center gap-2 rounded-full bg-flame px-6 font-semibold text-ink transition-transform hover:-translate-y-0.5"
               >
                 {t.seeProjects}
                 <Arrow />
@@ -94,7 +95,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         </Reveal>
 
         <Reveal delay={0.16}>
-          <div className="flex h-full min-h-[210px] flex-col gap-4 rounded-tile border border-line bg-surface p-8 tone tone-mint">
+          <div className="flex h-full min-h-[210px] flex-col gap-4 rounded-tile border border-line bg-surface p-8">
             <span className="text-muted">{t.stackLabel}</span>
             <ul className="flex flex-wrap gap-2" dir="ltr">
               {profile.stack.map((s) => (
@@ -120,7 +121,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         </Reveal>
 
         <Reveal delay={0.24} className="md:col-span-1 lg:col-span-2">
-          <div className="flex h-full min-h-[210px] flex-col justify-between gap-6 rounded-tile bg-mint p-8 text-ink tone tone-sky">
+          <div className="flex h-full min-h-[210px] flex-col justify-between gap-6 rounded-tile bg-mint p-8 text-ink">
             <span className="inline-flex items-center gap-2 font-semibold">
               <span className="size-2.5 rounded-full bg-ink" />
               {t.nowLabel}
@@ -297,7 +298,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                     className={`flex h-full flex-col gap-6 rounded-tile p-7 transition-transform hover:-translate-y-1 sm:p-8 ${
                       big ? "lg:p-10" : ""
                     } ${dark ? "text-cream dark:border dark:border-line" : "text-ink"}`}
-                    style={{ background: c.color }}
+                    style={{ background: dual(c.color) }}
                   >
                     <div className="flex items-start justify-between gap-4">
                       <Image
@@ -379,7 +380,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                     className={`flex h-full flex-col gap-6 rounded-tile p-7 transition-transform hover:-translate-y-1 ${
                       dark ? "text-cream dark:border dark:border-line" : "text-ink"
                     }`}
-                    style={{ background: v.color }}
+                    style={{ background: dual(v.color) }}
                   >
                     <div className="flex items-start justify-between gap-4">
                       <Image
@@ -442,7 +443,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         className="mx-auto grid max-w-[1280px] scroll-mt-24 grid-cols-1 gap-4 px-4 pt-24 sm:px-6 lg:grid-cols-3"
       >
         <Reveal className="lg:col-span-2">
-          <div className="h-full rounded-tile border border-line bg-surface p-8 sm:p-10 tone tone-lilac">
+          <div className="h-full rounded-tile border border-line bg-surface p-8 sm:p-10">
             <h2 className="mb-6 font-display text-4xl font-extrabold tracking-tight sm:text-5xl">{t.workedTitle}</h2>
             <ol>
               {experience.map((e) => (
@@ -461,7 +462,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
           </div>
         </Reveal>
         <Reveal delay={0.08}>
-          <div className="flex h-full flex-col justify-between gap-5 rounded-tile bg-hero p-8 text-hero-text sm:p-10 tone tone-mint">
+          <div className="flex h-full flex-col justify-between gap-5 rounded-tile bg-hero p-8 text-hero-text sm:p-10">
             <span className="text-hero-muted">{t.communityLabel}</span>
             <span dir="ltr" className="font-display text-6xl leading-none font-extrabold">
               500+
@@ -474,7 +475,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
       {/* Contact */}
       <section id="contact" className="mx-auto max-w-[1280px] scroll-mt-24 px-4 pt-24 pb-6 sm:px-6">
         <Reveal>
-          <div className="flex flex-col gap-14 rounded-tile bg-hero p-8 text-hero-text sm:p-14 tone tone-sun">
+          <div className="flex flex-col gap-14 rounded-tile bg-hero p-8 text-hero-text sm:p-14">
             <div className="flex flex-wrap items-start justify-between gap-x-10 gap-y-6">
               <div className="flex flex-col gap-4">
                 <span className="text-sm font-bold tracking-widest text-hero-muted uppercase rtl:tracking-normal">
@@ -489,7 +490,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
               <span
                 lang="ar"
                 aria-hidden="true"
-                className={`${ruqaa.className} text-[clamp(4.5rem,11vw,9rem)] leading-none text-flame dark:text-[#0f3a5f]`}
+                className={`${ruqaa.className} text-[clamp(4.5rem,11vw,9rem)] leading-none text-flame dark:text-[#ff6a2b]`}
               >
                 سليمان
               </span>

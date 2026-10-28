@@ -19,7 +19,7 @@ export function RiyadhClock({ label, awake, asleep }: { label: string; awake: st
     : 12;
 
   return (
-    <div className="flex h-full min-h-[210px] flex-col justify-between gap-6 rounded-tile bg-hero p-8 text-hero-text tone tone-mint">
+    <div className="flex h-full min-h-[210px] flex-col justify-between gap-6 rounded-tile bg-hero p-8 text-hero-text">
       <span className="text-hero-muted">{label}</span>
       <time dir="ltr" className="font-display text-7xl leading-none font-extrabold tracking-tight rtl:text-end">
         {time ?? "--:--"}

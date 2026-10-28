@@ -3,6 +3,7 @@
 import { AnimatePresence, motion, useReducedMotion } from "motion/react";
 import { useEffect, useState } from "react";
 import { SLIDE, card, content, fade } from "@/components/hero-cards";
+import { dual } from "@/lib/tone";
 
 // A stat card shows one big number in place of the place/event pair.
 type Win = { kind: string; place: string; event?: string; detail: string; color: string; stat?: boolean };
@@ -107,7 +108,7 @@ export function WinDeck({
               exit="exit"
               transition={reduce ? { duration: 0.3 } : SLIDE}
               className={`absolute inset-0 flex flex-col rounded-tile p-8 pb-14 text-ink ${win.stat ? "justify-end" : "justify-between"}`}
-              style={{ background: win.color }}
+              style={{ background: dual(win.color) }}
             >
               {!win.stat && (
                 <motion.span custom={direction} variants={reduce ? fade : content}>
@@ -156,7 +157,7 @@ function Face({ win, clip }: { win: Win; clip?: string }) {
   return (
     <span
       className="absolute inset-0 flex flex-col justify-end rounded-tile p-8 pb-14 text-ink"
-      style={{ background: win.color, clipPath: clip }}
+      style={{ background: dual(win.color), clipPath: clip }}
     >
       <span className="flex flex-col gap-1.5">
         <span dir="ltr" className="font-display text-7xl leading-none font-extrabold rtl:text-end">

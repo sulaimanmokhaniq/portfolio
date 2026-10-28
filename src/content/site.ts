@@ -1,3 +1,5 @@
+import { dual } from "@/lib/tone";
+
 export const locales = ["en", "ar"] as const;
 export type Locale = (typeof locales)[number];
 
@@ -206,9 +208,9 @@ export const ui = {
   },
 } satisfies Record<Locale, unknown>;
 
-/** A project's colour as CSS. Dark mode can swap it through a --<slug>-color / --<slug>-shade variable in globals.css. */
+/** A project's colour as CSS. Softer in dark mode; a --<slug>-color / --<slug>-shade variable can still override it. */
 export function tint(p: { slug: string; color: string; shade: string }, key: "color" | "shade" = "color") {
-  return `var(--${p.slug}-${key}, ${p[key]})`;
+  return `var(--${p.slug}-${key}, ${dual(p[key])})`;
 }
 
 export type Project = {
