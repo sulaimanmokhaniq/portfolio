@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Arrow } from "@/components/arrow";
-import { GitHubIcon, LinkedInIcon, MailIcon, PhoneIcon, TrophyIcon } from "@/components/contact-icons";
+import { GitHubIcon, LinkedInIcon, MailIcon, TrophyIcon, WhatsAppIcon } from "@/components/contact-icons";
 import { CvButton } from "@/components/cv-button";
 import { HeroCards } from "@/components/hero-cards";
 import { ProjectVisual } from "@/components/project-visual";
@@ -507,10 +507,12 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                   {profile.email}
                 </a>
                 <a
-                  href={`tel:${profile.phone}`}
+                  href={`https://wa.me/${profile.phone.slice(1)}`}
+                  target="_blank"
+                  rel="noreferrer"
                   className="flex items-center gap-3 font-semibold underline-offset-4 hover:underline"
                 >
-                  <PhoneIcon className="size-[22px] shrink-0" />
+                  <WhatsAppIcon className="size-[22px] shrink-0" />
                   {profile.phoneLabel}
                 </a>
                 <a
