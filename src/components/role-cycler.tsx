@@ -19,7 +19,7 @@ export function RoleCycler({ roles }: { roles: string[] }) {
 
   return (
     <span
-      className="grid overflow-hidden text-[0.66em] text-flame sm:text-[0.78em] dark:text-[#0f3a5f]"
+      className="grid overflow-hidden text-[0.66em] text-flame sm:text-[0.78em] dark:text-[#ff6a2b]"
       aria-hidden="true"
     >
       {roles.map((r) => (

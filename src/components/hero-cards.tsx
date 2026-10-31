@@ -4,8 +4,7 @@ import { animate, motion, useMotionValue, useReducedMotion, useTransform, type M
 import { useEffect, useRef, useState } from "react";
 
 // Leaves out sun and peri (they sit next to this tile) and coral (too close to flame).
-// Dark mode swaps flame and sky for sun and lilac, so no orange or blue card sits by the blue hero.
-const COLORS = ["bg-flame dark:bg-[#e8c14a]", "bg-mint dark:bg-[#86cfae]", "bg-sky dark:bg-[#c9bceb]"];
+const COLORS = ["bg-flame", "bg-mint", "bg-sky"];
 const INTERVAL = 6000;
 
 // How long one card takes to slide across. Slow and smooth on purpose.

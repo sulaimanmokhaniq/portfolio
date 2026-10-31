@@ -35,54 +35,28 @@
 }
 
 .dark {
-  --ground: #111110;
-  --grid: #1f1f1d;
-  --surface: #1e1e1b;
-  --line: #34332f;
-  --chip: #2a2a26;
+  color-scheme: dark;
+  --ground: #121110;
+  --grid: #1c1b19;
+  --surface: #24221f;
+  --line: #34322e;
+  --chip: #33302b;
   --text: #f3f1ec;
   --muted: #b3afa6;
-  --hero: #172038;
-  --hero-text: #f3f1ec;
-  --hero-chip: #253155;
-  --hero-muted: #cfd5e6;
-}
-
-/* Dark mode: no dark tiles. The main tiles turn into soft, slightly toned-down colours from one cool set
-   (blue, yellow, mint, lilac), with ink text. Orange never sits on a blue tile. */
-.dark .tone {
-  --text: #141414;
+  /* The tiles that are black in light mode flip to warm paper, so they still stand out the same way. */
+  --hero: #ece6d9;
   --hero-text: #141414;
-  --muted: #26241f;
-  --hero-muted: #26241f;
-  --line: #141414;
-  --chip: #141414;
   --hero-chip: #141414;
-  color: #141414;
-  border-color: transparent;
+  --hero-muted: #3a3730;
 }
-/* Qalam's orange card sits right above SmartSchedule's blue one, so in dark mode it turns mint. */
-.dark {
-  --qalam-color: #86cfae;
-  --qalam-shade: #74be9c;
+:root:not(.dark) {
+  color-scheme: light;
 }
-.dark .tone .bg-chip,
-.dark .tone .bg-hero-chip {
+.dark .bg-hero-chip {
   color: #f3f1ec;
 }
-.dark .tone-sky {
-  background-color: #63b3e6;
-}
-.dark .tone-sun {
-  background-color: #e8c14a;
-}
-.dark .tone-mint {
-  background-color: #86cfae;
-}
-.dark .tone-lilac {
-  background-color: #c9bceb;
-}
 
+/* Tile colours: as in light mode, a little softer in dark mode (same as soft() in src/lib/tone.ts). */
 @theme inline {
   --color-ground: var(--ground);
   --color-surface: var(--surface);
@@ -94,11 +68,11 @@
   --color-hero-text: var(--hero-text);
   --color-hero-chip: var(--hero-chip);
   --color-ink: #141414;
-  --color-flame: #ff6a2b;
-  --color-sun: #ffd43b;
-  --color-peri: #b8c4ff;
-  --color-mint: #9be3c1;
-  --color-sky: #6fc8ff;
+  --color-flame: light-dark(#ff6a2b, #ed9570);
+  --color-sun: light-dark(#ffd43b, #efd67e);
+  --color-peri: light-dark(#b8c4ff, #a4b2f4);
+  --color-mint: light-dark(#9be3c1, #90d4b4);
+  --color-sky: light-dark(#6fc8ff, #80c5ef);
   /* Fixed light neutrals for things that stay light in both themes (CV paper, browser frames, swap faces). */
   --color-cream: #f3f1ec;
   --color-paper: #f1efea;

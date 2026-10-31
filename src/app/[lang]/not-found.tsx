@@ -15,11 +15,11 @@ export default function NotFound() {
 
   return (
     <main className="mx-auto max-w-[1280px] px-4 pt-4 pb-10 sm:px-6">
-      <section className="flex min-h-[70vh] flex-col items-center justify-center gap-6 rounded-tile bg-hero p-8 text-center text-hero-text sm:p-14 tone tone-sun">
+      <section className="flex min-h-[70vh] flex-col items-center justify-center gap-6 rounded-tile bg-hero p-8 text-center text-hero-text sm:p-14">
         <span
           lang="ar"
           aria-hidden="true"
-          className={`${ruqaa.className} text-[clamp(5rem,16vw,11rem)] leading-none text-flame dark:text-[#0f3a5f]`}
+          className={`${ruqaa.className} text-[clamp(5rem,16vw,11rem)] leading-none text-flame dark:text-[#ff6a2b]`}
         >
           سليمان
         </span>
