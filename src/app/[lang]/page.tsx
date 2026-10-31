@@ -4,6 +4,7 @@ import { Arrow } from "@/components/arrow";
 import { GitHubIcon, LinkedInIcon, MailIcon, TrophyIcon, WhatsAppIcon } from "@/components/contact-icons";
 import { CvButton } from "@/components/cv-button";
 import { HeroCards } from "@/components/hero-cards";
+import { ProjectMotif } from "@/components/project-motif";
 import { ProjectVisual } from "@/components/project-visual";
 import { StackChip } from "@/components/stack-chip";
 import { WinDeck } from "@/components/win-deck";
@@ -149,9 +150,10 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             p.wide ? (
               <Reveal key={p.slug} className="md:col-span-2 lg:col-span-3">
                 <div
-                  className="group relative flex flex-col gap-7 rounded-tile p-8 text-ink transition-transform hover:-translate-y-1 sm:p-10 lg:flex-row"
+                  className="group relative isolate flex flex-col gap-7 rounded-tile p-8 text-ink transition-transform hover:-translate-y-1 sm:p-10 lg:flex-row"
                   style={{ background: tint(p) }}
                 >
+                  <ProjectMotif slug={p.slug} />
                   <div className="flex flex-1 flex-col justify-center gap-4">
                     {p.badge && !p.sticker && (
                       <span className="self-start rounded-full bg-ink px-3 py-1.5 text-sm" style={{ color: tint(p) }}>
