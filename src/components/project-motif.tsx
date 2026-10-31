@@ -55,37 +55,80 @@ const MOTIFS: Record<string, { tile: string; size: number }> = {
   },
 };
 
-// Qalam: calligraphy words (pen, ink, letter, and the script styles Hebr AI names) in Ruqaa, tucked into the gaps around the content.
-const QALAM_WORDS: { word: string; x: string; y: string; size: number; turn: number }[] = [
-  { word: "قلم", x: "35%", y: "3%", size: 72, turn: -8 },
-  { word: "حبر", x: "23%", y: "86%", size: 40, turn: 6 },
-  { word: "حرف", x: "3%", y: "91%", size: 28, turn: -3 },
-  { word: "ثلث", x: "33%", y: "87%", size: 32, turn: -5 },
-  { word: "نسخ", x: "45.5%", y: "62%", size: 30, turn: 4 },
-  { word: "رقعة", x: "74%", y: "0%", size: 32, turn: 4 },
-  { word: "ديواني", x: "57%", y: "0.5%", size: 28, turn: -4 },
-  { word: "خط", x: "64%", y: "91%", size: 30, turn: -4 },
+// Qalam: a dense wall of overlapping calligraphy letters, strongest behind the screenshot and fading out
+// before it reaches the text (sideways on wide screens, upwards on phones where the card stacks).
+const GLYPHS = [
+  "ق",
+  "ل",
+  "م",
+  "ع",
+  "ن",
+  "ه",
+  "ب",
+  "ح",
+  "و",
+  "ي",
+  "ك",
+  "س",
+  "ص",
+  "ط",
+  "ر",
+  "د",
+  "لا",
+  "قلم",
+  "حبر",
+  "خط",
+  "حرف",
+  "نون",
+  "فن",
 ];
 
-const MASK =
-  "pointer-events-none absolute inset-0 -z-10 overflow-hidden rounded-tile opacity-[var(--motif-o,0.14)] [mask-image:radial-gradient(120%_90%_at_0%_100%,black,transparent_55%),radial-gradient(90%_80%_at_100%_0%,black,transparent_50%)]";
+function seeded(seed: number) {
+  return () => {
+    seed = (seed + 0x6d2b79f5) | 0;
+    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
+    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+  };
+}
 
-// Words sit in the card's empty gaps on wide screens (mirrored in Arabic), so they need no corner fade. Phones stack
-// the card, leaving no gaps, so the words are left out there.
-const WORDS =
-  "pointer-events-none absolute inset-0 -z-10 hidden overflow-hidden lg:block rounded-tile opacity-[var(--motif-o,0.14)]";
+const QALAM_ART = (() => {
+  const rand = seeded(7);
+  return Array.from({ length: 300 }, (_, i) => ({
+    glyph: GLYPHS[Math.floor(rand() * GLYPHS.length)],
+    x: rand() * 110 - 6,
+    y: rand() * 104 - 8,
+    size: 26 + Math.round(rand() * 70),
+    turn: Math.round(rand() * 70 - 35),
+    // Big back-layer letters in a deeper tone of the card, smaller ink letters on top.
+    back: i < 120,
+  }));
+})();
+
+const MASK =
+  "pointer-events-none absolute inset-0 -z-10 rounded-tile opacity-[var(--motif-o,0.14)] [mask-image:radial-gradient(120%_90%_at_0%_100%,black,transparent_55%),radial-gradient(90%_80%_at_100%_0%,black,transparent_50%)]";
 
 export function ProjectMotif({ slug, scriptClass, rtl }: { slug: string; scriptClass?: string; rtl?: boolean }) {
   if (slug === "qalam") {
     return (
-      <span aria-hidden="true" lang="ar" dir="rtl" className={`${WORDS} ${scriptClass ?? ""}`}>
-        {QALAM_WORDS.map((w) => (
+      <span
+        aria-hidden="true"
+        lang="ar"
+        dir="rtl"
+        className={`pointer-events-none absolute inset-0 -z-10 overflow-hidden rounded-tile ${rtl ? "lg:[mask-image:linear-gradient(to_right,black_38%,transparent_62%)]" : "lg:[mask-image:linear-gradient(to_left,black_38%,transparent_62%)]"} [mask-image:linear-gradient(to_top,black_30%,transparent_55%)] ${scriptClass ?? ""}`}
+      >
+        {QALAM_ART.map((g, i) => (
           <span
-            key={w.word}
-            className="absolute leading-none text-ink"
-            style={{ [rtl ? "right" : "left"]: w.x, top: w.y, fontSize: w.size, transform: `rotate(${w.turn}deg)` }}
+            key={i}
+            className={`absolute leading-none ${g.back ? "text-[#c0501f] dark:text-[#c97556]" : "text-ink"}`}
+            style={{
+              [rtl ? "right" : "left"]: `${g.x}%`,
+              top: `${g.y}%`,
+              fontSize: g.back ? g.size * 1.6 : g.size,
+              transform: `rotate(${g.turn}deg)`,
+            }}
           >
-            {w.word}
+            {g.glyph}
           </span>
         ))}
       </span>
