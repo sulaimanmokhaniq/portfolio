@@ -9,7 +9,7 @@ const star = (cx: number, cy: number, r: number) =>
 const sparkle = (x: number, y: number, r: number) =>
   `<path d='M${x} ${y - r}Q${x} ${y} ${x + r} ${y}Q${x} ${y} ${x} ${y + r}Q${x} ${y} ${x - r} ${y}Q${x} ${y} ${x} ${y - r}Z'/>`;
 
-const MOTIFS: Record<string, { tile: string; size: number }> = {
+const MOTIFS: Record<string, { tile?: string; image?: string; size?: number }> = {
   // TAHABEER: an eight-point star lattice, like the geometry on mosque doors and ceilings.
   tahabeer: {
     size: 88,
@@ -37,6 +37,8 @@ const MOTIFS: Record<string, { tile: string; size: number }> = {
         "<path d='M18 92l8-10h-6l8-10'/><path d='M62 44l10-4M64 52l11 1M58 36l5-9'/>",
     ),
   },
+  // Qalam: the app's own logo (the word قلم ending in a pen nib), repeated in staggered rows.
+  qalam: { image: "url(/work/qalam/motif.png)" },
   // SmartSchedule: a timetable grid with a few booked slots.
   smartschedule: {
     size: 96,
@@ -55,85 +57,10 @@ const MOTIFS: Record<string, { tile: string; size: number }> = {
   },
 };
 
-// Qalam: a dense wall of overlapping calligraphy letters, strongest behind the screenshot and fading out
-// before it reaches the text (sideways on wide screens, upwards on phones where the card stacks).
-const GLYPHS = [
-  "ق",
-  "ل",
-  "م",
-  "ع",
-  "ن",
-  "ه",
-  "ب",
-  "ح",
-  "و",
-  "ي",
-  "ك",
-  "س",
-  "ص",
-  "ط",
-  "ر",
-  "د",
-  "لا",
-  "قلم",
-  "حبر",
-  "خط",
-  "حرف",
-  "نون",
-  "فن",
-];
-
-function seeded(seed: number) {
-  return () => {
-    seed = (seed + 0x6d2b79f5) | 0;
-    let t = Math.imul(seed ^ (seed >>> 15), 1 | seed);
-    t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
-    return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
-  };
-}
-
-const QALAM_ART = (() => {
-  const rand = seeded(7);
-  return Array.from({ length: 300 }, (_, i) => ({
-    glyph: GLYPHS[Math.floor(rand() * GLYPHS.length)],
-    x: rand() * 110 - 6,
-    y: rand() * 104 - 8,
-    size: 26 + Math.round(rand() * 70),
-    turn: Math.round(rand() * 70 - 35),
-    // Big back-layer letters in a deeper tone of the card, smaller ink letters on top.
-    back: i < 120,
-  }));
-})();
-
 const MASK =
   "pointer-events-none absolute inset-0 -z-10 rounded-tile opacity-[var(--motif-o,0.14)] [mask-image:radial-gradient(120%_90%_at_0%_100%,black,transparent_55%),radial-gradient(90%_80%_at_100%_0%,black,transparent_50%)]";
 
-export function ProjectMotif({ slug, scriptClass, rtl }: { slug: string; scriptClass?: string; rtl?: boolean }) {
-  if (slug === "qalam") {
-    return (
-      <span
-        aria-hidden="true"
-        lang="ar"
-        dir="rtl"
-        className={`pointer-events-none absolute inset-0 -z-10 overflow-hidden rounded-tile ${rtl ? "lg:[mask-image:linear-gradient(to_right,black_38%,transparent_62%)]" : "lg:[mask-image:linear-gradient(to_left,black_38%,transparent_62%)]"} [mask-image:linear-gradient(to_top,black_30%,transparent_55%)] ${scriptClass ?? ""}`}
-      >
-        {QALAM_ART.map((g, i) => (
-          <span
-            key={i}
-            className={`absolute leading-none ${g.back ? "text-[#c0501f] dark:text-[#c97556]" : "text-ink"}`}
-            style={{
-              [rtl ? "right" : "left"]: `${g.x}%`,
-              top: `${g.y}%`,
-              fontSize: g.back ? g.size * 1.6 : g.size,
-              transform: `rotate(${g.turn}deg)`,
-            }}
-          >
-            {g.glyph}
-          </span>
-        ))}
-      </span>
-    );
-  }
+export function ProjectMotif({ slug }: { slug: string }) {
   const motif = MOTIFS[slug];
   if (!motif) return null;
   return (
@@ -141,8 +68,8 @@ export function ProjectMotif({ slug, scriptClass, rtl }: { slug: string; scriptC
       aria-hidden="true"
       className={MASK}
       style={{
-        backgroundImage: `url("data:image/svg+xml,${encodeURIComponent(motif.tile)}")`,
-        backgroundSize: `${motif.size}px ${motif.size}px`,
+        backgroundImage: motif.image ?? `url("data:image/svg+xml,${encodeURIComponent(motif.tile ?? "")}")`,
+        backgroundSize: motif.image ? "120px 150px" : `${motif.size}px ${motif.size}px`,
       }}
     />
   );
