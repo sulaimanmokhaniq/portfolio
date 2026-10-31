@@ -37,14 +37,6 @@ const MOTIFS: Record<string, { tile: string; size: number }> = {
         "<path d='M18 92l8-10h-6l8-10'/><path d='M62 44l10-4M64 52l11 1M58 36l5-9'/>",
     ),
   },
-  // Qalam: flowing pen strokes with the diamond dot a reed pen leaves.
-  qalam: {
-    size: 160,
-    tile: svg(
-      160,
-      "<path d='M12 60c26-30 58-30 70-6s38 22 62-8' stroke-width='3'/><path d='M30 120c18 12 46 12 60-4' stroke-width='2.2'/><path d='M108 140c10-24 30-30 44-22' stroke-width='2.6'/><rect x='92' y='96' width='8' height='8' transform='rotate(45 96 100)' fill='#141414' stroke='none'/><rect x='40' y='24' width='6' height='6' transform='rotate(45 43 27)' fill='#141414' stroke='none'/>",
-    ),
-  },
   // SmartSchedule: a timetable grid with a few booked slots.
   smartschedule: {
     size: 96,
@@ -63,13 +55,48 @@ const MOTIFS: Record<string, { tile: string; size: number }> = {
   },
 };
 
-export function ProjectMotif({ slug }: { slug: string }) {
+// Qalam: calligraphy words (pen, ink, letter, and the script styles Hebr AI names) in Ruqaa, tucked into the gaps around the content.
+const QALAM_WORDS: { word: string; x: string; y: string; size: number; turn: number }[] = [
+  { word: "قلم", x: "35%", y: "3%", size: 72, turn: -8 },
+  { word: "حبر", x: "23%", y: "86%", size: 40, turn: 6 },
+  { word: "حرف", x: "3%", y: "91%", size: 28, turn: -3 },
+  { word: "ثلث", x: "33%", y: "87%", size: 32, turn: -5 },
+  { word: "نسخ", x: "45.5%", y: "62%", size: 30, turn: 4 },
+  { word: "رقعة", x: "74%", y: "0%", size: 32, turn: 4 },
+  { word: "ديواني", x: "57%", y: "0.5%", size: 28, turn: -4 },
+  { word: "خط", x: "64%", y: "91%", size: 30, turn: -4 },
+];
+
+const MASK =
+  "pointer-events-none absolute inset-0 -z-10 overflow-hidden rounded-tile opacity-[var(--motif-o,0.14)] [mask-image:radial-gradient(120%_90%_at_0%_100%,black,transparent_55%),radial-gradient(90%_80%_at_100%_0%,black,transparent_50%)]";
+
+// Words sit in the card's empty gaps on wide screens (mirrored in Arabic), so they need no corner fade. Phones stack
+// the card, leaving no gaps, so the words are left out there.
+const WORDS =
+  "pointer-events-none absolute inset-0 -z-10 hidden overflow-hidden lg:block rounded-tile opacity-[var(--motif-o,0.14)]";
+
+export function ProjectMotif({ slug, scriptClass, rtl }: { slug: string; scriptClass?: string; rtl?: boolean }) {
+  if (slug === "qalam") {
+    return (
+      <span aria-hidden="true" lang="ar" dir="rtl" className={`${WORDS} ${scriptClass ?? ""}`}>
+        {QALAM_WORDS.map((w) => (
+          <span
+            key={w.word}
+            className="absolute leading-none text-ink"
+            style={{ [rtl ? "right" : "left"]: w.x, top: w.y, fontSize: w.size, transform: `rotate(${w.turn}deg)` }}
+          >
+            {w.word}
+          </span>
+        ))}
+      </span>
+    );
+  }
   const motif = MOTIFS[slug];
   if (!motif) return null;
   return (
     <span
       aria-hidden="true"
-      className="pointer-events-none absolute inset-0 -z-10 rounded-tile opacity-[var(--motif-o,0.14)] [mask-image:radial-gradient(120%_90%_at_0%_100%,black,transparent_55%),radial-gradient(90%_80%_at_100%_0%,black,transparent_50%)]"
+      className={MASK}
       style={{
         backgroundImage: `url("data:image/svg+xml,${encodeURIComponent(motif.tile)}")`,
         backgroundSize: `${motif.size}px ${motif.size}px`,

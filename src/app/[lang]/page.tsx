@@ -153,7 +153,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
                   className="group relative isolate flex flex-col gap-7 rounded-tile p-8 text-ink transition-transform hover:-translate-y-1 sm:p-10 lg:flex-row"
                   style={{ background: tint(p) }}
                 >
-                  <ProjectMotif slug={p.slug} />
+                  <ProjectMotif slug={p.slug} scriptClass={ruqaa.className} rtl={lang === "ar"} />
                   <div className="flex flex-1 flex-col justify-center gap-4">
                     {p.badge && !p.sticker && (
                       <span className="self-start rounded-full bg-ink px-3 py-1.5 text-sm" style={{ color: tint(p) }}>
