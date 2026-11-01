@@ -3,7 +3,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "next-themes";
-import { AnimatePresence, LayoutGroup, motion, useReducedMotion } from "motion/react";
+import { AnimatePresence, LayoutGroup, motion, useReducedMotion, useScroll, useSpring } from "motion/react";
 import { useCallback, useEffect, useState, useSyncExternalStore } from "react";
 import { projects, ui, type Locale } from "@/content/site";
 import { NameCalligraphy } from "@/components/name-calligraphy";
@@ -58,6 +58,9 @@ export function Header({ lang }: { lang: Locale }) {
   const isCase = projects.some((p) => new RegExp(`^/(en|ar)/work/${p.slug}/?$`).test(pathname));
   const active = useActiveSection(isHome, isCase);
   const reduce = useReducedMotion();
+  const { scrollYProgress } = useScroll();
+  const smooth = useSpring(scrollYProgress, { stiffness: 120, damping: 30, restDelta: 0.001 });
+  const progress = reduce ? scrollYProgress : smooth;
 
   const [menuOpen, setMenuOpen] = useState(false);
 
@@ -200,6 +203,12 @@ export function Header({ lang }: { lang: Locale }) {
           )}
         </AnimatePresence>
       </div>
+      {/* A thin flame line along the bottom of the header that fills as the page is read. */}
+      <motion.div
+        aria-hidden="true"
+        className="absolute inset-x-0 bottom-0 h-[3px] origin-left bg-flame dark:bg-[#ff6a2b] rtl:origin-right"
+        style={{ scaleX: progress }}
+      />
     </header>
   );
 }
