@@ -23,7 +23,7 @@ export const profile = {
 
 export const ui = {
   en: {
-    nav: { intro: "Intro", work: "Projects", clubs: "Clubs", about: "About", contact: "Contact" },
+    nav: { intro: "Intro", work: "Projects", clubs: "Clubs", events: "Events", about: "About", contact: "Contact" },
     switchLang: "عربي",
     switchLangLabel: "اقرأ الموقع بالعربية",
     themeLabel: "Toggle dark mode",
@@ -118,7 +118,7 @@ export const ui = {
     nextScreen: "Next screen",
   },
   ar: {
-    nav: { intro: "نبذة", work: "المشاريع", clubs: "الأندية", about: "عنّي", contact: "تواصل" },
+    nav: { intro: "نبذة", work: "المشاريع", clubs: "الأندية", events: "الفعاليات", about: "عنّي", contact: "تواصل" },
     switchLang: "English",
     switchLangLabel: "Read the site in English",
     themeLabel: "تبديل الوضع الليلي",

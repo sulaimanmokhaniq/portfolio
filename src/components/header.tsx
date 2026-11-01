@@ -9,7 +9,7 @@ import { projects, ui, type Locale } from "@/content/site";
 import { NameCalligraphy } from "@/components/name-calligraphy";
 
 const subscribe = () => () => {};
-const sections = ["intro", "work", "clubs", "about", "contact"] as const;
+const sections = ["intro", "work", "clubs", "events", "about", "contact"] as const;
 type Section = (typeof sections)[number];
 
 // Tracks which home-page section is on screen (the hero counts as "intro"); case pages count as "work", other pages (like 404) highlight nothing.

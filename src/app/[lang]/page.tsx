@@ -366,7 +366,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         </ul>
 
         <Reveal>
-          <div className="mt-14 mb-6 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 px-2">
+          <div id="events" className="scroll-mt-32 mt-14 mb-6 flex flex-wrap items-baseline justify-between gap-x-6 gap-y-2 px-2">
             <h3 className="font-display text-3xl font-extrabold tracking-tight sm:text-4xl rtl:leading-[1.4]">
               {t.volunteerTitle}
             </h3>
