@@ -200,9 +200,10 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             ) : (
               <Reveal key={p.slug} delay={(i % 3) * 0.06}>
                 <div
-                  className="group relative flex h-full flex-col gap-4 rounded-tile p-8 text-ink transition-transform hover:-translate-y-1"
+                  className="group relative isolate flex h-full flex-col gap-4 rounded-tile p-8 text-ink transition-transform hover:-translate-y-1"
                   style={{ background: tint(p) }}
                 >
+                  <ProjectMotif slug={p.slug} />
                   <ProjectVisual project={p} lang={lang} className="h-44" />
                   <span className="text-sm font-medium">{p.kind[lang]}</span>
                   <h3 className="font-display text-4xl font-extrabold [overflow-wrap:anywhere]">
