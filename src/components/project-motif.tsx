@@ -122,3 +122,17 @@ export function ProjectMotif({ slug }: { slug: string }) {
     />
   );
 }
+
+/** The same faint corner pattern for a club or event tile, made from its logo (public/…/motif-<name>.png). */
+export function LogoMotif({ logo }: { logo: string }) {
+  return (
+    <span
+      aria-hidden="true"
+      className={MASK}
+      style={{
+        backgroundImage: `url(${logo.replace(/([^/]+)\.png$/, "motif-$1.png")})`,
+        backgroundSize: "120px 150px",
+      }}
+    />
+  );
+}

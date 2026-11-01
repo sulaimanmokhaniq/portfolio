@@ -4,7 +4,7 @@ import { Arrow } from "@/components/arrow";
 import { GitHubIcon, LinkedInIcon, MailIcon, TrophyIcon, WhatsAppIcon } from "@/components/contact-icons";
 import { CvButton } from "@/components/cv-button";
 import { HeroCards } from "@/components/hero-cards";
-import { ProjectMotif } from "@/components/project-motif";
+import { LogoMotif, ProjectMotif } from "@/components/project-motif";
 import { ProjectVisual } from "@/components/project-visual";
 import { StackChip } from "@/components/stack-chip";
 import { WinDeck } from "@/components/win-deck";
@@ -298,11 +298,12 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
               >
                 <Reveal delay={(i % 4) * 0.06} className="h-full">
                   <div
-                    className={`flex h-full flex-col gap-6 rounded-tile p-7 transition-transform hover:-translate-y-1 sm:p-8 ${
+                    className={`relative isolate flex h-full flex-col gap-6 rounded-tile p-7 transition-transform hover:-translate-y-1 sm:p-8 ${
                       big ? "lg:p-10" : ""
                     } ${dark ? "text-cream dark:border dark:border-line" : "text-ink"}`}
                     style={{ background: dual(c.color) }}
                   >
+                    <LogoMotif logo={c.logo} />
                     <div className="flex items-start justify-between gap-4">
                       <Image
                         src={c.logo}
@@ -380,11 +381,12 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
               <li key={v.logo}>
                 <Reveal delay={i * 0.06} className="h-full">
                   <div
-                    className={`flex h-full flex-col gap-6 rounded-tile p-7 transition-transform hover:-translate-y-1 ${
+                    className={`relative isolate flex h-full flex-col gap-6 rounded-tile p-7 transition-transform hover:-translate-y-1 ${
                       dark ? "text-cream dark:border dark:border-line" : "text-ink"
                     }`}
                     style={{ background: dual(v.color) }}
                   >
+                    <LogoMotif logo={v.logo} />
                     <div className="flex items-start justify-between gap-4">
                       <Image
                         src={v.logo}
