@@ -63,7 +63,7 @@ export const ui = {
       },
       {
         title: "Build",
-        text: "Flutter and Next.js, built to last.",
+        text: "Clean, tested code that is easy to grow.",
         slug: "qalam",
         mine: "I was a Flutter developer on the app.",
       },
@@ -78,7 +78,7 @@ export const ui = {
     workedTitle: "Where I’ve worked",
     communityLabel: "Community",
     communityBody:
-      "hackathon participants led across 3+ events, with 130K+ SAR in prizes. I also headed the executive committee of BIG O’s national programming contest (300+ contestants).",
+      "hackathon participants across 3+ events I helped organise, with 130K+ SAR in prizes. I also headed the executive committee of BIG O’s national programming contest (300+ contestants).",
     notFoundTitle: "This page doesn’t exist.",
     notFoundBody: "The link may be old or mistyped.",
     backHome: "Back home",
@@ -95,9 +95,9 @@ export const ui = {
     heroCards: [
       "Your idea, made real.",
       "I design it. I build it. I ship it.",
-      "From Figma to production, pixel by pixel.",
+      "From the first idea to a live app.",
       "Apps that feel right in Arabic and English.",
-      "Fast, stable and built to last.",
+      "Mobile and web, in Flutter and Next.js.",
     ],
     heroCardsLabel: "What I do",
     nowLabel: "Now",
@@ -155,7 +155,7 @@ export const ui = {
         slug: "oratory",
         mine: "بنيت شاشات التطبيق الرئيسية.",
       },
-      { title: "البناء", text: "Flutter وNext.js، مبنية لتدوم.", slug: "qalam", mine: "كنت مطوّر Flutter في التطبيق." },
+      { title: "البناء", text: "كود نظيف ومختبَر يسهل تطويره.", slug: "qalam", mine: "كنت مطوّر Flutter في التطبيق." },
       {
         title: "الإطلاق",
         text: "منشور ويستخدمه الناس فعلاً، وليس مجرد عرض.",
@@ -167,7 +167,7 @@ export const ui = {
     workedTitle: "أين عملت",
     communityLabel: "المجتمع",
     communityBody:
-      "مشارك قدتُ تنظيمهم في أكثر من 3 هاكاثونات بجوائز تجاوزت 130 ألف ريال. وترأست اللجنة التنفيذية لمسابقة BIG O’s الوطنية للبرمجة (أكثر من 300 متسابق).",
+      "مشارك في أكثر من 3 هاكاثونات شاركتُ في تنظيمها، بجوائز تجاوزت 130 ألف ريال. وترأست اللجنة التنفيذية لمسابقة BIG O’s الوطنية للبرمجة (أكثر من 300 متسابق).",
     notFoundTitle: "هذه الصفحة غير موجودة.",
     notFoundBody: "ربما الرابط قديم أو فيه خطأ.",
     backHome: "العودة للرئيسية",
@@ -184,9 +184,9 @@ export const ui = {
     heroCards: [
       "فكرتك، أحوّلها إلى واقع.",
       "أصمّم. أبني. أُطلق.",
-      "من Figma إلى الإنتاج، بكل تفاصيله.",
+      "من الفكرة الأولى إلى تطبيق منشور.",
       "تطبيقات مريحة بالعربية والإنجليزية.",
-      "سريعة، مستقرة، ومبنية لتدوم.",
+      "جوال وويب، بـ Flutter وNext.js.",
     ],
     heroCardsLabel: "ما أقدّمه",
     nowLabel: "الآن",
@@ -554,7 +554,7 @@ const allProjects: Project[] = [
     stack: ["Next.js", "TypeScript", "Supabase", "Yjs", "Tailwind CSS"],
     results: [
       { value: { en: "30+", ar: "30+" }, label: { en: "people editing at once", ar: "مستخدماً يحررون معاً" } },
-      { value: { en: "Auto", ar: "تلقائي" }, label: { en: "conflict fixing", ar: "حل التعارضات" } },
+      { value: { en: "5", ar: "5" }, label: { en: "user roles", ar: "أدوار للمستخدمين" } },
       { value: { en: "Live", ar: "مباشر" }, label: { en: "at smartschedule.xyz", ar: "على smartschedule.xyz" } },
     ],
     wide: true,
@@ -594,8 +594,8 @@ const allProjects: Project[] = [
       ar: "وكيل ذكاء اصطناعي يكتشف الهدر في تكاليف السحابة للمنشآت الصغيرة والمتوسطة في السعودية، ولا يغيّر شيئاً قبل موافقة إنسان.",
     },
     overview: {
-      en: "CloudTrim is an AI FinOps product our team built for VentureX 2026. It scans a company’s cloud with read-only access, explains each saving in plain language, and only acts after an engineer approves with one click, on the web or WhatsApp. It’s designed for Saudi SMEs with 50 to 250 staff. The mentors praised the idea.",
-      ar: "CloudTrim منتج لإدارة تكاليف السحابة بالذكاء الاصطناعي بنيناه كفريق لمسابقة VentureX 2026. يفحص سحابة الشركة بصلاحية قراءة فقط، ويشرح كل فرصة توفير بلغة بسيطة، ولا ينفّذ أي تغيير إلا بعد موافقة المهندس بنقرة واحدة عبر الويب أو واتساب. صُمّم للمنشآت السعودية التي يعمل بها بين 50 و250 موظفاً، وأشاد المرشدون بفكرته.",
+      en: "CloudTrim is an AI FinOps product our team built for VentureX 2026. It scans a company’s cloud with read-only access, explains each saving in plain language, and only acts after an engineer approves with one click, on the web or WhatsApp. It’s designed for Saudi SMEs with 50 to 250 staff.",
+      ar: "CloudTrim منتج لإدارة تكاليف السحابة بالذكاء الاصطناعي بنيناه كفريق لمسابقة VentureX 2026. يفحص سحابة الشركة بصلاحية قراءة فقط، ويشرح كل فرصة توفير بلغة بسيطة، ولا ينفّذ أي تغيير إلا بعد موافقة المهندس بنقرة واحدة عبر الويب أو واتساب. صُمّم للمنشآت السعودية التي يعمل بها بين 50 و250 موظفاً.",
     },
     role: {
       en: "Shaped and refined the product idea, then built the MVP and designed the UI.",
@@ -619,8 +619,8 @@ const allProjects: Project[] = [
     results: [
       { value: { en: "VentureX", ar: "VentureX" }, label: { en: "2026 competition", ar: "مسابقة 2026" } },
       {
-        value: { en: "50–250", ar: "50–250" },
-        label: { en: "staff, the SMEs it serves", ar: "موظفاً في المنشآت المستهدفة" },
+        value: { en: "15 min", ar: "15" },
+        label: { en: "before any permission expires", ar: "دقيقة وتنتهي أي صلاحية" },
       },
       { value: { en: "1 click", ar: "1" }, label: { en: "to approve any change", ar: "نقرة لاعتماد أي تغيير" } },
     ],
@@ -1063,7 +1063,7 @@ export const volunteering = [
     dark: true,
     stats: [
       { value: "425", label: { en: "registered", ar: "مسجّلاً" } },
-      { value: "1M+", label: { en: "views", ar: "مشاهدة" } },
+      { value: "40", label: { en: "questions", ar: "سؤالاً" } },
     ],
   },
   {
