@@ -282,7 +282,10 @@ const allProjects: Project[] = [
     },
     stack: ["Flutter", "Dart", "Supabase", "Google Maps", "just_audio", "Clean Architecture"],
     results: [
-      { value: { en: "Full", ar: "كامل" }, label: { en: "Mushaf to read", ar: "المصحف للقراءة" } },
+      {
+        value: { en: "148", ar: "148" },
+        label: { en: "Riyadh mosques on the map", ar: "مسجداً في الرياض على الخريطة" },
+      },
       { value: { en: "3+", ar: "3+" }, label: { en: "tafsir books", ar: "كتب تفسير" } },
       { value: { en: "10+", ar: "10+" }, label: { en: "famous reciters", ar: "من أشهر القراء" } },
     ],
