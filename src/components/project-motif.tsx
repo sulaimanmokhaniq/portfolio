@@ -26,6 +26,14 @@ const MOTIFS: Record<string, { tile?: string; image?: string; size?: number }> =
         .join("") + "<path d='M44 0 88 44 44 88 0 44Z'/><circle cx='44' cy='44' r='7'/>",
     ),
   },
+  // SaveKit: download arrows dropping into trays.
+  savekit: {
+    size: 110,
+    tile: svg(
+      110,
+      "<path d='M28 12v26M16 28l12 12 12-12M12 46v8h32v-8'/><path d='M82 64v20M73 76l9 9 9-9M68 90v6h28v-6'/><path d='M70 22h14M77 15v14M22 84h10'/>",
+    ),
+  },
   // Wamdah (a flash): small sparkles and quick flash marks.
   wamdah: {
     size: 120,

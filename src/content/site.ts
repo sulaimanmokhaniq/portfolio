@@ -331,6 +331,91 @@ const allProjects: Project[] = [
     ],
   },
   {
+    slug: "savekit",
+    name: { en: "SaveKit", ar: "SaveKit" },
+    color: "#8CCBF5",
+    shade: "#72BCEC",
+    kind: { en: "Android app · solo project", ar: "تطبيق أندرويد · مشروع فردي" },
+    period: { en: "Nov 2026", ar: "نوفمبر 2026" },
+    summary: {
+      en: "Save video, audio and photos from a link, with everything running on the phone itself.",
+      ar: "احفظ الفيديو والصوت والصور من أي رابط، وكل شيء يعمل داخل الجوال نفسه.",
+    },
+    overview: {
+      en: "SaveKit is an Android app for saving media you have the right to keep. Paste a link or share it from another app, pick the quality, and it downloads. There is no backend and no outside service: finding the media, downloading over several connections and merging the streams all happen on the device. Around that sits a full toolkit: a download queue, a private Vault, an audio player, a space saver and wireless transfer to a computer.",
+      ar: "SaveKit تطبيق أندرويد لحفظ الوسائط التي يحق لك الاحتفاظ بها. الصق الرابط أو شاركه من أي تطبيق، اختر الجودة، ويبدأ التحميل. لا يوجد خادم ولا خدمة خارجية: البحث عن الوسائط والتحميل عبر عدة اتصالات ودمج المقاطع كلها تتم على الجهاز. وحول ذلك مجموعة أدوات كاملة: قائمة تحميل، وخزنة خاصة، ومشغّل صوت، وموفّر مساحة، ونقل لاسلكي إلى الحاسوب.",
+    },
+    highlights: {
+      en: [
+        "Downloads from YouTube, TikTok, Instagram, Snapchat, X, LinkedIn and 1,000+ other sites, including several links at once and whole playlists.",
+        "A queue you control: pause, resume, retry, Wi-Fi only, and downloads that wait for the night while the phone charges.",
+        "A Vault with search, folders, built-in playback and an optional fingerprint lock.",
+        "Tools on the phone: video to audio, trimming, subtitles, a space saver that finds copies and look-alike photos, and wireless transfer over Wi-Fi.",
+        "Full Arabic with right-to-left layout, 7 colour themes, and a home-screen icon that follows the theme.",
+        "A Flutter interface on top of a Kotlin bridge to the download engine, covered by 150+ automated tests.",
+      ],
+      ar: [
+        "يحمّل من YouTube وTikTok وInstagram وSnapchat وX وLinkedIn وأكثر من 1,000 موقع آخر، مع دعم عدة روابط معاً وقوائم التشغيل الكاملة.",
+        "قائمة تحميل تتحكم بها: إيقاف مؤقت، استكمال، إعادة محاولة، Wi-Fi فقط، وتحميل ليلي أثناء شحن الجوال.",
+        "خزنة فيها بحث ومجلدات وتشغيل داخلي وقفل اختياري بالبصمة.",
+        "أدوات داخل الجوال: تحويل الفيديو إلى صوت، قص المقاطع، الترجمة، موفّر مساحة يجد النسخ المكررة والصور المتشابهة، ونقل لاسلكي عبر Wi-Fi.",
+        "عربية كاملة باتجاه من اليمين إلى اليسار، و7 ثيمات لونية، وأيقونة للتطبيق تتبع الثيم.",
+        "واجهة Flutter فوق جسر Kotlin لمحرّك التحميل، مع أكثر من 150 اختباراً آلياً.",
+      ],
+    },
+    stack: ["Flutter", "Dart", "Kotlin", "Riverpod", "Hive", "yt-dlp", "FFmpeg"],
+    results: [
+      { value: { en: "1,000+", ar: "1,000+" }, label: { en: "sites it can save from", ar: "موقع يدعمه التطبيق" } },
+      { value: { en: "0", ar: "0" }, label: { en: "servers, all on the phone", ar: "خوادم، كل شيء على الجوال" } },
+      { value: { en: "150+", ar: "150+" }, label: { en: "automated tests", ar: "اختباراً آلياً" } },
+    ],
+    wide: true,
+    link: "https://github.com/sulaimanmokhaniq/savekit",
+    linkKind: "code",
+    phone: [
+      {
+        src: "/work/savekit/phone/home.jpg",
+        alt: { en: "Home: paste a link to find its media", ar: "الرئيسية: الصق رابطاً للبحث عن الوسائط" },
+      },
+      {
+        src: "/work/savekit/phone/picker.jpg",
+        alt: { en: "Choosing video quality, trim and subtitles", ar: "اختيار جودة الفيديو والقص والترجمة" },
+      },
+      { src: "/work/savekit/phone/queue.jpg", alt: { en: "The download queue", ar: "قائمة التحميل" } },
+      {
+        src: "/work/savekit/phone/tools.jpg",
+        alt: {
+          en: "Tools: converter, editor, space saver and transfer",
+          ar: "الأدوات: المحوّل والمحرّر وموفّر المساحة والنقل",
+        },
+      },
+      {
+        src: "/work/savekit/phone/settings.jpg",
+        alt: { en: "Settings with colour themes and app icons", ar: "الإعدادات مع الثيمات اللونية وأيقونات التطبيق" },
+      },
+    ],
+    images: [
+      {
+        src: "/work/savekit/download.png",
+        alt: {
+          en: "SaveKit: home, quality picker, queue and trimming",
+          ar: "SaveKit: الرئيسية واختيار الجودة وقائمة التحميل والقص",
+        },
+      },
+      {
+        src: "/work/savekit/tools.png",
+        alt: {
+          en: "SaveKit tools: space saver, wireless transfer and converter",
+          ar: "أدوات SaveKit: موفّر المساحة والنقل اللاسلكي والمحوّل",
+        },
+      },
+      {
+        src: "/work/savekit/themes.png",
+        alt: { en: "SaveKit themes and the Arabic interface", ar: "ثيمات SaveKit والواجهة العربية" },
+      },
+    ],
+  },
+  {
     slug: "wamdah",
     name: { en: "Wamdah", ar: "ومضة" },
     arabicName: "ومضة",
