@@ -59,7 +59,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
             <div className="flex flex-wrap gap-3">
               <Link
                 href={`/${lang}#work`}
-                className="inline-flex min-h-12 items-center gap-2 rounded-full bg-flame px-6 font-semibold text-ink transition-transform hover:-translate-y-0.5"
+                className="inline-flex min-h-12 items-center gap-2 rounded-full bg-flame px-6 dark:bg-[#ff6a2b] font-semibold text-ink transition-transform hover:-translate-y-0.5"
               >
                 {t.seeProjects}
                 <Arrow />

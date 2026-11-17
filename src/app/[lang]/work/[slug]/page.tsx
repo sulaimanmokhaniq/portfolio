@@ -3,6 +3,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Arrow } from "@/components/arrow";
+import { ProjectMotif } from "@/components/project-motif";
 import { ProjectVisual } from "@/components/project-visual";
 import { Reveal } from "@/components/reveal";
 import { ResultsStrip } from "@/components/results-strip";
@@ -39,9 +40,10 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/work/[s
 
       <Reveal>
         <section
-          className="grid grid-cols-1 gap-8 rounded-tile p-8 text-ink sm:p-12 lg:grid-cols-2"
+          className="relative isolate grid grid-cols-1 gap-8 rounded-tile p-8 text-ink sm:p-12 lg:grid-cols-2"
           style={{ background: tint(project) }}
         >
+          <ProjectMotif slug={project.slug} />
           <div className="flex flex-col justify-end gap-5">
             {project.badge && (
               <span className="self-start rounded-full bg-ink px-3 py-1.5 text-sm" style={{ color: tint(project) }}>
@@ -78,9 +80,9 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/work/[s
             </ul>
           </article>
         </Reveal>
-        <Reveal delay={0.08}>
+        <Reveal delay={0.08} className="lg:sticky lg:top-24 lg:self-start">
           <aside
-            className={`flex h-full flex-col gap-8 rounded-tile bg-hero p-8 text-hero-text sm:p-10`}
+            className={`flex flex-col gap-8 rounded-tile bg-hero p-8 text-hero-text sm:p-10`}
           >
             {project.role && (
               <div>
@@ -107,7 +109,7 @@ export default async function ProjectPage({ params }: PageProps<"/[lang]/work/[s
                 href={project.link}
                 target="_blank"
                 rel="noreferrer"
-                className="mt-auto inline-flex min-h-12 items-center justify-center gap-2 self-start rounded-full bg-flame px-6 font-semibold text-ink transition-transform hover:-translate-y-0.5"
+                className="inline-flex min-h-12 items-center justify-center gap-2 self-start rounded-full bg-flame px-6 dark:bg-[#ff6a2b] font-semibold text-ink transition-transform hover:-translate-y-0.5"
               >
                 {project.linkKind === "code" ? t.code : t.visit}
                 <Arrow />

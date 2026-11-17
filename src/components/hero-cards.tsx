@@ -51,7 +51,7 @@ function CubeFace({
   const dim = useTransform(turns, (t) => Math.min(1, Math.abs(t - step)) * 0.35);
   return (
     <motion.span
-      className={`absolute inset-0 flex flex-col justify-center overflow-hidden rounded-tile p-8 py-16 text-ink [backface-visibility:hidden] sm:px-10 ${color}`}
+      className={`absolute inset-0 flex flex-col justify-center overflow-hidden rounded-tile p-8 py-12 text-ink sm:py-16 [backface-visibility:hidden] sm:px-10 ${color}`}
       style={{ transform, transformOrigin: origin }}
     >
       <motion.span className="absolute inset-0 bg-black" style={{ opacity: dim }} />
@@ -122,7 +122,7 @@ export function HeroCards({
       role="region"
       aria-roledescription="carousel"
       aria-label={label}
-      className="relative h-full min-h-[300px] rounded-tile bg-chip"
+      className="relative h-full min-h-[210px] rounded-tile sm:min-h-[300px] bg-chip"
       style={{ perspective: width ? width * 2.4 : 1200 }}
       onMouseEnter={() => setPaused(true)}
       onMouseLeave={() => setPaused(false)}
