@@ -257,8 +257,8 @@ const allProjects: Project[] = [
     kind: { en: "Mobile app + website", ar: "تطبيق جوال + موقع" },
     period: { en: "2023 – present", ar: "2023 – الآن" },
     summary: {
-      en: "A Quran recitation app, 99% crash-free for 18+ months.",
-      ar: "تطبيق لتلاوة القرآن الكريم، خالٍ من الأعطال بنسبة 99% لأكثر من 18 شهراً.",
+      en: "A calm Quran app: read the Mushaf, listen to reciters and find nearby mosques.",
+      ar: "تطبيق هادئ للقرآن الكريم: اقرأ المصحف، واستمع للقراء، واعثر على المساجد القريبة.",
     },
     overview: {
       en: "TAHABEER brings the Quran into one calm, Arabic-first app: read the full Mushaf, listen to famous reciters, open the tafsir of any verse and find nearby mosques. It is built with strict OOP and Clean Architecture, which has kept it stable for well over a year, and it has its own landing website.",
@@ -270,23 +270,20 @@ const allProjects: Project[] = [
         "Recitations from 8+ famous reciters, with offline downloads so you can listen without internet.",
         "Tafsir right next to each verse, including Al-Muyassar and Al-Jalalayn.",
         "A mosque finder: 148 mosques in Riyadh on a map, with their imams, filters and directions.",
-        "Built with Clean Architecture, keeping a 99% crash-free session rate for 18+ months.",
+        "Built with Clean Architecture and strict OOP, so the app stays stable as it grows.",
       ],
       ar: [
         "المصحف كاملاً في 604 صفحات مع وضعين ليلي ونهاري وإشارات مرجعية وشريط للتنقل بين الصفحات.",
         "تلاوات لأكثر من 8 من أشهر القراء، مع التحميل للاستماع دون إنترنت.",
         "التفسير بجانب كل آية، ومنه الميسّر والجلالين.",
         "دليل للمساجد: 148 مسجداً في الرياض على الخريطة مع أئمتها وفلاتر للبحث والاتجاهات.",
-        "مبني وفق البنية النظيفة، وحافظ على نسبة جلسات خالية من الأعطال تبلغ 99% لأكثر من 18 شهراً.",
+        "مبني وفق البنية النظيفة ومبادئ البرمجة الكائنية، ليبقى مستقراً مع توسّعه.",
       ],
     },
     stack: ["Flutter", "Dart", "Supabase", "Google Maps", "just_audio", "Clean Architecture"],
     results: [
-      { value: { en: "99%", ar: "99%" }, label: { en: "crash-free sessions", ar: "جلسات بلا أعطال" } },
-      {
-        value: { en: "18+ months", ar: "18+" },
-        label: { en: "of stable releases", ar: "شهراً من الإصدارات المستقرة" },
-      },
+      { value: { en: "604", ar: "604" }, label: { en: "Mushaf pages to read", ar: "صفحة من المصحف" } },
+      { value: { en: "8+", ar: "8+" }, label: { en: "famous reciters", ar: "من أشهر القراء" } },
       {
         value: { en: "148", ar: "148" },
         label: { en: "Riyadh mosques on the map", ar: "مسجداً في الرياض على الخريطة" },
