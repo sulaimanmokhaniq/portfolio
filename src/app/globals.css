@@ -122,6 +122,11 @@ body::before {
   outline-offset: 3px;
 }
 
+/* The menu shows keyboard focus as a soft grey pill instead of the orange ring. */
+header :focus-visible {
+  outline: none;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;

@@ -71,9 +71,9 @@ export function Header({ lang }: { lang: Locale }) {
     return () => window.removeEventListener("keydown", onKey);
   }, [menuOpen]);
 
-  const pill = "inline-flex min-h-11 items-center rounded-full px-4 text-[15px] transition-colors hover:bg-chip";
+  const pill = "inline-flex min-h-11 items-center rounded-full px-4 text-[15px] transition-colors hover:bg-chip focus-visible:bg-chip focus-visible:outline-none";
   const iconButton =
-    "inline-flex size-10 shrink-0 items-center justify-center rounded-full transition-colors hover:bg-chip sm:size-11";
+    "inline-flex size-10 shrink-0 items-center justify-center rounded-full transition-colors hover:bg-chip sm:size-11 focus-visible:bg-chip focus-visible:outline-none";
   const spring = reduce ? { duration: 0 } : { type: "spring" as const, stiffness: 120, damping: 22 };
 
   const langLink = (
@@ -184,7 +184,7 @@ export function Header({ lang }: { lang: Locale }) {
                     href={`/${lang}#${id}`}
                     onClick={() => setMenuOpen(false)}
                     aria-current={active === id ? "location" : undefined}
-                    className={`relative flex min-h-12 items-center rounded-2xl px-4 text-lg font-medium transition-colors ${
+                    className={`relative flex min-h-12 items-center rounded-2xl px-4 text-lg font-medium transition-colors focus-visible:bg-chip focus-visible:outline-none ${
                       active === id ? "text-ground" : "hover:bg-chip"
                     }`}
                   >
