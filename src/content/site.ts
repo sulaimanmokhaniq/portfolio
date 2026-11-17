@@ -243,7 +243,11 @@ export type Project = {
   sticker?: { big: Localized; small: Localized };
 };
 
-export const projects: Project[] = [
+// Smaller training and course projects kept out of the site so the list stays short and strong.
+// Take a slug out of this list to show that project again.
+const ARCHIVED = ["handcraft", "used-books-store", "smart-attendance"];
+
+const allProjects: Project[] = [
   {
     slug: "tahabeer",
     name: { en: "TAHABEER", ar: "تحابير" },
@@ -823,6 +827,8 @@ export const projects: Project[] = [
     ],
   },
 ];
+
+export const projects = allProjects.filter((p) => !ARCHIVED.includes(p.slug));
 
 export const experience = [
   {

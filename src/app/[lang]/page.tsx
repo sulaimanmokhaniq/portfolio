@@ -548,9 +548,7 @@ export default async function Home({ params }: PageProps<"/[lang]">) {
         </Reveal>
       </section>
 
-      <footer className="mx-auto flex max-w-[1280px] flex-wrap justify-between gap-2 px-6 pt-6 pb-10 text-sm text-muted">
-        <span>{t.footer}</span>
-      </footer>
+      <div className="pb-10" />
     </main>
   );
 }
