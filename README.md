@@ -17,4 +17,4 @@ All text, projects and experience live in `src/content/site.ts`. Each project ge
 
 ## Deploy
 
-Import this repo on [Vercel](https://vercel.com/new). No environment variables are needed.
+Import this repo on [Vercel](https://vercel.com/new). No environment variables are needed. Every push to `main` deploys to production; other branches get a preview link.
