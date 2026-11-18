@@ -95,9 +95,9 @@ export const ui = {
     heroCards: [
       "Your idea, made real.",
       "I design it. I build it. I ship it.",
-      "From the first idea to a live app.",
+      "Many of my apps started with a problem I had myself.",
       "Apps that feel right in Arabic and English.",
-      "Mobile and web, in Flutter and Next.js.",
+      "I care about the small details people feel but don’t notice.",
     ],
     heroCardsLabel: "What I do",
     nowLabel: "Now",
@@ -184,9 +184,9 @@ export const ui = {
     heroCards: [
       "فكرتك، أحوّلها إلى واقع.",
       "أصمّم. أبني. أُطلق.",
-      "من الفكرة الأولى إلى تطبيق منشور.",
+      "كثير من تطبيقاتي بدأت بمشكلة واجهتها بنفسي.",
       "تطبيقات مريحة بالعربية والإنجليزية.",
-      "جوال وويب، بـ Flutter وNext.js.",
+      "أهتم بالتفاصيل الصغيرة التي يشعر بها الناس دون أن يلاحظوها.",
     ],
     heroCardsLabel: "ما أقدّمه",
     nowLabel: "الآن",
